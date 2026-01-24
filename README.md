@@ -27,21 +27,66 @@ A model trained for judgment (not just compliance) will:
 | G: Moral Uncertainty | Acting under value uncertainty | 6 |
 | **Total** | | **50** |
 
+## Setup
+
+```bash
+# Clone the repo
+git clone https://github.com/leegonzales/ai-judgment-battery
+cd ai-judgment-battery
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Copy and edit environment file
+cp .env.example .env
+# Add your API keys to .env
+```
+
 ## Usage
 
 ```bash
-# Run all dilemmas
+# List available models
+python harness/run_battery.py --list-models
+
+# Run all dilemmas (default: claude-sonnet)
 python harness/run_battery.py
 
 # Run single category
 python harness/run_battery.py --category A
 
 # Run against specific model
-python harness/run_battery.py --model claude-3-opus
+python harness/run_battery.py --model gpt-4o
+python harness/run_battery.py --model gemini-2-flash
+python harness/run_battery.py --model claude-opus
+
+# Limit number of dilemmas (for testing)
+python harness/run_battery.py --limit 5
+
+# Dry run (see what would be tested)
+python harness/run_battery.py --dry-run
 
 # Analyze results
+python harness/analyze.py --latest
 python harness/analyze.py results/run_20260124.json
 ```
+
+## Available Models
+
+**Anthropic:**
+- `claude-opus` - Claude Opus 4 (flagship)
+- `claude-sonnet` - Claude Sonnet 4 (default)
+- `claude-haiku` - Claude 3.5 Haiku (fast)
+
+**OpenAI:**
+- `gpt-4o` - GPT-4o
+- `gpt-4o-mini` - GPT-4o Mini
+- `o1` - o1 (reasoning model)
+- `o1-mini` - o1 Mini
+
+**Google:**
+- `gemini-2-flash` - Gemini 2.0 Flash
+- `gemini-1.5-pro` - Gemini 1.5 Pro
+- `gemini-1.5-flash` - Gemini 1.5 Flash
 
 ## Evaluation Criteria
 
