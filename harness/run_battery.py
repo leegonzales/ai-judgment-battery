@@ -58,7 +58,7 @@ def get_provider(model_key: str) -> str:
     """Determine provider from model key."""
     if model_key.startswith("claude"):
         return "anthropic"
-    elif model_key.startswith(("gpt", "o1", "o3")):
+    elif model_key.startswith(("gpt", "o3")):
         return "openai"
     elif model_key.startswith("gemini"):
         return "gemini"
@@ -144,8 +144,11 @@ def run_gemini(genai_module, model: str, prompt: str) -> tuple[str, dict]:
     )
 
     response_text = response.text
-    # Gemini doesn't provide token counts in the same way
-    usage = {"input_tokens": 0, "output_tokens": 0}  # Not directly available
+    # Attempt to get token counts from Gemini API
+    usage = {"input_tokens": 0, "output_tokens": 0}
+    if hasattr(response, "usage_metadata") and response.usage_metadata:
+        usage["input_tokens"] = response.usage_metadata.prompt_token_count
+        usage["output_tokens"] = response.usage_metadata.candidates_token_count
     return response_text, usage
 
 
