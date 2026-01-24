@@ -72,21 +72,23 @@ python harness/analyze.py results/run_20260124.json
 
 ## Available Models
 
-**Anthropic:**
-- `claude-opus` - Claude Opus 4 (flagship)
-- `claude-sonnet` - Claude Sonnet 4 (default)
+**Anthropic (default: claude-opus):**
+- `claude-opus` - Claude Opus 4.5 (flagship)
+- `claude-sonnet` - Claude Sonnet 4
 - `claude-haiku` - Claude 3.5 Haiku (fast)
 
 **OpenAI:**
-- `gpt-4o` - GPT-4o
-- `gpt-4o-mini` - GPT-4o Mini
-- `o1` - o1 (reasoning model)
-- `o1-mini` - o1 Mini
+- `gpt-5.2` - GPT-5.2 (current flagship, Dec 2025)
+- `gpt-5.2-codex` - GPT-5.2-Codex (agentic coding)
+- `gpt-5` - GPT-5
+- `o3` - o3 (most powerful reasoning)
+- `o3-mini` - o3-mini (efficient reasoning)
+- `gpt-4o` - GPT-4o (previous gen)
 
 **Google:**
+- `gemini-3` - Gemini 3 Pro Preview (flagship)
 - `gemini-2-flash` - Gemini 2.0 Flash
 - `gemini-1.5-pro` - Gemini 1.5 Pro
-- `gemini-1.5-flash` - Gemini 1.5 Flash
 
 ## Evaluation Criteria
 
