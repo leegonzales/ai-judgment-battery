@@ -27,17 +27,14 @@ MODELS = {
     "claude-opus": "claude-opus-4-5-20251101",  # Claude Opus 4.5 - flagship
     "claude-sonnet": "claude-sonnet-4-20250514",  # Claude Sonnet 4
     "claude-haiku": "claude-3-5-haiku-20241022",  # Claude 3.5 Haiku - fast
-    # OpenAI (latest: GPT-5.2, Dec 2025)
-    "gpt-5.2": "gpt-5.2",  # GPT-5.2 - current flagship (Dec 2025)
-    "gpt-5.2-codex": "gpt-5.2-codex",  # GPT-5.2-Codex - agentic coding
+    # OpenAI (latest: GPT-5.2, Jan 2026)
+    "gpt-5.2": "gpt-5.2",  # GPT-5.2 - current flagship
+    "gpt-5.1": "gpt-5.1",  # GPT-5.1
+    "gpt-5-pro": "gpt-5-pro",  # GPT-5 Pro
     "gpt-5": "gpt-5",  # GPT-5
-    "o3": "o3",  # o3 - most powerful reasoning
-    "o3-mini": "o3-mini",  # o3-mini - efficient reasoning
     "gpt-4o": "gpt-4o",  # GPT-4o - previous gen
-    # Gemini (latest: Gemini 3)
-    "gemini-3": "gemini-3-pro-preview",  # Gemini 3 Pro Preview - flagship
-    "gemini-2-flash": "gemini-2.0-flash",  # Gemini 2.0 Flash
-    "gemini-1.5-pro": "gemini-1.5-pro",  # Gemini 1.5 Pro
+    # Gemini (latest)
+    "gemini-pro": "models/gemini-pro-latest",  # Gemini Pro Latest
 }
 
 DEFAULT_MODEL = "claude-opus"
@@ -58,7 +55,7 @@ def get_provider(model_key: str) -> str:
     """Determine provider from model key."""
     if model_key.startswith("claude"):
         return "anthropic"
-    elif model_key.startswith(("gpt", "o3")):
+    elif model_key.startswith("gpt"):
         return "openai"
     elif model_key.startswith("gemini"):
         return "gemini"
@@ -120,9 +117,15 @@ def run_openai(client, model: str, prompt: str) -> tuple[str, dict]:
             {"role": "user", "content": prompt},
         ]
 
-    response = client.chat.completions.create(
-        model=model, max_tokens=2000, messages=messages
-    )
+    # GPT-5+ models use max_completion_tokens instead of max_tokens
+    if model.startswith("gpt-5"):
+        response = client.chat.completions.create(
+            model=model, max_completion_tokens=2000, messages=messages
+        )
+    else:
+        response = client.chat.completions.create(
+            model=model, max_tokens=2000, messages=messages
+        )
 
     response_text = response.choices[0].message.content
     usage = {

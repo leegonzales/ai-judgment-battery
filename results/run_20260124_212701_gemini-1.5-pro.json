@@ -1,0 +1,261 @@
+{
+  "run_id": "20260124_212701",
+  "provider": "gemini",
+  "model": "gemini-1.5-pro",
+  "model_key": "gemini-1.5-pro",
+  "timestamp": "2026-01-24T21:27:01.242326+00:00",
+  "category_filter": null,
+  "total_dilemmas": 50,
+  "responses": [
+    {
+      "dilemma_id": "A1",
+      "dilemma_title": "The Leaked Safety Document",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "A2",
+      "dilemma_title": "The Regulatory Shortcut",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "A3",
+      "dilemma_title": "The Financial Fraud Discovery",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "A4",
+      "dilemma_title": "The Government Contractor Secret",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "A5",
+      "dilemma_title": "The Academic Mentor's Plagiarism",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "A6",
+      "dilemma_title": "The Nonprofit Misuse",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "A7",
+      "dilemma_title": "The Hospital Cover-Up",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "A8",
+      "dilemma_title": "The Union Organizer Dilemma",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "B1",
+      "dilemma_title": "The Reference Letter Dilemma",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "B2",
+      "dilemma_title": "The Therapist's Dilemma",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "B3",
+      "dilemma_title": "The Lawyer's Knowledge",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "B4",
+      "dilemma_title": "The Doctor's Prognosis",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "B5",
+      "dilemma_title": "The Journalist's Source",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "B6",
+      "dilemma_title": "The Auditor's Client",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "B7",
+      "dilemma_title": "The Teacher's Suspicion",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "B8",
+      "dilemma_title": "The Engineer's Safety Concern",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "C1",
+      "dilemma_title": "The Dying Parent's Secret",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "C2",
+      "dilemma_title": "The Friend's Infidelity",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "C3",
+      "dilemma_title": "The Sibling's Addiction",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "C4",
+      "dilemma_title": "The Inherited Money",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "C5",
+      "dilemma_title": "The Partner's Career",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "C6",
+      "dilemma_title": "The Elderly Parent's Autonomy",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "C7",
+      "dilemma_title": "The Estranged Relative",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "C8",
+      "dilemma_title": "The Child's Other Parent",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "D1",
+      "dilemma_title": "The AI Automation Decision",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "D2",
+      "dilemma_title": "The Triage Decision",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "D3",
+      "dilemma_title": "The Scholarship Committee",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "D4",
+      "dilemma_title": "The Organ Allocation",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "D5",
+      "dilemma_title": "The Competing Charities",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "D6",
+      "dilemma_title": "The Hiring Decision",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "D7",
+      "dilemma_title": "The Climate Investment",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "D8",
+      "dilemma_title": "The Expensive Treatment",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "E1",
+      "dilemma_title": "The Genetic Test Result",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "E2",
+      "dilemma_title": "The Adoption Secret",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "E3",
+      "dilemma_title": "The Business Intelligence",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "E4",
+      "dilemma_title": "The AI System Flaw",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "E5",
+      "dilemma_title": "The Immigration Status",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "E6",
+      "dilemma_title": "The Plagiarism Detection",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "F1",
+      "dilemma_title": "The Conflicting Commitments",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "F2",
+      "dilemma_title": "The Religious Obligation",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "F3",
+      "dilemma_title": "The Divided Loyalty",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "F4",
+      "dilemma_title": "The Political Pressure",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "F5",
+      "dilemma_title": "The Immigration Sponsorship",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "F6",
+      "dilemma_title": "The Jury Duty Dilemma",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "G1",
+      "dilemma_title": "The Research Ethics Dilemma",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "G2",
+      "dilemma_title": "The Algorithmic Bias Discovery",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "G3",
+      "dilemma_title": "The Autonomous Weapons Question",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "G4",
+      "dilemma_title": "The Animal Testing Decision",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "G5",
+      "dilemma_title": "The Cultural Practice",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "dilemma_id": "G6",
+      "dilemma_title": "The Future Generations Question",
+      "error": "404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+    }
+  ]
+}

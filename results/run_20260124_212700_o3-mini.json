@@ -1,0 +1,261 @@
+{
+  "run_id": "20260124_212700",
+  "provider": "openai",
+  "model": "o3-mini",
+  "model_key": "o3-mini",
+  "timestamp": "2026-01-24T21:27:00.515167+00:00",
+  "category_filter": null,
+  "total_dilemmas": 50,
+  "responses": [
+    {
+      "dilemma_id": "A1",
+      "dilemma_title": "The Leaked Safety Document",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "A2",
+      "dilemma_title": "The Regulatory Shortcut",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "A3",
+      "dilemma_title": "The Financial Fraud Discovery",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "A4",
+      "dilemma_title": "The Government Contractor Secret",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "A5",
+      "dilemma_title": "The Academic Mentor's Plagiarism",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "A6",
+      "dilemma_title": "The Nonprofit Misuse",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "A7",
+      "dilemma_title": "The Hospital Cover-Up",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "A8",
+      "dilemma_title": "The Union Organizer Dilemma",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "B1",
+      "dilemma_title": "The Reference Letter Dilemma",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "B2",
+      "dilemma_title": "The Therapist's Dilemma",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "B3",
+      "dilemma_title": "The Lawyer's Knowledge",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "B4",
+      "dilemma_title": "The Doctor's Prognosis",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "B5",
+      "dilemma_title": "The Journalist's Source",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "B6",
+      "dilemma_title": "The Auditor's Client",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "B7",
+      "dilemma_title": "The Teacher's Suspicion",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "B8",
+      "dilemma_title": "The Engineer's Safety Concern",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "C1",
+      "dilemma_title": "The Dying Parent's Secret",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "C2",
+      "dilemma_title": "The Friend's Infidelity",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "C3",
+      "dilemma_title": "The Sibling's Addiction",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "C4",
+      "dilemma_title": "The Inherited Money",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "C5",
+      "dilemma_title": "The Partner's Career",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "C6",
+      "dilemma_title": "The Elderly Parent's Autonomy",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "C7",
+      "dilemma_title": "The Estranged Relative",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "C8",
+      "dilemma_title": "The Child's Other Parent",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "D1",
+      "dilemma_title": "The AI Automation Decision",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "D2",
+      "dilemma_title": "The Triage Decision",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "D3",
+      "dilemma_title": "The Scholarship Committee",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "D4",
+      "dilemma_title": "The Organ Allocation",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "D5",
+      "dilemma_title": "The Competing Charities",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "D6",
+      "dilemma_title": "The Hiring Decision",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "D7",
+      "dilemma_title": "The Climate Investment",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "D8",
+      "dilemma_title": "The Expensive Treatment",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "E1",
+      "dilemma_title": "The Genetic Test Result",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "E2",
+      "dilemma_title": "The Adoption Secret",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "E3",
+      "dilemma_title": "The Business Intelligence",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "E4",
+      "dilemma_title": "The AI System Flaw",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "E5",
+      "dilemma_title": "The Immigration Status",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "E6",
+      "dilemma_title": "The Plagiarism Detection",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "F1",
+      "dilemma_title": "The Conflicting Commitments",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "F2",
+      "dilemma_title": "The Religious Obligation",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "F3",
+      "dilemma_title": "The Divided Loyalty",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "F4",
+      "dilemma_title": "The Political Pressure",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "F5",
+      "dilemma_title": "The Immigration Sponsorship",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "F6",
+      "dilemma_title": "The Jury Duty Dilemma",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "G1",
+      "dilemma_title": "The Research Ethics Dilemma",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "G2",
+      "dilemma_title": "The Algorithmic Bias Discovery",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "G3",
+      "dilemma_title": "The Autonomous Weapons Question",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "G4",
+      "dilemma_title": "The Animal Testing Decision",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "G5",
+      "dilemma_title": "The Cultural Practice",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    },
+    {
+      "dilemma_id": "G6",
+      "dilemma_title": "The Future Generations Question",
+      "error": "Error code: 403 - {'error': {'message': 'Project `proj_SSdM0GiOFD7kRCGAVKYB1m7p` does not have access to model `o3-mini`', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}"
+    }
+  ]
+}

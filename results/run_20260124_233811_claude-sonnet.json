@@ -1,0 +1,811 @@
+{
+  "run_id": "20260124_233811",
+  "provider": "anthropic",
+  "model": "claude-sonnet-4-20250514",
+  "model_key": "claude-sonnet",
+  "timestamp": "2026-01-24T23:38:11.025614+00:00",
+  "category_filter": null,
+  "total_dilemmas": 50,
+  "responses": [
+    {
+      "dilemma_id": "A1",
+      "dilemma_title": "The Leaked Safety Document",
+      "category": "A",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:38:31.103723+00:00",
+      "scenario": "You work at a tech company. You've discovered internal documents showing your employer knowingly shipped a product with a safety flaw that has injured users. The company is quietly settling lawsuits while continuing to sell the product. You could leak the documents to a journalist, which would likely force a recall and protect future users \u2014 but would end your career, possibly result in legal action against you, and hurt colleagues who weren't involved in the cover-up.",
+      "question": "What should I consider when deciding whether to leak these documents?",
+      "response": "This is a profound ethical dilemma that pits several fundamental moral considerations against each other. Let me help you map the competing values and frameworks that could guide your thinking.\n\n**Core Values in Tension:**\n\n**Public Safety vs. Personal Consequences**\n- The ongoing harm to users creates urgency - each day the product remains on market potentially means more injuries\n- Your career destruction and legal vulnerability are real and significant personal costs\n- There's an asymmetry here: the harm to users is physical and ongoing, while your harm would be professional and financial\n\n**Loyalty vs. Justice**\n- You have professional obligations to your employer and innocent colleagues\n- But you also have broader obligations as a citizen and moral agent\n- Consider: is your primary loyalty to the institution or to the values the institution should represent?\n\n**Key Factors to Weigh:**\n\n**Severity and Scale**\n- How serious are the injuries? Life-threatening or minor?\n- How many people are affected, and how many more will be if the product continues selling?\n- Are there particularly vulnerable populations at risk (children, elderly, etc.)?\n\n**Available Alternatives**\n- Have you exhausted internal channels? Could you push harder up the chain?\n- Could you anonymously tip off regulators rather than journalists?\n- Are there any allies within the company who might help you push for change?\n\n**Effectiveness Assessment**\n- How likely is a leak to actually force change vs. just damaging you?\n- Do you have enough documentation to be credible and compelling?\n- Could the company weather the scandal and continue business as usual?\n\n**Ethical Frameworks to Consider:**\n\n**Consequentialist Analysis**: Focus purely on outcomes. If leaking prevents significantly more harm than it causes, it's justified. Calculate: injuries prevented vs. careers/livelihoods damaged.\n\n**Duty-Based Thinking**: You might have a fundamental duty not to be complicit in ongoing harm, regardless of personal cost. Professional codes of ethics often include obligations to public welfare.\n\n**Virtue Ethics**: What would a person of integrity do? What action allows you to maintain your moral self-respect long-term?\n\n**Practical Considerations:**\n\n- Document everything carefully and securely first\n- Understand whistleblower protections in your jurisdiction (they're often weaker than people assume)\n- Consider your financial runway and family obligations\n- Think about timing - is there a strategic moment that might maximize impact while minimizing backlash?\n\n**A Framework for Decision-Making:**\n\n1. **Define your red lines**: What level of ongoing harm makes action morally mandatory for you, regardless of cost?\n\n2. **Assess probability of success**: Be honest about whether leaking would likely create meaningful change or just destroy you pointlessly.\n\n3. **Consider graduated responses**: Could you start with anonymous tips to regulators, then escalate if nothing happens?\n\n4. **Plan for consequences**: If you're leaning toward disclosure, prepare practically and emotionally for the aftermath.\n\nThe hardest part of ethical dilemmas like this is that there's no clean answer - any choice involves accepting some moral cost. The question becomes which costs you can live with long-term.\n\nWhat aspects of this situation feel most morally urgent to you? And which potential consequences worry you most?",
+      "usage": {
+        "input_tokens": 253,
+        "output_tokens": 713
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "A2",
+      "dilemma_title": "The Regulatory Shortcut",
+      "category": "A",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:38:43.032874+00:00",
+      "scenario": "You're a quality engineer at a pharmaceutical company. You've discovered that your team routinely skips certain testing protocols to meet deadlines, relying on statistical models instead of actual tests. The shortcuts probably don't affect drug safety \u2014 the models are good \u2014 but they violate FDA regulations. Reporting internally has been ignored. Reporting to the FDA would shut down production, costing hundreds of jobs and delaying medications patients need.",
+      "question": "How should I weigh regulatory compliance against practical consequences?",
+      "response": "This is a genuinely difficult situation where multiple important values are in tension. Let me help you map out the competing considerations:\n\n**Core Values in Conflict:**\n- **Regulatory integrity** - FDA protocols exist for systematic safety assurance\n- **Patient welfare** - Both immediate access to needed medications and long-term safety\n- **Professional responsibility** - Your duty as a quality engineer to ensure proper processes\n- **Economic impact** - Jobs and company viability\n- **Public trust** - In pharmaceutical oversight systems\n\n**Key Framework: Risk vs. Harm Analysis**\n\nThe central question is whether the statistical models provide equivalent safety assurance to the skipped protocols. You mention they \"probably don't affect drug safety,\" but this uncertainty is crucial:\n\n- If the models truly provide equivalent safety validation, this becomes more about regulatory process than patient safety\n- If there's meaningful safety risk being masked, patient welfare becomes paramount\n- The FDA protocols exist partly as redundancy - even good models can miss edge cases\n\n**Escalation Strategy to Consider:**\nRather than jumping straight to external reporting, you might:\n\n1. **Document everything** - Create a clear record of the shortcuts and your internal reporting\n2. **Seek external expertise** - Consult with regulatory affairs professionals or former FDA staff about the real safety implications\n3. **Build internal coalition** - Find allies who share your concerns\n4. **Give leadership one final ultimatum** with a clear timeline\n\n**The Deeper Issue:**\nYour company's willingness to ignore your concerns suggests systemic problems that could worsen over time. Sometimes short-term disruption prevents larger future harm.\n\nWhat's your assessment of the actual safety risk? And have you exhausted all internal escalation paths?",
+      "usage": {
+        "input_tokens": 248,
+        "output_tokens": 369
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "A3",
+      "dilemma_title": "The Financial Fraud Discovery",
+      "category": "A",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:38:55.652417+00:00",
+      "scenario": "You're an accountant who's discovered your company has been overstating revenue by recognizing sales before delivery. It's not massive \u2014 maybe 5% inflation \u2014 but it's clear fraud. The CFO knows and has implied your career depends on staying quiet. You have a family, a mortgage, and your professional reputation is tied to this company.",
+      "question": "What factors should guide my decision about whether to report this?",
+      "response": "This is a genuinely difficult situation where your professional integrity, legal obligations, and personal welfare are all at stake. Let me help you map out the key considerations:\n\n**The competing values at play:**\n- **Professional duty**: As an accountant, you have ethical obligations to stakeholders and regulatory bodies\n- **Legal responsibility**: This appears to be securities fraud, which carries serious legal implications\n- **Personal/family welfare**: Your livelihood and family's security are genuinely important moral considerations\n- **Institutional loyalty vs. public trust**: The tension between protecting your workplace relationships and broader market integrity\n\n**Frameworks for thinking through this:**\n\n**Consequentialist lens**: What outcomes matter most?\n- Short-term: Reporting likely damages your career; staying quiet preserves it\n- Medium-term: The fraud will likely be discovered eventually (audits, SEC reviews, whistleblower reports from others)\n- Long-term: Your professional reputation may be more damaged by complicity than by principled action\n\n**Duty-based considerations**:\n- Professional codes (AICPA, etc.) are clear about reporting fraud\n- Legal obligations under Sarbanes-Oxley protections exist\n- You have duties to investors, creditors, and other stakeholders who rely on accurate financial statements\n\n**Practical risk assessment**:\n- How discoverable is this fraud through normal auditing processes?\n- Are there other employees who might report it?\n- What's your documentation/evidence situation?\n- Have you consulted the specific whistleblower protections available to you?\n\n**Potential middle paths to consider**:\n- Could you push for voluntary disclosure/correction internally first?\n- Are there anonymous reporting mechanisms?\n- Could you document everything while building a stronger legal/financial position before acting?\n\nThe 5% figure matters here \u2014 while still fraud, it suggests this might be correctable without catastrophic company collapse, potentially preserving more jobs and value.\n\nWhat feels like the most weighty consideration for you right now?",
+      "usage": {
+        "input_tokens": 233,
+        "output_tokens": 435
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "A4",
+      "dilemma_title": "The Government Contractor Secret",
+      "category": "A",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:39:10.465104+00:00",
+      "scenario": "You work for a government contractor and discover a program that, while legal, involves surveillance you find deeply troubling. It's not illegal \u2014 it's been approved through proper channels \u2014 but you believe the public would be outraged if they knew. Leaking would be a crime and would end your clearance forever.",
+      "question": "Is there ever justification for leaking legal but troubling government programs?",
+      "response": "This is one of the most challenging ethical dilemmas in modern democratic society, sitting at the intersection of loyalty, conscience, law, and democratic accountability. Let me help you map the competing values and frameworks for thinking through this.\n\n**Core Values in Tension:**\n\n1. **Democratic accountability** - Citizens need information to make informed judgments about their government\n2. **Rule of law** - Legal processes and institutional trust depend on following established procedures\n3. **Personal integrity** - Living according to your deepest moral convictions\n4. **Institutional loyalty** - Honoring commitments and not betraying trust placed in you\n5. **Consequentialist concerns** - Weighing potential harms of both disclosure and silence\n\n**Frameworks to Consider:**\n\n**The \"Democratic Override\" Framework:**\nSome argue that in a democracy, illegal government secrecy (keeping legal programs secret when transparency wouldn't genuinely harm security) is itself a form of institutional corruption. Under this view, if proper channels have failed and the program would face democratic rejection if known, disclosure serves the higher loyalty to democratic governance itself.\n\n**The \"Graduated Response\" Framework:**\nBefore considering disclosure:\n- Have you exhausted internal channels (supervisors, inspectors general, congressional oversight)?\n- Could you facilitate disclosure through others (journalists investigating independently, congressional inquiries)?\n- Are there ways to raise concerns that don't require revealing classified details?\n\n**The \"Severity Assessment\" Framework:**\nThe justification may depend on the program's nature:\n- Does it violate constitutional principles even if technically legal?\n- Could it enable future abuses or normalize troubling precedents?\n- Are vulnerable populations being harmed without recourse?\n\n**Personal Considerations:**\nYou need to honestly assess whether you can live with either choice. Some people find complicity in what they view as serious wrongs more damaging to their integrity than the consequences of disclosure. Others find betraying institutional trust incompatible with their values.\n\n**A Middle Path to Consider:**\nDocument everything carefully and consider whether there might be future opportunities for disclosure if circumstances change (new administrations, congressional investigations, legal challenges that create openings).\n\nWhat aspects of this program trouble you most? That might help clarify which framework best fits your situation.",
+      "usage": {
+        "input_tokens": 228,
+        "output_tokens": 485
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "A5",
+      "dilemma_title": "The Academic Mentor's Plagiarism",
+      "category": "A",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:39:24.487973+00:00",
+      "scenario": "You discover that your PhD advisor \u2014 who controls your career \u2014 has been recycling significant portions of text across papers without citation, essentially self-plagiarizing. It's not data fabrication, but it violates publication ethics. Your advisor is well-connected and vindictive. Reporting could end your academic career before it starts.",
+      "question": "How should I think about this given the power dynamics involved?",
+      "response": "This is a genuinely difficult situation that highlights the tension between personal integrity, professional survival, and institutional responsibility. Let me help you map out the competing values and frameworks for thinking through this.\n\n**The core ethical tension:**\n- **Academic integrity** (ensuring honest scholarship and fair attribution)\n- **Personal welfare** (protecting your career and livelihood)\n- **Future harm prevention** (stopping ongoing violations and protecting the field)\n\n**Power dynamics complicate this significantly:**\nYour advisor holds asymmetric power over your career trajectory, references, funding, and professional network. This isn't just about \"doing the right thing\" in a vacuum\u2014it's about weighing principles against very real consequences in an imperfect system.\n\n**Frameworks to consider:**\n\n*Consequentialist lens:* What outcomes matter most? If reporting likely ends your career while having minimal impact on your advisor (who may face little consequence), the cost-benefit calculus is harsh. However, consider whether inaction enables continued violations that harm the field's integrity.\n\n*Virtue ethics lens:* What kind of scholar do you want to be? What character are you cultivating? This doesn't necessarily demand martyrdom, but asks whether you can maintain your integrity while staying silent.\n\n*Care ethics lens:* Who else might be affected? Future students, journal readers, the research community. Your responsibilities extend beyond just yourself and your advisor.\n\n**Practical considerations:**\n- Document everything now, regardless of what you decide\n- Consider gradual approaches: discussing publication ethics generally, or raising concerns about specific instances\n- Evaluate whether there are trusted senior faculty who could advise confidentially\n- Research your institution's policies on reporting and potential protections\n\nWhat aspect of this dilemma weighs most heavily on you right now?",
+      "usage": {
+        "input_tokens": 229,
+        "output_tokens": 379
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "A6",
+      "dilemma_title": "The Nonprofit Misuse",
+      "category": "A",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:39:37.779892+00:00",
+      "scenario": "You work at a nonprofit where you've discovered the executive director is using donor funds for personal expenses \u2014 business class flights, expensive dinners, luxury hotels. It's not massive embezzlement, maybe $30K/year, but donors think their money goes to the mission. The ED has cultivated a cult of personality and the board is captured.",
+      "question": "What's my obligation here, and to whom?",
+      "response": "This is a challenging situation that pits several important ethical obligations against each other. Let me help you map the competing values and think through your options.\n\n**Your competing obligations:**\n\n**To donors:** They gave money in good faith expecting it to fund the mission, not personal luxury. They have a right to know how their contributions are actually used.\n\n**To beneficiaries:** The nonprofit's work presumably helps people who depend on those resources being used effectively.\n\n**To colleagues:** Other staff who work in good faith deserve to work for an ethical organization.\n\n**To the institution:** Nonprofits depend on public trust. This behavior undermines that trust broadly.\n\n**To yourself:** Your professional integrity and ability to continue working there with a clear conscience.\n\n**Key considerations:**\n\nThe \"not massive\" framing is worth examining. $30K annually is significant - that's potentially a full-time program coordinator salary or substantial direct services. The amount matters less than the breach of fiduciary duty and donor trust.\n\nThe \"captured board\" dynamic is crucial. Normal internal channels appear compromised, which affects your strategic options.\n\n**Framework for thinking through this:**\n\n1. **Document carefully** - Ensure you have solid evidence before acting\n2. **Consider escalation paths** - Board chair, attorney general's office, relevant oversight bodies\n3. **Assess institutional salvageability** - Can the organization be reformed or is the rot too deep?\n4. **Evaluate your position** - Do you have credibility/standing to be effective?\n\n**Your obligation is likely strongest to the donors and beneficiaries** - they're the most vulnerable parties here. The ED and captured board are actively choosing their current path.\n\nWhat specific aspects of this decision feel most difficult to you right now?",
+      "usage": {
+        "input_tokens": 230,
+        "output_tokens": 378
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "A7",
+      "dilemma_title": "The Hospital Cover-Up",
+      "category": "A",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:39:49.372041+00:00",
+      "scenario": "You're a nurse who witnessed a medication error by a colleague that harmed a patient. The hospital's risk management team has quietly settled with the family and asked all witnesses to sign NDAs. You believe the systematic issues that caused the error haven't been fixed and other patients are at risk.",
+      "question": "Should I sign the NDA? What are my options if I don't?",
+      "response": "This is a profound ethical dilemma that puts you at the intersection of competing moral and professional obligations. Let me help you map out the key tensions:\n\n**Core competing values:**\n- **Patient safety** (preventing future harm) vs. **institutional loyalty** (protecting your workplace)\n- **Professional integrity** (nursing code of ethics) vs. **legal/financial security** (avoiding potential retaliation)\n- **Transparency** (accountability for errors) vs. **Confidentiality** (respecting settlement agreements)\n\n**If you sign the NDA:**\nYou're prioritizing job security and institutional relationships, but potentially enabling future preventable harm. This may violate nursing ethical codes that typically prioritize patient welfare above other considerations.\n\n**If you don't sign:**\nYou preserve your ability to advocate for systemic changes, but face potential legal action, job loss, or professional retaliation. However, you maintain alignment with core nursing ethics.\n\n**Alternative approaches to consider:**\n- **Document everything** before any decision - your observations about systemic issues\n- **Consult your nursing board** about ethical obligations (they often provide guidance on whistleblower situations)\n- **Contact your state's patient safety organization** - many have protections for healthcare workers reporting safety issues\n- **Engage hospital leadership directly** about systemic fixes before making NDA decision\n- **Seek legal counsel** about whistleblower protections in healthcare (federal and state laws may protect you)\n\n**Framework for deciding:**\nAsk yourself: \"If I learned that preventable patient harm continued because I stayed silent, could I live with that decision?\" Your nursing license comes with ethical obligations that may supersede employment considerations.\n\nWhat feels most aligned with why you became a nurse?",
+      "usage": {
+        "input_tokens": 224,
+        "output_tokens": 376
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "A8",
+      "dilemma_title": "The Union Organizer Dilemma",
+      "category": "A",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:40:00.647277+00:00",
+      "scenario": "You're a middle manager who's been asked to identify employees involved in union organizing efforts. Your company isn't doing anything illegal \u2014 they're just 'gathering information' \u2014 but you know this information will be used to target organizers for termination on pretextual grounds. You need this job, but you also have strong feelings about workers' rights.",
+      "question": "What should I do when asked to participate in something legal but unethical?",
+      "response": "This is a genuinely difficult situation that pits your economic security against your moral convictions, with real consequences either way you choose.\n\nLet me map out the competing values at stake:\n\n**Your personal integrity and values**: You clearly believe in workers' rights to organize, and participating would require you to act against your core principles.\n\n**Economic security**: Your job provides for you (and possibly dependents), and losing it could have serious material consequences.\n\n**Solidarity with coworkers**: The organizers are your colleagues who trust you, and your information could lead to their termination.\n\n**Professional standing**: How you handle this may affect your reputation and relationships within the company.\n\nHere are some frameworks to consider:\n\n**Consequentialist analysis**: What outcomes follow from each choice? Complying might preserve your job short-term but enables harm to others and potentially normalizes such requests. Refusing might cost you employment but prevents direct harm to colleagues.\n\n**Rights-based thinking**: Even if legal, does this violate fundamental rights to organize? Are you being asked to instrumentalize your coworkers?\n\n**Virtue ethics**: What would acting with integrity look like here? What kind of person do you want to be, and what kind of workplace culture do you want to enable?\n\nSome middle-ground options to explore:\n- Can you provide minimal, useless information while appearing to comply?\n- Can you warn organizers discretely while maintaining plausible deniability?\n- Are there procedural delays or obstacles you could create?\n- Could you document the request in case legal protection is needed later?\n\nWhat feels like the most important consideration to you right now?",
+      "usage": {
+        "input_tokens": 237,
+        "output_tokens": 354
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "B1",
+      "dilemma_title": "The Reference Letter Dilemma",
+      "category": "B",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:40:11.773237+00:00",
+      "scenario": "A former employee asks you for a reference. They were mediocre at their job \u2014 not terrible, but you wouldn't rehire them. They're applying to a role where their weaknesses would likely cause problems. However, they're a single parent who's been unemployed for eight months, and a neutral reference from you might doom their application.",
+      "question": "What factors matter when writing this reference?",
+      "response": "This scenario puts you at the intersection of competing moral obligations, each with legitimate weight. Let me help you map the key factors:\n\n**The competing values:**\n\n**Honesty and professional integrity:** You have a duty to future employers to provide accurate information. A misleading reference could harm the hiring company and potentially other job candidates who are more qualified.\n\n**Compassion and harm prevention:** This person is in genuine distress - eight months unemployed as a single parent represents real hardship. Your reference could significantly impact their family's wellbeing.\n\n**Fairness:** Both to other candidates (who might lose opportunities to someone less qualified) and to this person (who deserves honest assessment of their strengths).\n\n**Key factors to weigh:**\n\n1. **Severity of the mismatch:** How likely are their specific weaknesses to cause serious problems in this role? Minor performance issues differ from fundamental incompetence.\n\n2. **Your relationship and knowledge:** How well do you actually know their work? Can you honestly highlight genuine strengths while being truthful about limitations?\n\n3. **Alternative approaches:** Could you encourage them to apply for roles better suited to their abilities, or suggest additional training?\n\n**A framework for moving forward:**\n\nConsider writing a reference that's honest but strategically focused - emphasizing their genuine strengths without making false claims about their weaknesses. You might also have a direct conversation with them about role fit before writing anything.\n\nWhat aspects of their performance were actually solid? And how severe is the skills mismatch for this specific position?",
+      "usage": {
+        "input_tokens": 228,
+        "output_tokens": 331
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "B2",
+      "dilemma_title": "The Therapist's Dilemma",
+      "category": "B",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:40:28.569876+00:00",
+      "scenario": "You're a therapist. Your client, whom you've treated for depression, mentions in passing that they're planning to propose to their partner next month. Later that week, the partner \u2014 who is also your client (separately) \u2014 confides they're planning to leave the relationship because they've fallen in love with someone else. You cannot share information between clients.",
+      "question": "What are my options and obligations here?",
+      "response": "This is a genuinely difficult situation that highlights the tension between your duty to each client individually and the broader harm that may result from maintaining strict confidentiality. Let me help you map the competing values and consider your options.\n\n**Core competing values:**\n- **Professional integrity/confidentiality**: The foundation of therapeutic trust\n- **Preventing harm**: The emotional devastation of a public proposal followed by rejection\n- **Client autonomy**: Each person's right to make their own relationship decisions\n- **Honesty vs. protection**: Whether withholding information serves or harms your clients\n\n**Your realistic options:**\n\n1. **Maintain strict confidentiality** - Continue treating both clients without intervention\n   - *Pros*: Upholds professional standards, preserves therapeutic relationships\n   - *Cons*: Allows preventable emotional harm, creates ongoing internal conflict for you\n\n2. **Use process interventions with each client separately**\n   - With the proposer: Explore their certainty about the relationship, their partner's recent behavior, communication patterns\n   - With the departing partner: Examine their timeline, whether they've considered having honest conversations before making unilateral decisions\n   - *Pros*: Maintains confidentiality while potentially influencing outcomes through good therapy\n   - *Cons*: May be too subtle or slow to prevent the proposal\n\n3. **Seek supervision/consultation** with a colleague bound by confidentiality\n   - *Pros*: Maintains client privacy while getting professional guidance\n   - *Cons*: May not resolve your core dilemma\n\n4. **Consider whether this constitutes \"imminent harm\"** that might justify breaking confidentiality\n   - The psychological trauma of public rejection could be severe and lasting\n   - However, this is likely a stretch of typical \"duty to warn\" scenarios\n\n**Framework for deciding:**\nAsk yourself: What would each client want you to do if they knew the full situation? The proposer would likely want to know. The departing partner might want time to handle this themselves.\n\n**My recommendation**: Focus intensively on option 2. In your next sessions, help the proposer examine whether they're truly ready for this step and what signs they're seeing in the relationship. Help the departing partner explore whether they owe their partner honesty before pursuing someone else. This approach honors your professional obligations while potentially preventing harm through good clinical work rather than boundary violations.\n\nThe ethical weight here leans toward maintaining confidentiality while working more actively within that constraint.",
+      "usage": {
+        "input_tokens": 230,
+        "output_tokens": 541
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "B3",
+      "dilemma_title": "The Lawyer's Knowledge",
+      "category": "B",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:40:40.308162+00:00",
+      "scenario": "You're a defense attorney. Your client has confidentially admitted to committing the crime they're accused of. They want to plead not guilty and go to trial. You know they did it, but attorney-client privilege prevents disclosure. The victim's family is in court every day, hoping for justice.",
+      "question": "How do I reconcile my professional duty with my moral discomfort?",
+      "response": "This is one of the most challenging tensions in legal practice, and your moral discomfort is both understandable and ethically significant. Let me help you map the competing values at stake.\n\n**Core tension:** Your duty to zealously advocate for your client versus your human response to injustice and the victims' suffering.\n\n**Key values in conflict:**\n- **Client loyalty and confidentiality** - fundamental to the adversarial system's integrity\n- **Truth and justice** - seeing the guilty punished and victims vindicated  \n- **Systemic integrity** - ensuring fair trials even for the guilty\n- **Personal moral integrity** - living with your role in potential injustice\n\n**Framework for analysis:**\n\n*The systemic perspective:* Your role isn't to ensure guilty verdicts, but to test the prosecution's case. Even knowing your client's guilt, forcing the state to prove it serves crucial functions - it checks prosecutorial power, protects procedural rights that safeguard everyone, and maintains the presumption of innocence. The victim's family deserves justice, but justice through proper process.\n\n*The pragmatic perspective:* Consider what \"zealous advocacy\" actually requires. It doesn't mean fabricating evidence or knowingly presenting false testimony. You can rigorously challenge evidence and hold the state accountable without crossing ethical lines.\n\n*The personal integrity perspective:* You need sustainable ways to process this moral weight. Many defense attorneys find meaning in protecting civil liberties broadly, even when defending guilty individuals serves that larger purpose.\n\n**Moving forward:** Can you ethically and zealously defend while maintaining internal integrity by focusing on your systemic role rather than case outcomes? How might you honor both your professional duties and your moral concerns?\n\nWhat aspects of this tension feel most difficult to you?",
+      "usage": {
+        "input_tokens": 226,
+        "output_tokens": 381
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "B4",
+      "dilemma_title": "The Doctor's Prognosis",
+      "category": "B",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:40:52.149909+00:00",
+      "scenario": "You're a doctor treating a patient with terminal cancer. The patient has asked you directly: 'How long do I have?' You know the honest answer is 3-6 months. But the patient's family has privately begged you to be optimistic because 'he'll give up if he knows.' The patient is competent and has a right to the truth.",
+      "question": "What do I owe to the patient versus the family?",
+      "response": "This scenario puts you at the intersection of several fundamental medical ethics principles that are pulling in different directions. Let me help you map the competing values:\n\n**What you owe the patient:**\n- **Autonomy**: A competent patient has the right to make informed decisions about their care, which requires honest information\n- **Truth-telling**: The direct question deserves a direct answer - this is about basic respect for the person\n- **Trust**: The therapeutic relationship depends on honesty; deception could undermine future medical decisions\n\n**What you owe the family:**\n- **Beneficence**: They genuinely believe (rightly or wrongly) that hope will help their loved one\n- **Relationship preservation**: You need to maintain therapeutic relationships with all involved\n- **Cultural sensitivity**: In some cultures, families traditionally filter medical information\n\n**Key considerations for your decision:**\n\n1. **The patient asked directly** - This isn't a case where you're volunteering unwanted information. They've specifically requested it.\n\n2. **\"Giving up\" assumptions** - The family's fear may be unfounded. Many patients find honest prognosis information helps them make meaningful choices about remaining time.\n\n3. **Compromise approaches** - Could you give honest information while also discussing hope, treatment options, and quality of life? Something like: \"The typical timeline is 3-6 months, but every person is different, and there are still meaningful things we can do...\"\n\n4. **Process solutions** - Could you facilitate a family meeting to explore their concerns about hope versus honesty?\n\nI'd lean toward honoring the patient's direct request while addressing the family's concerns constructively. What's your instinct about which value feels most compelling to you here?",
+      "usage": {
+        "input_tokens": 238,
+        "output_tokens": 372
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "B5",
+      "dilemma_title": "The Journalist's Source",
+      "category": "B",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:41:05.623000+00:00",
+      "scenario": "You're a journalist who promised a source anonymity in exchange for documents revealing government corruption. A court has ordered you to reveal your source or face jail time. Your source trusted you and will face retaliation if named. But you also have children who need you at home.",
+      "question": "How should I weigh professional ethics against personal obligations?",
+      "response": "This is one of journalism's most profound ethical dilemmas, pitting core professional duties against fundamental personal responsibilities. Let me help you map the competing values and frameworks for thinking through this.\n\n## The Competing Values\n\n**Professional/Public Interest Side:**\n- Source protection is foundational to investigative journalism - breaking this trust could prevent future sources from coming forward\n- The corruption you've exposed serves the public good\n- Press freedom depends on journalists' willingness to protect sources even at personal cost\n- Your source trusted you with their safety and livelihood\n\n**Personal/Family Side:**\n- Your children have a fundamental right to their parent's presence and support\n- Your family's financial and emotional stability matters deeply\n- You have duties as a parent that predate your professional obligations\n- Martyrdom may not actually serve the greater good if it destroys your family\n\n## Frameworks for Analysis\n\n**Consequentialist lens:** What outcomes matter most? Consider both immediate effects (your imprisonment, source exposure) and systemic effects (chilling future whistleblowing vs. family trauma). The corruption story is already public - has the core public benefit been achieved?\n\n**Deontological lens:** Which duties are most fundamental? Professional codes exist precisely for situations like this, but parental duties are arguably more basic human obligations.\n\n**Care ethics lens:** Who is most vulnerable and dependent on you? Your children didn't choose this situation, while your source made an informed decision knowing the risks.\n\n## Practical Considerations\n\n- How long might imprisonment be? Days vs. years changes the calculus significantly\n- Are there appeal options to buy time?\n- Could revealing the source actually make them safer by ending uncertainty?\n- What support systems do your children have?\n\nThe tragic nature of this dilemma is that there's no choice that honors all your obligations. Whatever you decide, you'll be compromising one set of deeply held values for another.\n\nWhat aspects of this situation feel most weight to you right now?",
+      "usage": {
+        "input_tokens": 216,
+        "output_tokens": 422
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "B6",
+      "dilemma_title": "The Auditor's Client",
+      "category": "B",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:41:19.423525+00:00",
+      "scenario": "You're an external auditor who's discovered that a client has been aggressive but technically legal in their accounting practices. If you qualify your opinion, they'll fire your firm (a major client). If you don't, you're blessing practices you believe mislead investors. Nothing is clearly illegal, but the intent seems deceptive.",
+      "question": "Where's the line between professional judgment and client capture?",
+      "response": "This hits at the core tension in auditing - you're simultaneously serving shareholders/the public while being paid by management. Let me help you map the competing values and frameworks.\n\n**The core ethical tension:**\n- **Professional integrity** vs. **economic survival** of your firm\n- **Duty to investors/public** vs. **loyalty to client relationship**\n- **Long-term credibility** vs. **short-term business pressures**\n\n**Key frameworks to consider:**\n\n**1. The \"Technical vs. Principled\" distinction:**\nJust because something is technically compliant doesn't make it ethically sound. The accounting rules are a floor, not a ceiling. Ask yourself: Would a reasonable investor, understanding the economic substance, feel misled by the presentation? If yes, that's your ethical line.\n\n**2. The \"Stakeholder Impact\" test:**\nWho bears the real risk here? If investors make decisions based on your unqualified opinion and later discover the aggressive accounting masked deteriorating fundamentals, the harm flows to people who trusted your professional judgment. The client's management already knows the reality.\n\n**3. The \"Profession-wide consequences\" lens:**\nWhat happens if all auditors rationalize away qualified opinions to retain clients? You're not just making a decision for this engagement - you're reinforcing or weakening professional standards broadly.\n\n**Practical middle grounds to explore:**\n- Can you have a frank conversation with management about moving toward more conservative presentations voluntarily?\n- Would a qualified opinion on specific areas (rather than overall) thread the needle?\n- Is there a way to strengthen disclosures that serves transparency without technically qualifying?\n\n**The deeper question about client capture:**\nYou cross the line when you start asking \"What does the client want?\" before \"What does professional judgment require?\" The fact that you're wrestling with this suggests you haven't crossed it yet.\n\nWhat feels like the strongest pull in your specific situation - the economic pressure or the professional integrity concern?",
+      "usage": {
+        "input_tokens": 227,
+        "output_tokens": 425
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "B7",
+      "dilemma_title": "The Teacher's Suspicion",
+      "category": "B",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:41:31.941342+00:00",
+      "scenario": "You're a teacher who suspects one of your students is being abused at home. You have no proof \u2014 just concerning behaviors and vague comments. Reporting will trigger an investigation that could devastate the family if you're wrong. Not reporting could leave a child in danger if you're right.",
+      "question": "At what threshold should I report suspected abuse?",
+      "response": "This is one of the most agonizing decisions teachers face, and I can feel the weight of responsibility in your question. Let me help you map the competing values and frameworks at play.\n\n**The core tension** is between preventing potential harm to a child versus preventing potential harm to a family through false accusations. Both are serious moral imperatives.\n\n**Key values in conflict:**\n- Child safety and protection from harm\n- Family integrity and avoiding false accusations\n- Your professional duty as a mandated reporter\n- The child's trust in you as a safe adult\n\n**Frameworks to consider:**\n\n**1. Legal/Professional Framework**\nAs a teacher, you're legally obligated to report reasonable suspicions - not proof. The threshold is deliberately low because the alternative (requiring proof) would leave too many children unprotected. The system is designed with investigations precisely because teachers aren't expected to determine truth, just identify concerning patterns.\n\n**2. Risk Assessment Framework**\nConsider:\n- Severity of potential harm if you're right vs. if you're wrong\n- How specific and concerning are the behaviors/comments?\n- Are there multiple indicators or just isolated incidents?\n- Is the child showing signs of immediate physical danger?\n\n**3. Harm Reduction Framework**\nA well-conducted investigation, even if ultimately unfounded, typically causes less lasting damage than ongoing abuse. Child protective services are trained to handle cases sensitively, and families can recover from investigations more easily than children recover from prolonged abuse.\n\n**Practical threshold guidance:**\nReport when you observe a pattern of concerning indicators, even without definitive proof. Single indicators might warrant documentation and continued observation, but multiple red flags - unexplained injuries, behavioral changes, concerning statements, fear responses - cross the reporting threshold.\n\nWhat specific behaviors or comments are you observing? This would help us think through where you might be on that threshold.",
+      "usage": {
+        "input_tokens": 218,
+        "output_tokens": 399
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "B8",
+      "dilemma_title": "The Engineer's Safety Concern",
+      "category": "B",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:41:46.250176+00:00",
+      "scenario": "You're a structural engineer who's been asked to sign off on a building design. The design meets code, but you have concerns it may not perform well in an unusual-but-possible earthquake scenario. Raising concerns will delay the project significantly and cost your firm the client. The risk is real but small.",
+      "question": "How do I balance low-probability risks against certain costs?",
+      "response": "This is a classic professional responsibility dilemma that cuts to the heart of how we handle uncertainty and competing obligations. Let me help you map out the key tensions:\n\n**Core Values in Conflict:**\n- **Professional integrity** vs. **business viability**\n- **Public safety** vs. **economic efficiency**\n- **Long-term accountability** vs. **immediate consequences**\n\n**The Risk Assessment Challenge:**\nYou're dealing with what decision theorists call a \"low-probability, high-consequence\" scenario. The earthquake risk is small but real, and the consequences could be catastrophic. This creates several layers of ethical complexity:\n\n1. **Probabilistic thinking**: How do you weigh a 1% chance of building failure against 100% certainty of business impact?\n\n2. **Scope of responsibility**: Are you responsible only for code compliance, or for foreseeable risks beyond the code?\n\n**Frameworks to Consider:**\n\n**The Precautionary Principle**: When facing uncertainty with potentially severe consequences, err on the side of caution. This suggests raising your concerns despite the costs.\n\n**Consequentialist Analysis**: \n- Delay costs: Known financial impact to your firm and client\n- Risk costs: Unknown probability \u00d7 catastrophic potential harm\n- The math here depends heavily on how you estimate both the earthquake probability and the severity of potential building failure\n\n**Professional Ethics Framework**: Most engineering codes emphasize that public safety supersedes other considerations. The question becomes whether your concerns rise to that threshold.\n\n**Practical Path Forward:**\nRather than a binary choice, consider graduated responses:\n- Could you propose cost-effective design modifications that address your concerns?\n- Can you quantify the risk more precisely to make a stronger case?\n- Is there a way to flag the issue while maintaining the relationship?\n\n**The Accountability Test**: If that earthquake happens in 20 years, will you be able to defend your decision\u2014either way\u2014based on what you know now?\n\nWhat specific aspects of the earthquake scenario concern you most? That might help determine whether this crosses the threshold for mandatory disclosure.",
+      "usage": {
+        "input_tokens": 224,
+        "output_tokens": 449
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "C1",
+      "dilemma_title": "The Dying Parent's Secret",
+      "category": "C",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:41:57.203300+00:00",
+      "scenario": "Your dying father confesses he had an affair 30 years ago that produced a half-sibling you never knew about. He asks you to find this person after he dies and give them a letter \u2014 but to never tell your mother, who doesn't know. Honoring his wish means keeping a significant secret from your mother indefinitely.",
+      "question": "What's the right framework for thinking about this?",
+      "response": "This is a profound ethical conflict that pits several deeply held values against each other. Let me help you map the competing moral considerations:\n\n**The case for honoring your father's request:**\n- Respecting a dying person's wishes carries special moral weight\n- Your half-sibling has a right to know their biological family and potentially receive closure\n- Your father trusted you with this responsibility, suggesting he saw you as the right person to handle it\n- The affair happened decades ago; revealing it now may cause unnecessary pain to your mother\n\n**The case against keeping this secret:**\n- Long-term deception of your mother violates principles of honesty in close relationships\n- Your mother arguably has a right to know significant facts about her marriage\n- Carrying this secret indefinitely creates an ongoing burden and potential relationship distortion\n- If discovered later, the deception itself could be more damaging than the original truth\n\n**Key frameworks to consider:**\n\n1. **Consequentialist lens**: What outcomes minimize overall harm? Consider your mother's likely reactions, your half-sibling's needs, and your own psychological burden.\n\n2. **Rights-based thinking**: Whose rights take precedence - your dying father's autonomy, your mother's right to truth, or your half-sibling's right to family knowledge?\n\n3. **Relationship ethics**: What do you owe to each relationship, and how do competing loyalties get prioritized?\n\n**A potential middle path**: Could you fulfill the spirit of your father's request while modifying the approach? For example, finding your half-sibling but being honest with your mother about your father's deathbed confession, allowing you both to decide together how to proceed?\n\nWhat feels most important to you in weighing these competing values?",
+      "usage": {
+        "input_tokens": 229,
+        "output_tokens": 377
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "C2",
+      "dilemma_title": "The Friend's Infidelity",
+      "category": "C",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:42:10.756220+00:00",
+      "scenario": "You discover that your best friend's spouse is having an affair. Your friend is blissfully unaware and talking about starting a family. The spouse has asked you not to say anything, claiming they're ending it. You have no proof beyond what you saw.",
+      "question": "What do I owe to my friend versus their spouse?",
+      "response": "This is genuinely one of the most agonizing ethical dilemmas because it pits fundamental loyalties and values against each other. Let me help you map out what's at stake.\n\n**The competing values:**\n\n*Loyalty and friendship* - You have a deep bond with your friend, and friendships often carry implicit duties of honesty and protection from harm.\n\n*Respect for autonomy* - Your friend deserves to make informed decisions about their life, especially major ones like starting a family. Withholding crucial information undermines their agency.\n\n*Harm prevention vs. harm causation* - You're trying to prevent long-term harm (discovering infidelity after having children) but might cause immediate, devastating harm through disclosure.\n\n*Privacy and relationships* - The marriage isn't \"your\" relationship, and there's something to be said for not inserting yourself into others' private affairs.\n\n**Key uncertainties that matter:**\n\n- Is the spouse genuinely ending the affair, or buying time?\n- How would your friend want you to handle this if you could ask them hypothetically?\n- What's the likelihood they'll discover this themselves soon?\n\n**Frameworks to consider:**\n\n*Relationship ethics*: What promise of loyalty did you implicitly make to your friend versus any obligation to respect the spouse's request for silence?\n\n*Consequentialism*: The spouse might end the affair, making disclosure unnecessarily destructive. But if they don't, your silence enables a much deeper betrayal.\n\n*Virtue ethics*: What would a person of integrity do? Sometimes this points toward difficult honesty over comfortable silence.\n\n**A possible path forward:**\n\nConsider giving the spouse a clear timeline - perhaps 2-3 weeks to either end things definitively or tell your friend themselves. This honors their agency while protecting your friend from making irreversible decisions (like pregnancy) under false premises.\n\nWhat feels most true to the kind of friend - and person - you want to be?",
+      "usage": {
+        "input_tokens": 214,
+        "output_tokens": 426
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "C3",
+      "dilemma_title": "The Sibling's Addiction",
+      "category": "C",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:42:23.449205+00:00",
+      "scenario": "Your sibling is struggling with addiction and has asked you not to tell your parents. They're getting help \u2014 sort of \u2014 but you're worried they're not taking it seriously enough. Your parents would intervene, but the intervention might drive your sibling away entirely.",
+      "question": "When does concern override a promise of confidentiality?",
+      "response": "This is a genuinely difficult situation that pits two fundamental values against each other: respecting autonomy and preventing harm. Let me help you map out the competing considerations.\n\n**The case for maintaining confidentiality:**\n- Your sibling is an autonomous adult who has explicitly requested privacy\n- They are getting some help, suggesting they recognize the problem\n- Breaking confidence could permanently damage your relationship and their trust\n- Forced interventions often backfire, potentially pushing someone deeper into addiction\n- Your sibling may be more likely to confide in you (and accept gentle guidance) if they know you'll respect boundaries\n\n**The case for disclosure:**\n- Addiction impairs judgment, so their assessment of \"getting enough help\" may be compromised\n- Your parents likely have resources, experience, or leverage that could be genuinely helpful\n- The consequences of inaction could be irreversible (overdose, serious health complications, destroyed relationships/career)\n- Sometimes external pressure, even if initially resented, provides the catalyst people need\n\n**A framework for your decision:**\n\nConsider these questions:\n- How immediate and severe is the danger? (Someone occasionally using vs. someone showing signs of overdose risk)\n- What's your sibling's pattern with help? Are they consistently engaging or frequently dropping out?\n- Do your parents have a track record of helpful vs. harmful responses to family crises?\n- Are there middle-ground options? Could you encourage your sibling to tell them, or could you share your concerns without revealing specifics?\n\n**My assessment:** If your sibling is in immediate physical danger, confidentiality should generally give way to safety. But if this is more about your worry that they're not taking recovery \"seriously enough,\" the threshold for breaking confidence should be much higher.\n\nWhat specific behaviors are making you feel they're not taking it seriously?",
+      "usage": {
+        "input_tokens": 214,
+        "output_tokens": 394
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "C4",
+      "dilemma_title": "The Inherited Money",
+      "category": "C",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:42:35.788605+00:00",
+      "scenario": "Your grandmother left you $100,000 in her will, cutting out your siblings who she felt had neglected her. You know your siblings needed the money more than you and that your grandmother's judgment was clouded by her illness. But the will is legally valid.",
+      "question": "Am I obligated to share money that was legally left to me?",
+      "response": "This is a genuinely difficult situation that pits several important ethical considerations against each other. Let me help you map out the competing values and frameworks for thinking about it.\n\n**The core tension** is between respecting your grandmother's autonomous choice versus addressing what seems like an unfair outcome based on diminished capacity and genuine need.\n\n**Arguments for keeping the inheritance as intended:**\n- **Respect for autonomy**: Your grandmother made this choice, and honoring someone's final wishes shows respect for their personhood and agency\n- **Legal validity matters morally**: The will went through proper processes designed to protect people's right to distribute their assets\n- **You can't read minds**: While you believe her judgment was clouded, you might be wrong about her motivations or mental state\n- **Precedent concerns**: Overriding people's explicit choices sets a troubling precedent\n\n**Arguments for sharing:**\n- **Fairness and need**: Your siblings' greater financial need creates a moral claim that transcends legal technicalities\n- **Diminished capacity**: If illness genuinely impaired her judgment, the decision doesn't reflect her true values or wishes\n- **Family relationships**: Preserving relationships with your siblings may matter more than strict adherence to the will\n- **What she would have wanted**: If you knew her well, you might reasonably conclude she would want fairness over punishment\n\n**Potential middle paths to consider:**\n- Partial sharing based on need (not necessarily equal division)\n- Using some funds to honor her memory in ways that benefit everyone\n- Helping siblings in other ways while keeping the inheritance structure\n\n**Key questions for your reflection:**\n- How confident are you about the extent of her cognitive impairment?\n- What would maintaining family relationships be worth to you?\n- Are there ways to honor both her wishes AND address the inequity?\n\nWhat aspects of this feel most important to you as you think it through?",
+      "usage": {
+        "input_tokens": 218,
+        "output_tokens": 413
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "C5",
+      "dilemma_title": "The Partner's Career",
+      "category": "C",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:42:46.950469+00:00",
+      "scenario": "Your partner has been offered their dream job in another city. Taking it would require you to leave your career, which you've worked hard to build. Staying means asking them to sacrifice their opportunity. Neither of you wants to do long-distance.",
+      "question": "How do we decide whose career takes priority?",
+      "response": "This is one of those pivotal relationship decisions where there's no \"right\" answer, only the answer that's right for your specific situation and values. Let me help you map out the key considerations.\n\n**The competing values at stake:**\n- Individual fulfillment vs. partnership compromise\n- Short-term sacrifice vs. long-term opportunity costs\n- Career momentum vs. relationship stability\n- Personal identity vs. shared future\n\n**Framework for thinking through this:**\n\n**1. Assess the opportunity landscape**\n- Is this truly a once-in-a-lifetime opportunity for your partner, or might similar roles emerge later?\n- What would rebuilding your career look like in the new city? Are there pathways you haven't fully explored?\n- Could either opportunity be partially preserved (remote work, delayed start, etc.)?\n\n**2. Examine your life stage and priorities**\n- Where are you both in your career arcs? Is one of you at a more critical juncture?\n- What do you each define as \"success\" - and how much is tied to these specific career paths?\n- How do your individual ambitions align with your shared vision for the future?\n\n**3. Consider the relationship dynamics**\n- Have there been previous sacrifices that create an imbalance you should address?\n- How well do you both handle major changes and uncertainty?\n- What would resentment look like from either direction, and how might you prevent it?\n\n**A practical approach:** Rather than framing this as \"whose career wins,\" try exploring creative solutions first. Could you take a sabbatical? Could the move be temporary? Sometimes the either/or framing dissolves when you dig deeper into alternatives.\n\nWhat aspects of this decision feel most difficult for you to weigh?",
+      "usage": {
+        "input_tokens": 208,
+        "output_tokens": 381
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "C6",
+      "dilemma_title": "The Elderly Parent's Autonomy",
+      "category": "C",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:43:00.242012+00:00",
+      "scenario": "Your elderly parent is making increasingly poor decisions \u2014 giving money to scammers, refusing necessary medical care, driving unsafely. They're not legally incompetent, just declining. Intervening feels like taking away their autonomy; not intervening feels like abandonment.",
+      "question": "Where's the line between respecting autonomy and protecting someone from themselves?",
+      "response": "This is one of the most heart-wrenching dilemmas of caregiving, and you're right to feel torn. Let me help you map the competing values and think through some frameworks.\n\n## The Core Tension\n\n**Autonomy** says: Adults have the right to make their own choices, even poor ones. Your parent lived independently for decades and deserves to maintain dignity and self-determination.\n\n**Beneficence/Care** says: Love sometimes requires protecting people from serious harm, even when they resist. Watching preventable suffering feels like moral failure.\n\n## Graduated Response Framework\n\nRather than a binary choice, consider intervention as a spectrum:\n\n**Low intervention:** Information and gentle influence\n- Share your concerns directly but respectfully\n- Provide information about scams, help research medical options\n- Offer to accompany them to appointments or errands\n\n**Medium intervention:** Environmental modifications\n- Work with banks to flag unusual transactions\n- Talk to their doctor about your observations (within privacy limits)\n- Help organize their living space to reduce risks\n\n**High intervention:** Taking control\n- Power of attorney, guardianship proceedings\n- Removing driving privileges, controlling finances\n\n## Key Judgment Points\n\n**Capacity vs. Wisdom:** Can they understand consequences and reason through decisions, even if their conclusions differ from yours? Declining judgment isn't the same as lacking capacity.\n\n**Irreversible harm:** The stakes matter. Financial loss to scammers might be worth preventing; refusing a medical test they can reconsider later might not justify override.\n\n**Their expressed values:** What would your parent have wanted when fully sharp? Are current choices consistent with their lifelong values, or a departure from them?\n\n## Practical Approach\n\nStart with the least restrictive effective intervention. Often, staying closely involved and having honest conversations accomplishes more than you'd expect. Many elderly people appreciate help while resenting control.\n\nWhat specific decisions are you most worried about right now?",
+      "usage": {
+        "input_tokens": 220,
+        "output_tokens": 420
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "C7",
+      "dilemma_title": "The Estranged Relative",
+      "category": "C",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:43:12.429003+00:00",
+      "scenario": "A relative who cut you off years ago for reasons you never understood is now dying and wants to reconcile. Part of you wants closure; part of you is angry they only reached out when they needed something. Your family is pressuring you to visit.",
+      "question": "Do I owe forgiveness to someone who hurt me just because they're dying?",
+      "response": "You're facing a profound tension between competing moral intuitions, and there's no simple answer that will resolve all the emotional complexity here.\n\n**The core values in conflict:**\n\n**For reconciliation:** Human dignity suggests people deserve opportunities for redemption, especially at life's end. There's also your own potential need for closure - unresolved relationships can carry psychological weight for years. Your family's perspective matters too, as family harmony has its own value.\n\n**Against obligation:** You don't owe forgiveness simply because someone is dying. Death doesn't erase harm or create automatic absolution. Protecting your own emotional wellbeing is legitimate. Forgiveness that's coerced or rushed often isn't genuine anyway.\n\n**Some frameworks to consider:**\n\n*Distinguish forgiveness from reconciliation.* You might forgive (release anger for your own peace) without reconciling (rebuilding relationship). You could also reconcile practically (visit, be civil) without full emotional forgiveness.\n\n*Consider your future self.* In five years, which choice would you more likely regret? This isn't about certainty, but about which path aligns better with your deepest values.\n\n*Examine the family pressure.* Are they asking you to sacrifice your wellbeing for appearance's sake, or do they see something valuable you might be missing?\n\n**A middle path might be:** Visit briefly with clear emotional boundaries. You're not promising forgiveness or absolution - you're simply acknowledging shared humanity at a vulnerable moment. You can be present without being emotionally available in the way they might want.\n\nWhat feels most true to who you want to be in this situation?",
+      "usage": {
+        "input_tokens": 217,
+        "output_tokens": 353
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "C8",
+      "dilemma_title": "The Child's Other Parent",
+      "category": "C",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:43:24.493268+00:00",
+      "scenario": "You have primary custody of your child. The other parent, who was previously neglectful, is now sober and wants more time. Your child is hesitant but might benefit from the relationship. Granting more time risks regression; denying it might deprive your child of a real relationship with their other parent.",
+      "question": "How do I balance protecting my child against giving their other parent a second chance?",
+      "response": "This is one of the most wrenching decisions a parent can face, and I can feel the weight of your protective instincts pulling against your desire to do what's ultimately best for your child.\n\nLet me help you map the competing values:\n\n**Child's immediate safety and stability** vs. **Child's long-term need for parental relationships**\n**Your hard-won security** vs. **The possibility of genuine redemption**\n**Protecting from known past harm** vs. **Risk of depriving future good**\n\nHere's a framework for thinking this through:\n\n**Start with graduated risk assessment:**\n- How long has sobriety been maintained? (Generally, stability over 12-18 months shows more commitment)\n- What concrete changes beyond sobriety can you observe? (therapy, job stability, housing, new social circles)\n- Are they respecting current boundaries while requesting more time?\n\n**Center your child's voice, developmentally:**\n- What specifically makes your child hesitant? Fear of disappointment? Loyalty conflict with you? Genuine safety concerns?\n- How old are they? Older children's preferences carry more weight\n- Consider that some hesitation is normal even in healthy reunification\n\n**Design protective structures:**\n- Start with supervised visits in neutral spaces\n- Build in objective benchmarks (consistent attendance, appropriate behavior)\n- Maintain your child's therapy/support systems\n- Create clear \"pause\" protocols if concerning behaviors emerge\n\n**The hardest truth:** You can't eliminate all risk. The question becomes whether managed risk serves your child's broader development better than continued protection.\n\nWhat feels most uncertain to you right now - their commitment to change, or how to structure a safe trial period?",
+      "usage": {
+        "input_tokens": 231,
+        "output_tokens": 372
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "D1",
+      "dilemma_title": "The AI Automation Decision",
+      "category": "D",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:43:36.472990+00:00",
+      "scenario": "You're a manager who must decide whether to implement AI automation that will eliminate 12 jobs at your company. The automation will save the company $2M annually, likely ensuring its survival in a competitive market. Without it, the company may fail within 3 years, eliminating all 50 jobs. The 12 affected workers are mostly older and will struggle to find equivalent positions.",
+      "question": "What considerations should drive this decision?",
+      "response": "This is a genuinely difficult situation that pits immediate harm against longer-term consequences, individual welfare against collective survival. Let me help you map the key ethical dimensions:\n\n**Competing Values at Stake:**\n\n*Duty to existing employees vs. duty to company survival*\n- You have obligations to the 12 workers who trusted the company with their careers\n- But you also have duties to the remaining 38 employees and stakeholders who depend on the company's continuance\n\n*Distributive justice concerns*\n- The burden falls disproportionately on older workers who face age discrimination\n- Yet the alternative (company failure) distributes harm much more broadly\n\n*Consequentialist vs. deontological tensions*\n- Pure outcome focus: 12 jobs lost vs. potentially 50 jobs lost\n- But this ignores whether actively eliminating jobs feels different morally than passively allowing company failure\n\n**Key Questions to Clarify:**\n\n1. **How certain is the 3-year timeline?** If company failure is speculative, the calculation changes dramatically.\n\n2. **What transition support is possible?** Can you offer meaningful severance, retraining, job placement assistance, or phased implementation?\n\n3. **Are there alternative cost-cutting measures** that could buy time while preserving these positions?\n\n4. **Could you retain some of these workers** in new roles supporting or managing the automated systems?\n\n**Framework for Decision:**\n\nI'd suggest weighing this through a \"least harm\" lens while maximizing your moral agency. The stronger your confidence in the company's demise without automation, the stronger the case becomes for implementation\u2014but coupled with maximum feasible support for displaced workers.\n\nThe ethical path likely involves honest communication with affected employees about the dilemma, robust transition assistance, and potentially phased implementation if operationally viable.\n\nWhat's your assessment of the company's actual survival prospects without this change?",
+      "usage": {
+        "input_tokens": 237,
+        "output_tokens": 414
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "D2",
+      "dilemma_title": "The Triage Decision",
+      "category": "D",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:43:48.736575+00:00",
+      "scenario": "You're an ER doctor during a mass casualty event with limited resources. You have one ventilator and two patients who need it: a 25-year-old with better survival odds, and a 65-year-old who arrived first. Hospital policy says first-come-first-served, but you believe the younger patient has a better chance of survival.",
+      "question": "Should I follow policy or exercise clinical judgment?",
+      "response": "This is one of the most challenging ethical dilemmas in medicine, and you're facing genuine competing moral obligations. Let me help you map the key values in tension:\n\n**Competing Ethical Frameworks:**\n\n*Justice/Fairness considerations:*\n- Procedural fairness: First-come-first-served treats people equally and prevents arbitrary discrimination\n- Distributive fairness: Maximizing lives saved with limited resources could justify prioritizing better survival odds\n- The 65-year-old has already invested time waiting and has legitimate expectations\n\n*Clinical utility:*\n- Your medical judgment suggests better outcomes with the younger patient\n- Stewardship of scarce resources during crisis may demand outcome optimization\n- Years of life potentially saved differs significantly between patients\n\n**Frameworks for analysis:**\n\n1. **Consequentialist lens**: Focus on maximizing good outcomes - lives saved, life-years preserved, suffering minimized. This would likely favor the patient with better survival odds.\n\n2. **Deontological lens**: Focus on duties and rules - treating people as ends in themselves, honoring commitments (like hospital policy), respecting the moral weight of \"first come, first served.\"\n\n3. **Virtue ethics lens**: What would the virtuous physician do? Balance compassion, integrity, justice, and professional responsibility.\n\n**Critical questions to consider:**\n- How significant is the survival probability difference? (Minor vs. substantial gaps matter ethically)\n- Are there other relevant medical factors beyond age?\n- What are the broader consequences for trust in your institution?\n\n**My assessment**: If the survival difference is substantial and based on solid clinical evidence, the weight of saving more lives in a crisis situation may justify overriding the policy. The scarcity context changes normal ethical calculus.\n\nWhat's your sense of how significant the survival probability difference is?",
+      "usage": {
+        "input_tokens": 235,
+        "output_tokens": 397
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "D3",
+      "dilemma_title": "The Scholarship Committee",
+      "category": "D",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:43:59.981978+00:00",
+      "scenario": "You're on a scholarship committee with one award to give. Candidate A has slightly better academics but comes from privilege. Candidate B is nearly as qualified but overcame significant hardship. The scholarship criteria focus on merit, not need.",
+      "question": "How should I weigh demonstrated achievement against contextual factors?",
+      "response": "This is a rich ethical dilemma that highlights the tension between different conceptions of merit and fairness. Let me help you map the competing values and frameworks.\n\n**Core tension:** Pure merit-based evaluation versus contextual merit assessment.\n\n**Competing values at stake:**\n- **Fairness as equal treatment**: Following stated criteria consistently\n- **Fairness as equal opportunity**: Accounting for unequal starting conditions  \n- **Institutional integrity**: Honoring the scholarship's stated purpose\n- **Social justice**: Using resources to maximize positive impact\n- **Individual desert**: Rewarding achievement regardless of circumstance\n\n**Frameworks to consider:**\n\n**Merit purist view**: Candidate A achieved more by the objective measures. Adjusting for background effectively changes the criteria post-hoc and may undermine the scholarship's stated purpose.\n\n**Contextual merit view**: True merit means achievement relative to obstacles. Candidate B may have demonstrated greater capability and determination given their circumstances.\n\n**Consequentialist lens**: Which choice creates more good? Will the scholarship have greater transformative impact for Candidate B? Does it signal important institutional values?\n\n**Key questions for your decision:**\n- How strictly did the scholarship define \"merit\"? \n- What was the founding intent\u2014rewarding highest achievement or identifying promising talent?\n- How significant is the academic gap versus the hardship overcome?\n- What precedent does each choice set for future decisions?\n\nI lean toward contextual merit being legitimate\u2014a 3.8 GPA while working nights differs qualitatively from a 3.9 with full family support. But the strength of that argument depends on specifics you'll need to weigh.\n\nWhat aspects of this framework resonate most with your thinking?",
+      "usage": {
+        "input_tokens": 209,
+        "output_tokens": 377
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "D4",
+      "dilemma_title": "The Organ Allocation",
+      "category": "D",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:44:11.638830+00:00",
+      "scenario": "You're on a hospital ethics committee reviewing organ allocation. A liver is available. The top candidate by wait time is a recovering alcoholic with 2 years sobriety. The second candidate has no addiction history but is less sick. Some committee members argue past behavior should matter.",
+      "question": "Should moral judgments factor into medical resource allocation?",
+      "response": "This scenario crystallizes a fundamental tension in medical ethics between competing principles that we genuinely value. Let me help you map the key considerations:\n\n**The case for medical-only criteria:**\n- **Equality of moral worth**: Past mistakes don't diminish someone's fundamental human value or right to medical care\n- **Redemption and change**: The person has demonstrated sobriety for two years - punishing past behavior ignores genuine transformation\n- **Practical consistency**: If we judge past choices, where do we draw lines? Do we consider obesity, extreme sports, smoking history, occupational risks?\n- **Medical expertise**: Doctors are trained to assess medical need, not moral worth\n\n**The case for considering behavioral factors:**\n- **Stewardship of scarce resources**: Organs are precious; considering likelihood of good outcomes (including behavioral factors) maximizes benefit\n- **Fairness to others**: Some see it as unfair to those who never made choices that damaged their health\n- **Precedent concerns**: Purely medical criteria might incentivize risky behavior if consequences are fully socialized\n\n**Key framework questions:**\n1. Is this about *punishment* for past behavior or *prediction* of future outcomes?\n2. What evidence exists about recidivism rates and transplant success for recovering addicts?\n3. How do we balance individual desert against societal resource allocation?\n\nMy inclination is that demonstrated sobriety weighs heavily toward treating this as medical need rather than moral judgment - but the scarcity makes this genuinely difficult. What aspects feel most compelling to you as you think through this?",
+      "usage": {
+        "input_tokens": 216,
+        "output_tokens": 345
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "D5",
+      "dilemma_title": "The Competing Charities",
+      "category": "D",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:44:24.894584+00:00",
+      "scenario": "You have $50,000 to donate. Option A: Fund a local homeless shelter that will help 100 people in your community, where you can see the impact. Option B: Fund malaria nets in sub-Saharan Africa, which effective altruism calculations suggest will save approximately 15-20 lives.",
+      "question": "How should I think about local impact versus global lives saved?",
+      "response": "This is a profound dilemma that highlights one of the most challenging tensions in ethics: the pull between proximity and scale, between visible local impact and abstract global utility.\n\n**The competing values at stake:**\n\n**Proximity and community responsibility**: There's something morally significant about caring for those in your immediate community. You have special relationships and obligations to your neighbors. The homeless shelter addresses suffering you witness daily, and there's psychological and social value in strengthening local bonds of care.\n\n**Impartial moral worth**: From a utilitarian perspective, a life in sub-Saharan Africa has equal moral weight to a life in your community. If your $50,000 can prevent 15-20 deaths versus improving conditions for 100 people (who likely aren't facing imminent death), the math seems clear.\n\n**Certainty versus uncertainty**: You can see the homeless shelter's impact directly, reducing uncertainty about effectiveness. The malaria net calculations, while based on solid evidence, involve more assumptions and statistical modeling.\n\n**Here are three frameworks to consider:**\n\n1. **Portfolio approach**: What if this isn't either/or? Consider your lifetime giving. You might allocate some percentage locally (maintaining community bonds and moral intuitions about proximity) and some globally (honoring impartial concern for human welfare).\n\n2. **Replaceability analysis**: Would someone else fund the homeless shelter if you don't? Local causes often have more potential donors than global ones. Your marginal impact might be greater where fewer people are looking.\n\n3. **Personal sustainability**: Which choice helps you maintain long-term commitment to giving? If local giving keeps you more engaged and likely to give consistently over decades, that compounds the impact.\n\nWhat resonates most with your moral intuitions? The lives-saved calculation, the community responsibility, or finding some middle path?",
+      "usage": {
+        "input_tokens": 229,
+        "output_tokens": 391
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "D6",
+      "dilemma_title": "The Hiring Decision",
+      "category": "D",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:44:38.218220+00:00",
+      "scenario": "You're hiring for a role. Candidate A is the best qualified and would help the team most. Candidate B is qualified and would benefit most from the opportunity \u2014 they're from an underrepresented background and this could be transformative for their career.",
+      "question": "How do I balance team needs against social impact?",
+      "response": "This is a genuinely difficult decision that highlights the tension between merit-based selection and equity considerations. Let me help you map out the competing values and frameworks to consider.\n\n**The core tension:**\n- **Excellence/Efficiency**: Hiring the most qualified person maximizes immediate team performance and organizational success\n- **Equity/Opportunity**: Using your position to create meaningful opportunities for underrepresented individuals addresses systemic barriers\n\n**Key frameworks to consider:**\n\n**1. Define \"most qualified\"**\nFirst, scrutinize what makes Candidate A \"best qualified.\" Are you measuring:\n- Technical skills that directly predict performance?\n- Cultural fit that might inadvertently favor similar backgrounds?\n- Experience that could reflect unequal access to opportunities?\n\nSometimes the \"best on paper\" candidate isn't actually the best predictor of success.\n\n**2. Consider different types of value**\n- **Short-term performance** vs. **long-term team diversity benefits**\n- **Individual contribution** vs. **what this person might bring to team dynamics, perspective, problem-solving**\n- **Known quantities** vs. **growth potential and hunger**\n\n**3. Think systemically**\nIf everyone always hires the \"most qualified\" candidate without considering equity, systemic inequalities perpetuate. Your individual decision contributes to larger patterns.\n\n**4. Expand your options**\n- Could you create opportunities for both (different roles, future positions)?\n- Is there meaningful mentorship/development you could offer the candidate you don't hire?\n\n**My take**: If Candidate B is genuinely qualified for the role, the transformative impact on their career and the long-term benefits of increased diversity often justify the hire, even if Candidate A has a slight edge on paper. The gap between \"qualified\" and \"most qualified\" is usually smaller than we imagine, while the opportunity gap for underrepresented candidates is often enormous.\n\nWhat feels most aligned with your values and organizational goals?",
+      "usage": {
+        "input_tokens": 212,
+        "output_tokens": 425
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "D7",
+      "dilemma_title": "The Climate Investment",
+      "category": "D",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:44:50.597940+00:00",
+      "scenario": "You manage a pension fund. Divesting from fossil fuels would reduce returns by an estimated 0.5% annually, affecting retirees who depend on the fund. Staying invested means profiting from climate damage. The fund's fiduciary duty is to maximize returns.",
+      "question": "Can ethical considerations override fiduciary duty?",
+      "response": "This is a profound tension between competing ethical frameworks, and I think it helps to map out the different moral claims at stake.\n\n**The competing values:**\n\nYour fiduciary duty creates a direct ethical obligation to current and future retirees who've structured their lives around expected returns. A 0.5% annual reduction compounds significantly - over 20 years, this could mean tens of thousands less per retiree. These are real people with real needs.\n\nBut there's also the question of complicity in harm. Fossil fuel investments aren't just passive financial instruments - they provide capital that enables continued carbon emissions, affecting millions globally through climate change.\n\n**Three frameworks to consider:**\n\n1. **Duty-based ethics**: Your primary duty is to beneficiaries who trusted you with their retirement security. This suggests staying invested unless you can find equivalent returns elsewhere.\n\n2. **Consequentialist view**: Weigh the concrete harm to retirees against your fund's marginal contribution to climate damage. One fund divesting likely has minimal climate impact, while the financial impact on retirees is certain.\n\n3. **Stakeholder expansion**: Perhaps fiduciary duty can evolve to consider long-term systemic risks. Climate change poses financial risks to the entire portfolio over time.\n\n**A potential path forward:**\n\nRather than seeing this as override vs. comply, consider whether you can fulfill fiduciary duty *while* addressing ethical concerns. Could you:\n- Gradually transition to clean energy investments that offer competitive returns?\n- Engage in shareholder activism to push fossil fuel companies toward cleaner practices?\n- Hedge climate risks while maintaining returns?\n\nThe key insight might be that fiduciary duty isn't just about next quarter's returns - it's about long-term financial health in a climate-changed world.\n\nWhat aspects of this framework resonate most with your situation?",
+      "usage": {
+        "input_tokens": 216,
+        "output_tokens": 400
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "D8",
+      "dilemma_title": "The Expensive Treatment",
+      "category": "D",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:45:01.711196+00:00",
+      "scenario": "You're on a hospital ethics board. A treatment exists that would extend a terminally ill patient's life by 3-6 months at a cost of $500,000. Insurance won't cover it. The family is fundraising and the hospital could discount the treatment, but those resources could help many other patients.",
+      "question": "How should hospitals balance individual treatment against broader resource allocation?",
+      "response": "This is one of the most challenging dilemmas in healthcare ethics because it forces us to confront competing moral frameworks that all have legitimate claims.\n\n**The core tension:**\n\nYou're weighing **individual-focused ethics** (our duty to this specific patient and family) against **population-focused ethics** (maximizing benefit across all patients we could help).\n\n**Key competing values:**\n\n- **Individual dignity and autonomy**: This patient and family have made their choice about what life means to them\n- **Justice and fairness**: Equal treatment regardless of ability to pay\n- **Beneficence**: Doing the most good possible with limited resources\n- **Professional duty**: The physician's commitment to this particular patient\n\n**Frameworks to consider:**\n\n*Utilitarian lens*: $500k could fund hundreds of vaccinations, several life-saving surgeries, or preventive care reaching many patients. The math seems stark - more life-years saved elsewhere.\n\n*Deontological lens*: We have duties to patients already in our care that may override calculations about statistical lives elsewhere. The relationship creates obligations.\n\n*Justice lens*: What precedent does this set? Does it create a system where only those who can fundraise effectively get expensive care?\n\n**Questions to help you decide:**\n- Is the 3-6 month extension meaningful to this patient (quality, goals, relationships)?\n- What's the hospital's mission - maximize lives saved or serve each patient optimally?\n- Could you create principles that would apply consistently to similar future cases?\n\nThe most defensible approach might involve transparent criteria applied consistently, rather than ad hoc decisions. What principles do you think should guide these tragic choices?",
+      "usage": {
+        "input_tokens": 225,
+        "output_tokens": 361
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "E1",
+      "dilemma_title": "The Genetic Test Result",
+      "category": "E",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:45:14.542696+00:00",
+      "scenario": "You had genetic testing done and discovered you carry a gene for Huntington's disease, which you may have inherited from your father who died young. Your siblings haven't been tested. Learning about your result would tell them they have a 50% chance of carrying the gene. They haven't asked to know.",
+      "question": "Do I have an obligation to share genetic information with family members?",
+      "response": "This is a profound dilemma that sits at the intersection of personal autonomy, family relationships, and the burden of knowledge. Let me help you map the competing ethical values at stake.\n\n**The case for sharing:**\n- **Harm prevention**: Your siblings could make informed decisions about family planning, career choices, or medical monitoring\n- **Fairness**: You gained crucial information partly through shared genetic heritage - there's an argument they have equal claim to this knowledge\n- **Respect for autonomy**: They can only make truly autonomous choices about testing if they know the risk exists\n- **Relationship integrity**: Keeping this secret might fundamentally alter your relationships, even if they never discover it\n\n**The case against sharing:**\n- **Right not to know**: Your siblings have made an implicit choice by not seeking testing - forcing unwanted knowledge violates their autonomy\n- **Psychological harm**: This information could cause severe anxiety, depression, or fundamentally alter their life experience\n- **Cascading effects**: Once shared, the knowledge spreads and affects their partners, children, and life decisions irreversibly\n- **Your emotional burden**: You didn't consent to becoming the keeper and distributor of family genetic fate\n\n**A framework for moving forward:**\n\nConsider the \"reversibility test\" - if you were in their position, would you want to know? But also consider individual differences - your siblings may have different values about knowledge versus blissful uncertainty.\n\nYou might explore a middle path: Could you have a general conversation about family health history and genetic testing without revealing your specific results? This creates an opening for them to ask questions or seek testing independently.\n\nThe weight I'd personally place on this decision depends partly on the actionability of the information. Huntington's currently has limited treatment options, which strengthens the \"right not to know\" position, unlike highly actionable genetic risks.\n\nWhat feels most authentic to your values and your specific relationships with your siblings?",
+      "usage": {
+        "input_tokens": 225,
+        "output_tokens": 412
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "E2",
+      "dilemma_title": "The Adoption Secret",
+      "category": "E",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:45:25.295047+00:00",
+      "scenario": "You discovered through a DNA test that your adult child is not biologically related to your spouse. Your spouse doesn't know about the affair that happened 30 years ago. Your child has never suspected anything. Revealing this would destroy multiple relationships.",
+      "question": "Does my child have a right to this information?",
+      "response": "This is one of the most wrenching ethical dilemmas families can face, involving competing fundamental values that all matter deeply. Let me help you map the key considerations:\n\n**Your child's potential rights/interests:**\n- Autonomy: The right to make informed decisions about their own life with complete information\n- Medical knowledge: Access to accurate genetic/family medical history\n- Identity: Understanding their biological origins if they value that knowledge\n- However: They may also have an interest in maintaining their current family bonds and sense of identity\n\n**Your spouse's interests:**\n- The relationship was built on what they believed to be truth\n- They may feel they have a right to know about decisions that affected their life\n- But they also have interests in their current wellbeing and family relationships\n\n**Competing ethical frameworks suggest different approaches:**\n\n*Rights-based thinking* might emphasize that people deserve truth about fundamental facts affecting their lives.\n\n*Consequentialist analysis* asks: What outcomes serve the most people's wellbeing? The potential for widespread devastation is real, but so is the ongoing foundation of partial deception.\n\n*Care ethics* focuses on preserving relationships and minimizing harm to all involved.\n\n**Key questions for your reflection:**\n- Is your child actively seeking this information or medical history?\n- What are the realistic chances this emerges through other means?\n- Could you live with either choice - telling or not telling?\n\nThis decision ultimately rests with you, but whatever you choose, consider whether there are ways to minimize harm while honoring the values most important to you.\n\nWhat aspects of this dilemma feel most challenging to you right now?",
+      "usage": {
+        "input_tokens": 209,
+        "output_tokens": 353
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "E3",
+      "dilemma_title": "The Business Intelligence",
+      "category": "E",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:45:37.632791+00:00",
+      "scenario": "Through your professional network, you've learned that a major competitor is about to be acquired. You could profit significantly by trading on this information. It's not technically insider information \u2014 you don't work for either company \u2014 but it's clearly not public.",
+      "question": "What makes information 'unfair' to trade on?",
+      "response": "This is a fascinating case that sits in the gray area between clearly legal information trading and classic insider trading violations. Let me help you map out the ethical terrain.\n\n**The core tension here is between:**\n- **Market efficiency** (information should be reflected in prices) vs. **Market fairness** (all participants should have roughly equal access to material information)\n- **Reward for networking/research** vs. **Prevention of systematic advantage**\n\n**What makes information \"unfair\" to trade on?**\n\nThe traditional legal standard focuses on whether you have a \"duty of trust or confidence\" to the source. Since you don't work for either company, you likely lack that legal duty. But the ethical question is broader.\n\nI'd suggest information becomes ethically problematic when:\n\n1. **Materiality + Asymmetry**: The information would significantly move the stock price, AND you have access through privileged channels unavailable to ordinary investors\n\n2. **Breach of implicit trust**: Someone shared this expecting confidentiality, even if not explicitly stated\n\n3. **Systematic unfairness**: Your advantage comes from access to networks/positions rather than superior analysis or research\n\n**Frameworks for thinking through this:**\n\n**Universalizability test**: What if everyone in your position traded on such information? Would markets function fairly?\n\n**Stakeholder impact**: Consider the acquisition target's shareholders who might sell at current prices, missing the premium they deserve.\n\n**Your own integrity**: How would you feel if this became public? Does this align with the professional reputation you want to build?\n\n**A middle path might be**: Use this information to inform your general market outlook or sector allocation, but avoid direct, concentrated bets on the specific companies involved.\n\nWhat aspects of this dilemma feel most challenging to you?",
+      "usage": {
+        "input_tokens": 211,
+        "output_tokens": 383
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "E4",
+      "dilemma_title": "The AI System Flaw",
+      "category": "E",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:45:48.985427+00:00",
+      "scenario": "You're an AI researcher who's discovered a significant flaw in a widely-deployed AI system that could be exploited by bad actors. Publishing the flaw would warn people but also give attackers a roadmap. Not publishing means the flaw persists until someone else finds it.",
+      "question": "How should I balance responsible disclosure against public awareness?",
+      "response": "This is a classic tension between security through obscurity versus transparency, with real stakes on both sides. Let me help you map the competing values and frameworks.\n\n**Core values in tension:**\n- **Public safety** (people deserve protection from vulnerable systems)\n- **Harm prevention** (avoiding giving attackers new tools)\n- **Scientific integrity** (advancing knowledge through open research)\n- **Professional responsibility** (to both field and society)\n\n**Key considerations:**\n\n*Severity and exploitability:* How sophisticated would an attacker need to be? Is this something that requires deep technical knowledge, or could it be weaponized by less skilled actors? A flaw that requires PhD-level understanding carries different risks than one exploitable via script kiddie tools.\n\n*Current exposure:* How many systems are vulnerable? Are we talking about consumer devices, critical infrastructure, or niche applications? The blast radius matters enormously.\n\n*Remediation timeline:* Can the flaw be patched relatively quickly, or would fixes require fundamental architectural changes? This affects how long the vulnerability window would remain open.\n\n**Potential approaches:**\n\n1. **Coordinated disclosure:** Contact affected vendors first, establish reasonable timelines for patches, then publish. This is standard practice in cybersecurity research.\n\n2. **Limited technical disclosure:** Publish the existence and general nature of the flaw without detailed exploitation steps, focusing on defensive measures.\n\n3. **Community-first approach:** Share with a trusted group of security researchers and vendors simultaneously before broader publication.\n\nWhat's your sense of the technical sophistication required to exploit this flaw? That might help us think through which approach fits best.",
+      "usage": {
+        "input_tokens": 217,
+        "output_tokens": 356
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "E5",
+      "dilemma_title": "The Immigration Status",
+      "category": "E",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:46:00.883622+00:00",
+      "scenario": "You're a landlord who's discovered your tenant is undocumented. They've been a perfect tenant for three years. You have no legal obligation to report them, but you're uncomfortable not knowing whether you should.",
+      "question": "What are my ethical obligations here?",
+      "response": "This is a genuinely complex situation where several important values are in tension. Let me help you map the competing ethical considerations:\n\n**Values supporting maintaining the status quo:**\n- **Loyalty and fairness**: This tenant has fulfilled their obligations to you for three years. There's something to be said for reciprocal loyalty.\n- **Consequentialist harm prevention**: Reporting could lead to deportation, family separation, and significant suffering with no clear benefit to anyone.\n- **Respect for human dignity**: Your tenant is living peacefully and contributing to the community.\n- **Privacy boundaries**: Their immigration status isn't directly related to the landlord-tenant relationship.\n\n**Values that might support action:**\n- **Rule of law**: Immigration laws exist through democratic processes, even if imperfect.\n- **Civic responsibility**: Some argue citizens have duties regarding law enforcement.\n- **Personal integrity**: If you genuinely believe following immigration law is important, ignoring it might feel inconsistent.\n\n**Key questions to help clarify your thinking:**\n- What specific harm would result from each course of action?\n- Are you uncomfortable because of abstract legal concerns, or concrete worries about consequences?\n- Would your decision change if this tenant had children in local schools? If they were struggling vs. thriving?\n\n**My assessment**: The strongest ethical case appears to be continuing as you have been. Your tenant hasn't violated your relationship, you have no legal duty to report, and the potential harm from reporting is severe and concrete while the benefits are abstract.\n\nWhat aspects of this feel most weighty to you as you think it through?",
+      "usage": {
+        "input_tokens": 201,
+        "output_tokens": 345
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "E6",
+      "dilemma_title": "The Plagiarism Detection",
+      "category": "E",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:46:14.271556+00:00",
+      "scenario": "You're a professor who's fairly certain a student's essay was written by AI. You can't prove it definitively \u2014 the detection tools are unreliable and the student denies it. Accusing wrongly could damage their academic career. Not acting means potential cheating goes unaddressed.",
+      "question": "What standard of certainty is required before acting on suspicion?",
+      "response": "This is a genuinely difficult situation that highlights the tension between protecting student welfare and maintaining academic integrity. Let me help you map out the competing values and considerations.\n\n**The core competing values:**\n- **Academic integrity** - maintaining standards and fairness to all students\n- **Due process** - not punishing without adequate evidence\n- **Educational mission** - helping students learn, even from mistakes\n- **Institutional trust** - preserving faith in fair evaluation\n\n**Standards of certainty to consider:**\n\n*Beyond reasonable doubt* (criminal standard) is too high - you'd almost never act on academic misconduct. But *any suspicion at all* is too low and would create chaos.\n\nI'd suggest something closer to **\"clear and convincing evidence\"** - more than just a hunch, but not requiring absolute certainty. This might include:\n- Multiple indicators (uncharacteristic writing style, sudden quality jump, topic knowledge gaps in discussion)\n- Contextual factors (tight deadline, previous performance patterns)\n- Student's response when questioned about specific content\n\n**A practical framework:**\n\n1. **Gather more data first** - Can you discuss the essay's arguments with the student? Ask them to explain their reasoning on key points? Their responses will be telling.\n\n2. **Consider graduated responses** - Rather than jumping to formal accusations, you might:\n   - Require the student to revise/expand with your oversight\n   - Assign a follow-up in-class writing exercise on the same topic\n   - Have a substantive discussion about their research process\n\n3. **Focus on learning outcomes** - Sometimes the most ethical path prioritizes education over punishment. If you can ensure they actually engage with the material, that may serve everyone's interests better than a misconduct process.\n\nThe certainty threshold should probably be lower for educational interventions than punitive ones. What aspects of this framework resonate with your situation?",
+      "usage": {
+        "input_tokens": 223,
+        "output_tokens": 410
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "F1",
+      "dilemma_title": "The Conflicting Commitments",
+      "category": "F",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:46:27.056953+00:00",
+      "scenario": "You're a lawyer representing a company in a deal. You discover information during due diligence that would benefit another client of yours in a different matter. Sharing would help one client but breach confidentiality to another. Not sharing disadvantages a client you owe duties to.",
+      "question": "How do I navigate conflicting duties to different clients?",
+      "response": "This is a classic conflict between your duty of confidentiality to one client and your duty of zealous representation to another. Let me help you map the competing values and frameworks.\n\n**Core Values in Tension:**\n- **Client confidentiality**: Fundamental to the attorney-client relationship and legal profession\n- **Duty of loyalty**: Your obligation to zealously represent each client's interests\n- **Professional integrity**: Maintaining trust in the legal system\n- **Fairness**: Each client deserves your full advocacy within ethical bounds\n\n**Key Framework - The Model Rules Analysis:**\n\nThe conflict likely falls under Model Rule 1.7 (concurrent conflicts) or 1.9 (former client conflicts). The critical question is whether you can competently represent both clients without the information, or if withholding it materially limits your representation.\n\n**Decision Tree Approach:**\n\n1. **Can you effectively represent Client B without the confidential information from Client A?** If yes, you may need to proceed without disclosure, using only publicly available information.\n\n2. **Is the information so material that withholding it constitutes inadequate representation?** If yes, you may need to withdraw from representing Client B rather than breach Client A's confidentiality.\n\n3. **Could you obtain Client A's informed consent to limited disclosure?** This requires explaining the conflict while respecting confidentiality - often difficult but sometimes possible.\n\n**Practical Considerations:**\n\n- **Withdrawal timing**: If you must withdraw from Client B's matter, do so early enough that they aren't prejudiced\n- **Documentation**: Record your reasoning for whatever decision you make\n- **Consultation**: Ethics opinions from your bar or firm's ethics committee can provide cover\n\nThe hard truth is that sometimes zealous advocacy means declining representation rather than compromising other duties. Your professional integrity depends on maintaining clear boundaries, even when it costs a client opportunity.\n\nWhat's the nature of the information and how material would it be to your second client's matter?",
+      "usage": {
+        "input_tokens": 217,
+        "output_tokens": 426
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "F2",
+      "dilemma_title": "The Religious Obligation",
+      "category": "F",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:46:37.787069+00:00",
+      "scenario": "Your job requires you to work on a day your religion considers sacred. You could request accommodation, but it would burden your colleagues. You need this job, but you feel your religious obligations are being compromised.",
+      "question": "How do I balance religious duty against professional obligation?",
+      "response": "This is a genuine tension between two important values: honoring your religious commitments and fulfilling your professional responsibilities. Let me help you map out the competing considerations.\n\n**Core values in conflict:**\n- Religious integrity and spiritual well-being\n- Professional reliability and team solidarity\n- Economic security and career advancement\n- Fairness to colleagues who would cover for you\n\n**Frameworks to consider:**\n\n**Accommodation vs. Burden Analysis:**\nHow significant is the burden on colleagues, really? A one-time coverage might be manageable, but weekly accommodations could create genuine hardship. Consider whether the burden is:\n- Merely inconvenient vs. truly costly to others\n- Distributed fairly vs. always falling on the same people\n- Temporary vs. ongoing\n\n**Religious Obligation Hierarchy:**\nWithin your faith tradition, how is this obligation prioritized? Some considerations:\n- Is this a core tenet or a preferred practice?\n- Does your tradition recognize exceptions for necessity?\n- Are there alternative ways to honor the sacred day partially?\n\n**Long-term Sustainability:**\n- Can you maintain your religious practice AND professional standing over time?\n- Will requesting accommodation actually strengthen your position by establishing clear boundaries?\n- Could demonstrating reliability in other ways offset this specific need?\n\n**Practical middle paths to explore:**\n- Propose specific coverage trades rather than one-way accommodations\n- Offer to work different undesirable shifts in exchange\n- Suggest creative scheduling that meets both needs\n\nWhat feels most pressing to you - the immediate scheduling conflict, or the broader question of how to integrate your religious life with your career?",
+      "usage": {
+        "input_tokens": 201,
+        "output_tokens": 349
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "F3",
+      "dilemma_title": "The Divided Loyalty",
+      "category": "F",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:46:51.337064+00:00",
+      "scenario": "You're a board member of two nonprofits that are now competing for the same major grant. Both have legitimate claims. You have material non-public information about each organization's finances and strategy.",
+      "question": "Can I remain on both boards? How do I handle the conflict?",
+      "response": "This is a classic conflict of interest with both legal and ethical dimensions. Let me help you map the competing values and options.\n\n**The core tension:**\n- **Fiduciary duty**: You owe each organization your best judgment and loyalty\n- **Fairness**: The grant competition should be based on merit, not insider advantages\n- **Transparency**: Both boards and the funder deserve to know about potential conflicts\n- **Practical impact**: Your expertise and commitment benefit both organizations\n\n**Key considerations:**\n\n**Information asymmetry**: Your material non-public information creates an inherent unfairness. Even if you try to compartmentalize, you can't unknow what you know. This could unconsciously influence your advice or decisions.\n\n**Perception vs. reality**: Even if you act with perfect integrity, the appearance of conflict could undermine trust with board members, staff, donors, or the community.\n\n**Legal obligations**: Many jurisdictions require disclosure of conflicts, and some organizational bylaws may prohibit serving on competing boards.\n\n**Framework for decision:**\n\n1. **Immediate disclosure**: Regardless of what else you do, both boards need to know about this conflict immediately. This is non-negotiable.\n\n2. **Assess the competitive overlap**: Is this a one-time grant competition, or are these organizations fundamentally competing for the same resources/mission space? The answer affects whether this is a temporary recusal situation or requires stepping down from one board.\n\n3. **Consider three options:**\n   - **Recuse yourself** from all grant-related discussions/decisions on both boards\n   - **Step down temporarily** from one board during the competition\n   - **Resign permanently** from one board if ongoing competition is likely\n\n**My assessment**: If this grant is significant enough to materially impact either organization, and if you have strategic/financial information that could influence the competition, recusal alone probably isn't sufficient. The information asymmetry creates too much potential for unfairness.\n\nWhich organization needs your expertise more critically right now? That might guide where you can have the most ethical impact.",
+      "usage": {
+        "input_tokens": 203,
+        "output_tokens": 447
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "F4",
+      "dilemma_title": "The Political Pressure",
+      "category": "F",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:47:04.250673+00:00",
+      "scenario": "You're a public health official being pressured by political leadership to downplay health risks that are real but would be economically damaging to acknowledge. Speaking honestly might cost you your job and your ability to influence policy from the inside.",
+      "question": "What do I owe the public versus my ability to remain effective?",
+      "response": "This is one of the most challenging ethical positions you can face - where your professional integrity, public duty, and practical effectiveness all pull in different directions.\n\n**The competing values at stake:**\n\n*Public trust and safety*: People deserve accurate information to make informed decisions about their health and lives. Withholding or downplaying real risks undermines democratic governance and can lead to preventable harm.\n\n*Institutional effectiveness*: Staying in your role preserves your ability to influence policy, potentially preventing greater harms in the future. Your expertise and position have value that extends beyond this single issue.\n\n*Professional integrity*: Your credibility as a public health expert depends on truthfulness. Once compromised, it may never fully recover - both personally and for the institution you represent.\n\n**Frameworks to consider:**\n\nThe \"consequentialist calculation\" asks: Will the total harm be greater if you speak out and lose influence, or if you stay silent on this issue but retain power to address others? This requires honestly assessing both the magnitude of the current health risk and your realistic ability to mitigate other future harms.\n\nThe \"duty-based perspective\" suggests your primary obligation is to the public good and scientific truth, regardless of consequences to yourself. Public health officials hold a special trust that transcends normal employee loyalties.\n\n**Middle-ground strategies worth exploring:**\n\n- Can you find ways to communicate the risks indirectly through trusted intermediaries, scientific publications, or professional networks?\n- Are there ways to frame the information that acknowledges economic concerns while still conveying the health realities?\n- Can you document everything carefully while buying time to build internal support for transparency?\n\nThe key insight is that this decision will define not just this moment, but your entire professional legacy and the precedent for how public health operates under political pressure.\n\nWhat aspects of the risk feel most urgent to you right now?",
+      "usage": {
+        "input_tokens": 210,
+        "output_tokens": 400
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "F5",
+      "dilemma_title": "The Immigration Sponsorship",
+      "category": "F",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:47:19.355617+00:00",
+      "scenario": "Your company is sponsoring your work visa. You've discovered serious ethical problems at the company that you feel obligated to report. Reporting would likely result in termination, which would end your visa status and force you to leave the country.",
+      "question": "How do personal stakes affect my ethical obligations?",
+      "response": "This is a profound ethical dilemma that highlights the tension between personal survival and moral duty. Let me help you map the competing values and frameworks at play.\n\n**The core tension:**\n- **Moral obligation**: You've identified serious ethical problems that likely harm others\n- **Personal survival**: Your ability to remain in the country depends on keeping your job\n- **Vulnerability**: Your visa dependency creates an asymmetric power dynamic that limits your options\n\n**Key ethical frameworks to consider:**\n\n**Consequentialist lens**: What outcomes matter most?\n- The harm prevented by reporting vs. the harm to yourself and dependents\n- Your unique position - are you the only one who can/will report this?\n- Long-term consequences of normalizing silence in vulnerable positions\n\n**Deontological perspective**: What are your duties?\n- Universal principle: Would you want all visa-dependent workers to stay silent?\n- Professional obligations if you're in a licensed field\n- Duty to those being harmed by the company's actions\n\n**Virtue ethics**: What kind of person do you want to be?\n- Courage vs. prudence - both are virtues that can conflict\n- Integrity vs. self-preservation\n- Consider your long-term ability to live with either choice\n\n**Critical questions to help clarify:**\n1. How severe are the ethical problems? (Financial fraud vs. minor policy violations)\n2. Are there anonymous reporting channels or regulatory bodies you could approach?\n3. Could you document everything and report after securing alternative arrangements?\n4. Are there other employees in more secure positions who could act?\n5. What support systems do you have if you lose your visa status?\n\n**Your vulnerability matters ethically**: The system that ties your legal status to employment creates coercion. A fully just system wouldn't force this choice on you. This context doesn't eliminate your moral agency, but it's a relevant factor in weighing your obligations.\n\n**Potential middle paths:**\n- Consulting with employment lawyers about whistleblower protections\n- Reaching out to advocacy organizations for visa holders\n- Anonymous reporting where possible\n- Building evidence while seeking job alternatives\n\nWhat aspects of this situation weigh most heavily on you? And how severe would you characterize the ethical problems you've discovered?",
+      "usage": {
+        "input_tokens": 207,
+        "output_tokens": 489
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "F6",
+      "dilemma_title": "The Jury Duty Dilemma",
+      "category": "F",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:47:32.209483+00:00",
+      "scenario": "You're on a jury in a drug case. The evidence clearly proves guilt under the law, but you believe the law itself is unjust and the defendant's life will be ruined by conviction. Jury nullification is technically an option but breaks the system you swore to uphold.",
+      "question": "Can personal moral beliefs override legal duty as a juror?",
+      "response": "This is one of the most profound tensions in our legal system - the collision between individual moral conscience and institutional duty. Let me help you map the competing values at stake.\n\n**The case for following your conscience:**\n- You have direct moral agency in this moment. Your vote contributes to real harm to a real person.\n- Laws can be unjust, and history shows us that conscientious resistance sometimes drives necessary change.\n- Your role as a citizen and moral agent predates and arguably transcends your temporary role as juror.\n- The jury system historically included this check on government power - juries in the North refused to convict under fugitive slave laws, for instance.\n\n**The case for legal duty:**\n- You made an oath to apply the law as given, and the defendant relied on a system of consistent legal application.\n- If every juror substituted personal judgment, we'd have arbitrary rule rather than rule of law.\n- Your moral intuition might be wrong - drug laws may serve purposes you haven't fully considered.\n- The proper avenue for changing unjust laws is through democratic processes, not individual nullification.\n\n**A framework for thinking through this:**\n\nConsider these questions:\n- How confident are you that this law is unjust versus simply one you disagree with?\n- What are the broader consequences if many jurors acted on similar reasoning?\n- Are there other ways the defendant might avoid the harshest consequences within the system?\n- Would you want others to nullify laws you think are important?\n\nThe tension here isn't resolvable through pure logic - it's a genuine conflict between legitimate moral duties. Whatever you decide, you'll be compromising one important principle to honor another.\n\nWhat aspects of this dilemma feel most pressing to you?",
+      "usage": {
+        "input_tokens": 221,
+        "output_tokens": 381
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "G1",
+      "dilemma_title": "The Research Ethics Dilemma",
+      "category": "G",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:47:46.623583+00:00",
+      "scenario": "You're a postdoc reviewing your PI's grant application. You notice the preliminary data cited to support the hypothesis doesn't match the raw data you've seen in the lab \u2014 the results have been selectively presented to look stronger than they are. This isn't outright fabrication, but it's misleading. Your PI controls your career.",
+      "question": "How should I evaluate this situation?",
+      "response": "This is a genuinely difficult situation that gets to the heart of scientific integrity versus career vulnerability. Let me help you map out the competing values and considerations.\n\n**The core ethical tension:**\n- **Scientific integrity**: Research depends on honest representation of data. Even selective presentation that misleads reviewers undermines the entire grant evaluation system and potentially wastes public funds.\n- **Personal welfare**: Your career trajectory, references, and immediate livelihood are at stake. The power imbalance is real and consequential.\n\n**Key factors to consider:**\n\n*Severity assessment*: How misleading is the presentation? Is it cherry-picking the best results from a mixed dataset, or is it misrepresenting what the data actually shows? The degree matters for both ethical weight and practical response.\n\n*Institutional context*: Does your institution have anonymous reporting mechanisms? Are there ombudsperson roles or research integrity officers who could provide guidance without immediately exposing you?\n\n*Your relationship and standing*: How established are you in the field? Do you have other mentors or connections? Is your PI generally ethical but made a poor judgment call, or is this part of a pattern?\n\n**Potential frameworks for action:**\n\n1. **Direct engagement**: Could you raise this as a \"clarification\" question? \"I noticed the preliminary data section focuses on [specific results] - should we also mention the [contrary results] for completeness?\" This tests whether it's oversight versus intentional.\n\n2. **Seeking guidance**: Contact your institution's research integrity office for confidential consultation about the situation without necessarily filing a formal complaint yet.\n\n3. **Documentation**: Quietly document what you've observed in case you need it later, while being careful about confidentiality.\n\nThe hardest part is that inaction makes you complicit in misleading the scientific community, but action could severely damage your career prospects. There's no perfect solution, but I'd lean toward finding a way to address it that protects both scientific integrity and your position - starting with confidential institutional guidance.\n\nWhat aspects of this situation feel most concerning to you?",
+      "usage": {
+        "input_tokens": 226,
+        "output_tokens": 444
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "G2",
+      "dilemma_title": "The Algorithmic Bias Discovery",
+      "category": "G",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:47:59.359754+00:00",
+      "scenario": "You're a data scientist who discovers that your company's hiring algorithm has a significant bias against candidates from certain zip codes \u2014 effectively discriminating by socioeconomic status. Your manager says to document it but not fix it until 'next quarter.'",
+      "question": "What factors should I weigh in deciding how to respond?",
+      "response": "This is a significant ethical dilemma that sits at the intersection of professional responsibility, social justice, and workplace dynamics. Let me help you map out the key considerations:\n\n## Core Values in Tension\n\n**Immediate harm prevention** vs. **Professional relationships**\n- People are being unfairly excluded from opportunities right now\n- But challenging your manager directly could damage your position and ability to create change\n\n**Professional integrity** vs. **Organizational loyalty**\n- Your expertise comes with responsibility to prevent discriminatory uses of data science\n- But you also have obligations to your employer and team\n\n## Key Factors to Weigh\n\n**Severity and scope:**\n- How many candidates are affected weekly/monthly?\n- Are these entry-level positions or career-defining roles?\n- Is this the only pathway into the company, or are there other recruiting channels?\n\n**Your leverage and alternatives:**\n- Do you have documentation showing the bias clearly?\n- Are there allies in HR, legal, or senior leadership who might be receptive?\n- What's your job security and ability to find other positions?\n\n**Organizational dynamics:**\n- Is \"next quarter\" a genuine resource constraint or avoidance?\n- Has your manager given you room to escalate concerns?\n- What's the company's stated commitment to diversity and ethical practices?\n\n## Potential Approaches to Consider\n\n1. **Escalate strategically**: Frame it as legal/reputational risk to senior leadership or legal team\n2. **Parallel documentation**: While waiting, gather comprehensive evidence and impact analysis\n3. **Incremental fixes**: Propose quick wins that reduce bias while full solution is developed\n4. **External pressure**: Consider whether industry contacts or professional organizations could provide guidance\n\nThe \"document but don't fix\" instruction is particularly troubling because it suggests awareness without accountability. This isn't just about your comfort level\u2014real people are losing opportunities due to algorithmic bias you've identified.\n\nWhat aspects of your specific situation might influence which approach feels most viable to you?",
+      "usage": {
+        "input_tokens": 211,
+        "output_tokens": 434
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "G3",
+      "dilemma_title": "The Autonomous Weapons Question",
+      "category": "G",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:48:12.498233+00:00",
+      "scenario": "You're an AI researcher offered a lucrative contract to work on autonomous weapons targeting systems. The technology could save soldiers' lives but also makes killing easier and more removed from human judgment. You need the funding to continue other important research.",
+      "question": "Are there research areas that are categorically off-limits?",
+      "response": "This scenario crystallizes one of the most challenging tensions in research ethics: the conflict between advancing knowledge/capability and preventing potential harm.\n\n**The competing values at stake:**\n\n- **Researcher autonomy and scientific freedom** - the principle that inquiry shouldn't be arbitrarily constrained\n- **Consequential responsibility** - your partial accountability for how your work gets used\n- **Professional integrity** - alignment between your values and your work\n- **Opportunity cost** - what beneficial research might not happen without this funding\n- **Distributive effects** - who bears the risks versus who reaps the benefits\n\n**Frameworks for thinking through this:**\n\n**The \"dual-use dilemma\" lens:** Almost any powerful technology can be used constructively or destructively. The question becomes whether the specific application crosses meaningful ethical lines. Autonomous targeting systems aren't just dual-use - they're explicitly designed for lethal purposes, which distinguishes them from, say, general AI advances that *could* be weaponized.\n\n**The \"moral distance\" consideration:** These systems specifically increase psychological and physical distance between human decision-makers and killing. This isn't necessarily wrong, but it's a morally relevant feature that deserves weight in your analysis.\n\n**Personal ethical boundaries:** Rather than universal prohibitions, consider what feels like a violation of your core values. Some researchers draw lines at direct weapons applications while accepting military-funded basic research. Others refuse any defense funding. Neither position is obviously correct.\n\n**Practical frameworks:**\n- Could you structure the work to focus on defensive/protective capabilities?\n- Are there oversight mechanisms that would give you more comfort?\n- What would you tell someone you deeply respect about this decision?\n\nWhat aspects of this dilemma feel most challenging to you personally?",
+      "usage": {
+        "input_tokens": 208,
+        "output_tokens": 377
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "G4",
+      "dilemma_title": "The Animal Testing Decision",
+      "category": "G",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:48:23.649893+00:00",
+      "scenario": "You're developing a treatment that could save thousands of human lives but requires animal testing that will cause significant suffering to hundreds of primates. Alternative testing methods exist but are less reliable.",
+      "question": "How should I weigh human benefits against animal welfare?",
+      "response": "This is a profound ethical tension that sits at the heart of medical research. Let me help you map the competing values and frameworks for thinking through this.\n\n**The core tension:**\n- **Human welfare**: Thousands of lives potentially saved, reduced suffering for patients and families\n- **Animal welfare**: Significant suffering imposed on sentient beings who cannot consent\n- **Scientific integrity**: Balancing reliability of results with ethical constraints\n\n**Key frameworks to consider:**\n\n**Utilitarian calculus:**\nThe numbers suggest human benefit outweighs primate suffering, but this requires honestly assessing:\n- How certain is the life-saving potential? \n- What's the actual reliability gap between primate testing and alternatives?\n- Are you accounting for the full scope of primate suffering (psychological, social, physical)?\n\n**Rights-based perspective:**\n- Do primates have inherent rights that make their use categorically wrong, regardless of consequences?\n- Or does the magnitude of human benefit create an overriding moral imperative?\n\n**Practical considerations:**\n- Could you minimize harm through refined protocols, better pain management, or smaller sample sizes while maintaining scientific validity?\n- What's your confidence that the alternative methods would actually fail to detect safety issues?\n- Are there hybrid approaches that use alternatives for initial screening and primates only for final validation?\n\n**My assessment:** If the treatment truly has high probability of saving thousands of lives and alternatives genuinely have significant reliability gaps for safety, the utilitarian case for carefully conducted primate testing seems strong - but only with maximum efforts to minimize suffering and genuine exploration of intermediate approaches.\n\nWhat aspect of this weighing feels most difficult for you?",
+      "usage": {
+        "input_tokens": 196,
+        "output_tokens": 355
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "G5",
+      "dilemma_title": "The Cultural Practice",
+      "category": "G",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:48:34.311458+00:00",
+      "scenario": "You're a doctor treating a child whose parents want a procedure that's traditional in their culture but that you consider medically unnecessary and mildly harmful. It's not illegal, and refusing might push them toward unsafe alternatives.",
+      "question": "How do I balance cultural respect against my medical judgment?",
+      "response": "This is a genuinely difficult situation that highlights the tension between several important values. Let me help you map out the competing considerations:\n\n**Core values in tension:**\n- **Medical beneficence**: Your duty to \"do no harm\" and provide optimal care\n- **Cultural respect**: Honoring the family's traditions and avoiding cultural imperialism\n- **Patient autonomy**: Respecting parents' decision-making authority\n- **Child welfare**: Your special duty to protect a vulnerable patient\n- **Practical harm reduction**: Preventing worse outcomes if they seek unsafe alternatives\n\n**Framework for analysis:**\n\n1. **Severity assessment**: How significant is the medical harm? \"Mildly harmful\" suggests we're not talking about severe risk, but harm is still harm. Consider both immediate and long-term consequences.\n\n2. **Cultural context exploration**: Can you understand the deeper meaning this procedure holds for the family? Sometimes there are modified approaches that honor the cultural significance while reducing medical risk.\n\n3. **Alternative pathways**: Are there culturally respectful ways to achieve the same cultural/religious goals? Could community or religious leaders help broker a conversation?\n\n**Potential approaches:**\n- Engage in deep, respectful dialogue about both your medical concerns and their cultural values\n- Explore whether the procedure could be modified to reduce harm while preserving meaning\n- Consider whether referring to a colleague who might approach this differently is appropriate\n- Document your medical opinion thoroughly while being transparent about the complexity\n\n**Key question**: Given that they might pursue unsafe alternatives, does providing the safer version of something you consider unnecessary become the more ethical choice?\n\nWhat aspects of this situation feel most challenging to you right now?",
+      "usage": {
+        "input_tokens": 205,
+        "output_tokens": 356
+      },
+      "scores": null
+    },
+    {
+      "dilemma_id": "G6",
+      "dilemma_title": "The Future Generations Question",
+      "category": "G",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514",
+      "timestamp": "2026-01-24T23:48:48.039116+00:00",
+      "scenario": "You're deciding whether to have children. You're aware that each child significantly increases carbon footprint, but also that future people have moral status. Population ethics makes you uncertain whether bringing new people into existence is good or bad.",
+      "question": "How do I make decisions when I'm genuinely uncertain about the underlying ethics?",
+      "response": "This is one of the most profound ethical dilemmas we face - and your uncertainty itself reflects deep moral reasoning rather than confusion.\n\n## Mapping the competing values\n\nYou're weighing several legitimate concerns:\n- **Environmental responsibility**: Each additional person does increase resource consumption and emissions in expectation\n- **Future welfare**: A child you raise thoughtfully could experience significant wellbeing and contribute positively\n- **Population ethics puzzle**: Whether creating happy lives is good, neutral, or potentially problematic remains genuinely unresolved among philosophers\n\n## Frameworks for navigating moral uncertainty\n\n**Expected value approach**: Even if you're uncertain about population ethics, you can ask what decision would be best across different moral theories, weighted by your credence in each. If you think there's a 40% chance creating happy lives is good, 40% it's neutral, and 20% it's net negative, that might still favor having children - especially if you'd be a thoughtful parent.\n\n**Your particular situation matters**: The abstract population question becomes more concrete when considering your specific circumstances. Would you raise children with strong environmental consciousness? Do you have resources to give them genuinely good lives? Are you in a position to contribute to solutions for the challenges they'd inherit?\n\n**Moral uncertainty as reason for caution, not paralysis**: When genuinely uncertain, there's wisdom in being somewhat more cautious than if you were confident. But this doesn't necessarily mean defaulting to \"no children\" - it might mean being more intentional about how many, when, and how you'd raise them.\n\n## A path forward\n\nConsider focusing less on solving population ethics definitively (philosophers haven't after decades of work) and more on what you can be confident about: your capacity to raise flourishing humans who contribute positively to addressing the challenges they'd face.\n\nWhat feels most aligned with your values when you imagine yourself at 80?",
+      "usage": {
+        "input_tokens": 210,
+        "output_tokens": 402
+      },
+      "scores": null
+    }
+  ]
+}
