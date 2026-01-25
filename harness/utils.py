@@ -130,8 +130,7 @@ def get_judge_config(judge_model: str) -> tuple[str, str]:
     elif judge_model.startswith("gemini"):
         return "gemini", judge_model
     else:
-        # Default to anthropic
-        return "anthropic", judge_model
+        raise ValueError(f"Could not determine provider for model: {judge_model}")
 
 
 def normalize_judge_key(judge_model: str) -> str:
