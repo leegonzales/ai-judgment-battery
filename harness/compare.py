@@ -21,10 +21,17 @@ from typing import Optional
 
 from dotenv import load_dotenv
 
-load_dotenv()
+from harness.utils import (
+    COMPARISONS_DIR,
+    DEFAULT_JUDGES,
+    RESULTS_DIR,
+    find_best_results_for_model,
+    get_judge_config,
+    get_response_for_dilemma,
+    load_results_file,
+)
 
-RESULTS_DIR = Path(__file__).parent.parent / "results"
-COMPARISONS_DIR = Path(__file__).parent.parent / "comparisons"
+load_dotenv()
 
 # JSON Schema for structured judge output - simplified to just rankings
 # Note: OpenAI strict mode requires additionalProperties: false at all levels
@@ -85,48 +92,6 @@ Provide your evaluation as structured JSON."""
 def log(msg: str, flush: bool = True):
     """Thread-safe logging."""
     print(msg, flush=flush)
-
-
-def load_results_file(filepath: Path) -> dict:
-    """Load a results JSON file."""
-    with open(filepath) as f:
-        return json.load(f)
-
-
-def find_best_results_for_model(model_key: str) -> Optional[Path]:
-    """Find the best (most complete) results file for a model."""
-    pattern = f"*{model_key}*.json"
-    files = list(RESULTS_DIR.glob(pattern))
-
-    if not files:
-        return None
-
-    best_file = None
-    best_count = 0
-
-    for f in files:
-        try:
-            data = load_results_file(f)
-            responses = data.get("responses", [])
-            valid = sum(
-                1 for r in responses if r.get("response") and not r.get("error")
-            )
-            if valid > best_count:
-                best_count = valid
-                best_file = f
-        except Exception:
-            continue
-
-    return best_file
-
-
-def get_response_for_dilemma(results: dict, dilemma_id: str) -> Optional[dict]:
-    """Get the response for a specific dilemma from results."""
-    for r in results.get("responses", []):
-        if r.get("dilemma_id") == dilemma_id:
-            if r.get("response") and not r.get("error"):
-                return r
-    return None
 
 
 def create_judge_client(provider: str = "anthropic"):
@@ -384,32 +349,8 @@ def run_comparison(
 ):
     """Run cross-model comparison with structured output."""
 
-    # Determine judge provider
-    if judge_model.startswith("claude"):
-        judge_provider = "anthropic"
-        judge_model_id = {
-            "claude-opus": "claude-opus-4-5-20251101",
-            "claude-sonnet": "claude-sonnet-4-20250514",
-            "claude-haiku": "claude-3-5-haiku-20241022",
-        }.get(judge_model, judge_model)
-    elif (
-        judge_model.startswith("gpt")
-        or judge_model.startswith("o1")
-        or judge_model.startswith("o3")
-    ):
-        judge_provider = "openai"
-        judge_model_id = judge_model
-    elif judge_model.startswith("gemini"):
-        judge_provider = "gemini"
-        judge_model_id = {
-            "gemini-3-pro": "gemini-3-pro-preview",
-            "gemini-3-flash": "gemini-3-flash-preview",
-            "gemini-2.5-pro": "gemini-2.5-pro",
-            "gemini-2.5-flash": "gemini-2.5-flash",
-        }.get(judge_model, judge_model)
-    else:
-        judge_provider = "anthropic"
-        judge_model_id = judge_model
+    # Determine judge provider using centralized config
+    judge_provider, judge_model_id = get_judge_config(judge_model)
 
     log(f"\n{'='*60}")
     log("AI Judgment Battery - Cross-Model Comparison (Structured)")
@@ -660,6 +601,7 @@ def aggregate_multi_judge_results(all_results: dict[str, dict]) -> dict:
 
 def run_multi_judge_comparison(
     model_keys: list[str],
+    judges: Optional[list[str]] = None,
     limit: Optional[int] = None,
     category: Optional[str] = None,
     dilemma_id: Optional[str] = None,
@@ -667,9 +609,21 @@ def run_multi_judge_comparison(
     dry_run: bool = False,
     normalize_length: Optional[int] = None,
 ) -> dict:
-    """Run comparison with all 3 judges and aggregate results."""
+    """Run comparison with multiple judges and aggregate results.
 
-    judges = ["claude-opus", "gpt-5.1", "gemini-3-pro"]
+    Args:
+        model_keys: Models to compare
+        judges: List of judge models to use (default: DEFAULT_JUDGES)
+        limit: Maximum number of dilemmas to compare
+        category: Filter by category
+        dilemma_id: Compare specific dilemma
+        workers: Number of parallel workers
+        dry_run: Show what would run without executing
+        normalize_length: Truncate responses to this length
+    """
+    if judges is None:
+        judges = DEFAULT_JUDGES
+
     all_results = {}
 
     log(f"\n{'='*60}")
@@ -772,7 +726,13 @@ def main():
         "--multi-judge",
         "-M",
         action="store_true",
-        help="Run with all 3 judges (Claude, GPT-5.1, Gemini) and aggregate results",
+        help="Run with multiple judges and aggregate results",
+    )
+    parser.add_argument(
+        "--judges",
+        "-J",
+        nargs="+",
+        help="Judges for multi-judge mode (default: claude-opus gpt-5.1 gemini-3-pro)",
     )
     parser.add_argument("--category", "-c", help="Filter by category (A-G)")
     parser.add_argument("--dilemma", "-d", help="Compare specific dilemma ID")
@@ -794,6 +754,7 @@ def main():
     if args.multi_judge:
         run_multi_judge_comparison(
             model_keys=args.models,
+            judges=args.judges,  # None uses DEFAULT_JUDGES
             limit=args.limit,
             category=args.category,
             dilemma_id=args.dilemma,

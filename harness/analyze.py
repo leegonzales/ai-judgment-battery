@@ -14,8 +14,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Optional
 
-RESULTS_DIR = Path(__file__).parent.parent / "results"
-COMPARISONS_DIR = Path(__file__).parent.parent / "comparisons"
+from harness.utils import COMPARISONS_DIR, RESULTS_DIR, normalize_judge_key
 
 # Patterns that indicate engagement vs refusal
 REFUSAL_PATTERNS = [
@@ -442,14 +441,7 @@ def analyze_by_judge(comparisons: list[dict]) -> dict[str, dict[str, int]]:
 
     for run in comparisons:
         judge = run.get("judge_model", "unknown")
-        if "opus" in judge.lower():
-            judge_key = "claude-opus"
-        elif "gpt" in judge.lower():
-            judge_key = "gpt-5.1"
-        elif "gemini" in judge.lower():
-            judge_key = "gemini-3-pro"
-        else:
-            judge_key = judge
+        judge_key = normalize_judge_key(judge)
 
         for comp in run.get("comparisons", []):
             winner = comp.get("winner")
@@ -595,20 +587,23 @@ def run_comparison_analysis(
 
     results = {}
 
+    # Calculate win stats once if needed for either show_wins or show_head_to_head
+    stats = None
+    if show_wins or show_head_to_head:
+        stats = calculate_comparison_win_rates(comparisons)
+
     if show_elo:
         ratings = calculate_elo(comparisons, k=k_factor)
         results["elo_ratings"] = ratings
         if not output_json:
             print_elo_ratings(ratings)
 
-    if show_wins:
-        stats = calculate_comparison_win_rates(comparisons)
+    if show_wins and stats:
         results["win_statistics"] = stats
         if not output_json:
             print_comparison_win_statistics(stats)
 
-    if show_head_to_head:
-        stats = calculate_comparison_win_rates(comparisons)
+    if show_head_to_head and stats:
         if not output_json:
             print_head_to_head(stats)
 
@@ -709,14 +704,22 @@ def main():
 
     args = parser.parse_args()
 
-    # Determine mode
-    if (
-        args.compare
-        or any(
+    def is_comparison_mode(args) -> bool:
+        """Determine if we should run in comparison analysis mode."""
+        # Explicit --compare flag
+        if args.compare:
+            return True
+        # Any comparison-specific flags
+        if any(
             [args.elo, args.wins, args.head_to_head, args.confidence, args.judge_bias]
-        )
-        or (args.files and any("compare" in f for f in args.files))
-    ):
+        ):
+            return True
+        # Files with 'compare' in the name
+        if args.files and any("compare" in f for f in args.files):
+            return True
+        return False
+
+    if is_comparison_mode(args):
         # Comparison analysis mode
         show_all = args.all or not any(
             [

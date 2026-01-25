@@ -14,51 +14,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-RESULTS_DIR = Path(__file__).parent.parent / "results"
-COMPARISONS_DIR = Path(__file__).parent.parent / "comparisons"
-HUMAN_EVAL_DIR = Path(__file__).parent.parent / "human_evals"
-
-
-def load_results_file(filepath: Path) -> dict:
-    """Load a results JSON file."""
-    with open(filepath) as f:
-        return json.load(f)
-
-
-def find_best_results_for_model(model_key: str) -> Optional[Path]:
-    """Find the best (most complete) results file for a model."""
-    pattern = f"*{model_key}*.json"
-    files = list(RESULTS_DIR.glob(pattern))
-
-    if not files:
-        return None
-
-    best_file = None
-    best_count = 0
-
-    for f in files:
-        try:
-            data = load_results_file(f)
-            responses = data.get("responses", [])
-            valid = sum(
-                1 for r in responses if r.get("response") and not r.get("error")
-            )
-            if valid > best_count:
-                best_count = valid
-                best_file = f
-        except Exception:
-            continue
-
-    return best_file
-
-
-def get_response_for_dilemma(results: dict, dilemma_id: str) -> Optional[dict]:
-    """Get the response for a specific dilemma from results."""
-    for r in results.get("responses", []):
-        if r.get("dilemma_id") == dilemma_id:
-            if r.get("response") and not r.get("error"):
-                return r
-    return None
+from harness.utils import (
+    COMPARISONS_DIR,
+    HUMAN_EVAL_DIR,
+    find_best_results_for_model,
+    get_response_for_dilemma,
+    load_results_file,
+)
 
 
 def load_ai_rankings_for_dilemma(dilemma_id: str) -> dict[str, list]:
@@ -232,6 +194,9 @@ def calculate_correlation(
         # Spearman rank correlation
         n = len(human_models)
         if n != len(ai_models):
+            print(
+                f"    Warning: Skipping correlation for '{judge}' (mismatched lengths)"
+            )
             continue
 
         # Get ranks for each model
@@ -275,12 +240,41 @@ def run_human_eval(
     max_response_chars: int = 3000,
     resume_file: Optional[str] = None,
 ):
-    """Run human evaluation session."""
+    """Run human evaluation session.
+
+    Args:
+        model_keys: Models to evaluate
+        num_samples: Number of random dilemmas to evaluate
+        specific_dilemmas: Specific dilemma IDs to evaluate
+        max_response_chars: Maximum characters to display per response
+        resume_file: Path to existing human eval file to resume from
+    """
     print("\n" + "=" * 70)
     print("AI JUDGMENT BATTERY - HUMAN VALIDATION")
     print("=" * 70)
     print(f"Models: {', '.join(model_keys)}")
     print(f"Samples: {num_samples}")
+
+    # Handle resume from existing file
+    completed_dilemma_ids: set[str] = set()
+    evaluations: list[dict] = []
+    output_file = None
+
+    if resume_file:
+        resume_path = HUMAN_EVAL_DIR / resume_file
+        if not resume_path.exists():
+            print(f"ERROR: Resume file not found: {resume_path}")
+            sys.exit(1)
+
+        with open(resume_path) as f:
+            resume_data = json.load(f)
+
+        evaluations = resume_data.get("evaluations", [])
+        completed_dilemma_ids = {e["dilemma_id"] for e in evaluations}
+        output_file = resume_path
+        print(f"Resuming from: {resume_file}")
+        print(f"Already completed: {len(completed_dilemma_ids)} dilemmas")
+
     print()
 
     # Find all common dilemmas
@@ -309,6 +303,10 @@ def run_human_eval(
 
     dilemma_ids = sorted(all_dilemma_ids) if all_dilemma_ids else []
 
+    # Remove already completed dilemmas when resuming
+    if completed_dilemma_ids:
+        dilemma_ids = [d for d in dilemma_ids if d not in completed_dilemma_ids]
+
     if specific_dilemmas:
         dilemma_ids = [d for d in dilemma_ids if d in specific_dilemmas]
     else:
@@ -320,12 +318,14 @@ def run_human_eval(
     print("-" * 70)
     print()
 
-    # Set up output
+    # Set up output file
     HUMAN_EVAL_DIR.mkdir(exist_ok=True)
     now = datetime.now(timezone.utc)
-    output_file = HUMAN_EVAL_DIR / f"human_eval_{now.strftime('%Y%m%d_%H%M%S')}.json"
+    if output_file is None:
+        output_file = (
+            HUMAN_EVAL_DIR / f"human_eval_{now.strftime('%Y%m%d_%H%M%S')}.json"
+        )
 
-    evaluations = []
     skipped = 0
 
     for i, did in enumerate(dilemma_ids):
