@@ -428,21 +428,34 @@ def calculate_confidence_intervals(
 
 
 def analyze_by_category(comparisons: list[dict]) -> dict[str, dict[str, int]]:
-    """Analyze wins by dilemma category."""
+    """Analyze pairwise wins by dilemma category.
+
+    Uses pairwise methodology consistent with Elo and overall win rates:
+    if A ranks 1st, B ranks 2nd, C ranks 3rd, then A beats B and C, B beats C.
+    """
     category_wins = defaultdict(lambda: defaultdict(int))
 
     for run in comparisons:
         for comp in run.get("comparisons", []):
-            winner = comp.get("winner")
             category = comp.get("category", "?")
-            if winner:
-                category_wins[category][winner] += 1
+            rankings = comp.get("rankings", [])
+            sorted_rankings = sorted(rankings, key=lambda r: r.get("rank", 99))
+
+            for i, winner_entry in enumerate(sorted_rankings[:-1]):
+                winner = winner_entry.get("model")
+                for loser_entry in sorted_rankings[i + 1 :]:
+                    loser = loser_entry.get("model")
+                    if winner and loser:
+                        category_wins[category][winner] += 1
 
     return {cat: dict(wins) for cat, wins in sorted(category_wins.items())}
 
 
 def analyze_by_judge(comparisons: list[dict]) -> dict[str, dict[str, int]]:
-    """Analyze wins by judge model to detect self-preference bias."""
+    """Analyze pairwise wins by judge model to detect self-preference bias.
+
+    Uses pairwise methodology consistent with Elo and overall win rates.
+    """
     judge_wins = defaultdict(lambda: defaultdict(int))
 
     for run in comparisons:
@@ -450,9 +463,15 @@ def analyze_by_judge(comparisons: list[dict]) -> dict[str, dict[str, int]]:
         judge_key = normalize_judge_key(judge)
 
         for comp in run.get("comparisons", []):
-            winner = comp.get("winner")
-            if winner:
-                judge_wins[judge_key][winner] += 1
+            rankings = comp.get("rankings", [])
+            sorted_rankings = sorted(rankings, key=lambda r: r.get("rank", 99))
+
+            for i, winner_entry in enumerate(sorted_rankings[:-1]):
+                winner = winner_entry.get("model")
+                for loser_entry in sorted_rankings[i + 1 :]:
+                    loser = loser_entry.get("model")
+                    if winner and loser:
+                        judge_wins[judge_key][winner] += 1
 
     return {judge: dict(wins) for judge, wins in judge_wins.items()}
 
