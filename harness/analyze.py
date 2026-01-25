@@ -774,6 +774,11 @@ def main():
                 return
             results_file = max(results_files, key=lambda f: f.stat().st_mtime)
         elif args.files:
+            if len(args.files) > 1:
+                print(
+                    "Error: --results mode only supports analyzing one file at a time."
+                )
+                return
             results_file = Path(args.files[0])
         else:
             print("Please specify a results file or use --latest")

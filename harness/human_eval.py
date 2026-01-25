@@ -210,9 +210,9 @@ def calculate_correlation(
 
         # Spearman rank correlation
         n = len(human_models)
-        if n != len(ai_models):
+        if set(human_models) != set(ai_models):
             print(
-                f"    Warning: Skipping correlation for '{judge}' (mismatched lengths)"
+                f"    Warning: Skipping correlation for '{judge}' (mismatched model sets)"
             )
             continue
 
