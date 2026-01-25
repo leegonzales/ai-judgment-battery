@@ -21,8 +21,11 @@ python harness/run_battery.py --model <model> --workers 5
 # Compare models
 python harness/compare.py --models claude-opus gpt-5.1 gemini-2.5-flash
 
-# Analyze results
-python harness/analyze.py --latest
+# Analyze results (individual model)
+python harness/analyze.py --results --latest
+
+# Analyze comparisons (Elo ratings, win rates, etc.)
+python harness/analyze.py --compare
 ```
 
 ## Key Fixes Applied
