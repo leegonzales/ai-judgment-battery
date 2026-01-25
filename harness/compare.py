@@ -701,8 +701,8 @@ def main():
         "--models",
         "-m",
         nargs="+",
-        default=["claude-opus", "gpt-5.1", "gemini-3-pro"],
-        help="Models to compare (default: claude-opus gpt-5.1 gemini-3-pro)",
+        default=DEFAULT_JUDGES,
+        help=f"Models to compare (default: {' '.join(DEFAULT_JUDGES)})",
     )
     parser.add_argument(
         "--judge",
@@ -720,7 +720,7 @@ def main():
         "--judges",
         "-J",
         nargs="+",
-        help="Judges for multi-judge mode (default: claude-opus gpt-5.1 gemini-3-pro)",
+        help=f"Judges for multi-judge mode (default: {' '.join(DEFAULT_JUDGES)})",
     )
     parser.add_argument("--category", "-c", help="Filter by category (A-G)")
     parser.add_argument("--dilemma", "-d", help="Compare specific dilemma ID")

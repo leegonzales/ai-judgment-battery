@@ -684,7 +684,7 @@ def main():
         nargs="?",
         const=1,
         metavar="N",
-        help="Analyze latest N files (default: 1 for results, all for comparisons)",
+        help="Analyze latest N files (comparisons only; results mode always uses latest 1)",
     )
 
     # Comparison analysis arguments

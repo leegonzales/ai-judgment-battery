@@ -16,6 +16,7 @@ from typing import Optional
 
 from harness.utils import (
     COMPARISONS_DIR,
+    DEFAULT_JUDGES,
     HUMAN_EVAL_DIR,
     find_best_results_for_model,
     get_response_for_dilemma,
@@ -495,8 +496,8 @@ def main():
         "--models",
         "-m",
         nargs="+",
-        default=["claude-opus", "gpt-5.1", "gemini-3-pro"],
-        help="Models to evaluate (default: claude-opus gpt-5.1 gemini-3-pro)",
+        default=DEFAULT_JUDGES,
+        help=f"Models to evaluate (default: {' '.join(DEFAULT_JUDGES)})",
     )
     parser.add_argument(
         "--samples",
