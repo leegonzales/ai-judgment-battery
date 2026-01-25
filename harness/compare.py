@@ -518,41 +518,40 @@ def aggregate_multi_judge_results(all_results: dict[str, dict]) -> dict:
     For each dilemma, computes average rank for each model across all judges.
     Returns aggregated wins and per-judge breakdowns.
     """
-    # Collect all dilemma IDs
-    all_dilemma_ids = set()
-    for judge_data in all_results.values():
-        for comp in judge_data.get("comparisons", []):
-            all_dilemma_ids.add(comp["dilemma_id"])
+    from collections import defaultdict
 
-    # Per-judge wins
-    per_judge_wins = {}
+    # Pre-process: build a map of dilemma_id -> {judge -> rankings}
+    # This avoids O(D * J * C) nested loops
+    dilemma_rankings = defaultdict(dict)  # did -> {judge -> rankings_list}
+    per_judge_wins = defaultdict(lambda: defaultdict(int))
+
     for judge, data in all_results.items():
-        wins = {}
         for comp in data.get("comparisons", []):
-            winner = comp.get("winner")
-            if winner:
-                wins[winner] = wins.get(winner, 0) + 1
-        per_judge_wins[judge] = wins
+            did = comp.get("dilemma_id")
+            if did:
+                dilemma_rankings[did][judge] = comp.get("rankings", [])
+                winner = comp.get("winner")
+                if winner:
+                    per_judge_wins[judge][winner] += 1
 
-    # Aggregate by average rank - single pass over all dilemmas
+    # Convert per_judge_wins to regular dicts
+    per_judge_wins = {judge: dict(wins) for judge, wins in per_judge_wins.items()}
+
+    # Aggregate by average rank - single pass over pre-processed data
     model_total_ranks = {}
     model_count = {}
     aggregated_wins = {}
 
-    for did in all_dilemma_ids:
+    for did, judge_rankings in dilemma_rankings.items():
         # Collect rankings for this dilemma from all judges
-        dilemma_ranks = {}  # model -> list of ranks
+        dilemma_ranks = defaultdict(list)  # model -> list of ranks
 
-        for judge, data in all_results.items():
-            for comp in data.get("comparisons", []):
-                if comp["dilemma_id"] == did:
-                    for r in comp.get("rankings", []):
-                        model = r["model"]
-                        rank = r["rank"]
-                        if model not in dilemma_ranks:
-                            dilemma_ranks[model] = []
-                        dilemma_ranks[model].append(rank)
-                    break
+        for rankings in judge_rankings.values():
+            for r in rankings:
+                model = r.get("model")
+                rank = r.get("rank")
+                if model and rank is not None:
+                    dilemma_ranks[model].append(rank)
 
         if not dilemma_ranks:
             continue
@@ -564,7 +563,7 @@ def aggregate_multi_judge_results(all_results: dict[str, dict]) -> dict:
             if ranks
         }
 
-        # Update overall stats and determine winner in single pass
+        # Update overall stats and determine winner
         if dilemma_avg_ranks:
             winner = min(dilemma_avg_ranks, key=lambda m: dilemma_avg_ranks[m])
             aggregated_wins[winner] = aggregated_wins.get(winner, 0) + 1
@@ -582,7 +581,7 @@ def aggregate_multi_judge_results(all_results: dict[str, dict]) -> dict:
         "aggregated_wins": aggregated_wins,
         "per_judge_wins": per_judge_wins,
         "average_ranks": avg_ranks,
-        "total_dilemmas": len(all_dilemma_ids),
+        "total_dilemmas": len(dilemma_rankings),
     }
 
 

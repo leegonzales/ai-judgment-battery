@@ -23,9 +23,13 @@ from harness.utils import (
 )
 
 
-def load_ai_rankings_for_dilemma(dilemma_id: str) -> dict[str, list]:
-    """Load AI rankings for a specific dilemma from all comparison files."""
-    ai_rankings = {}
+def load_all_ai_rankings() -> dict[str, dict[str, list]]:
+    """Load all AI rankings from comparison files into memory.
+
+    Returns:
+        Dict mapping dilemma_id -> {judge_model -> [ranked_model_list]}
+    """
+    all_rankings = {}  # did -> {judge -> [models]}
 
     for f in COMPARISONS_DIR.glob("compare_*.json"):
         try:
@@ -33,17 +37,29 @@ def load_ai_rankings_for_dilemma(dilemma_id: str) -> dict[str, list]:
             judge = data.get("judge_model", "unknown")
 
             for comp in data.get("comparisons", []):
-                if comp.get("dilemma_id") == dilemma_id:
+                did = comp.get("dilemma_id")
+                if did:
                     rankings = comp.get("rankings", [])
                     sorted_models = [
                         r["model"] for r in sorted(rankings, key=lambda x: x["rank"])
                     ]
-                    ai_rankings[judge] = sorted_models
-                    break
+                    if did not in all_rankings:
+                        all_rankings[did] = {}
+                    all_rankings[did][judge] = sorted_models
         except Exception:
             continue
 
-    return ai_rankings
+    return all_rankings
+
+
+def load_ai_rankings_for_dilemma(dilemma_id: str) -> dict[str, list]:
+    """Load AI rankings for a specific dilemma from all comparison files.
+
+    Note: For batch operations, use load_all_ai_rankings() instead to avoid
+    repeated disk I/O.
+    """
+    all_rankings = load_all_ai_rankings()
+    return all_rankings.get(dilemma_id, {})
 
 
 def load_and_prepare_responses(
@@ -326,6 +342,12 @@ def run_human_eval(
             HUMAN_EVAL_DIR / f"human_eval_{now.strftime('%Y%m%d_%H%M%S')}.json"
         )
 
+    # Pre-load all AI rankings to avoid repeated disk I/O
+    print("Loading AI rankings...")
+    all_ai_rankings = load_all_ai_rankings()
+    print(f"Loaded rankings for {len(all_ai_rankings)} dilemmas")
+    print()
+
     skipped = 0
 
     for i, did in enumerate(dilemma_ids):
@@ -354,8 +376,8 @@ def run_human_eval(
         # At this point ranking is guaranteed to be list[str]
         human_ranking_blinded: list[str] = ranking
 
-        # Get AI rankings for comparison
-        ai_rankings = load_ai_rankings_for_dilemma(did)
+        # Get AI rankings from pre-loaded data
+        ai_rankings = all_ai_rankings.get(did, {})
         correlations = calculate_correlation(
             human_ranking_blinded, ai_rankings, data["blind_mapping"]
         )

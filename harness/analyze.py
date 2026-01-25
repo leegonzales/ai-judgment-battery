@@ -399,7 +399,13 @@ def calculate_confidence_intervals(
     """Calculate confidence intervals for win rates using Wilson score interval."""
     stats = calculate_comparison_win_rates(comparisons)
 
-    z = {0.90: 1.645, 0.95: 1.96, 0.99: 2.576}.get(confidence, 1.96)
+    z_scores = {0.90: 1.645, 0.95: 1.96, 0.99: 2.576}
+    if confidence not in z_scores:
+        raise ValueError(
+            f"Unsupported confidence level: {confidence}. "
+            f"Supported values are {list(z_scores.keys())}"
+        )
+    z = z_scores[confidence]
 
     intervals = {}
     for model, data in stats.items():
@@ -738,7 +744,7 @@ def main():
             show_category=args.by_category or show_all,
             show_judge_bias=args.judge_bias or show_all,
             output_json=args.json,
-            latest_n=args.latest if args.latest and args.latest > 1 else None,
+            latest_n=args.latest,  # Pass directly: None=all, N=latest N files
         )
     else:
         # Results analysis mode (original behavior)
