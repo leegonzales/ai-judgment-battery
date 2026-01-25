@@ -557,6 +557,8 @@ def print_category_comparison_analysis(category_wins: dict[str, dict[str, int]])
 
     for cat, wins in category_wins.items():
         total = sum(wins.values())
+        if total == 0:
+            continue
         print(f"\n  Category {cat} ({total} dilemmas):")
         for model, count in sorted(wins.items(), key=lambda x: -x[1]):
             print(f"    {model:<20} {count:>4} ({100*count/total:5.1f}%)")
