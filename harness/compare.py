@@ -534,9 +534,10 @@ def aggregate_multi_judge_results(all_results: dict[str, dict]) -> dict:
                 wins[winner] = wins.get(winner, 0) + 1
         per_judge_wins[judge] = wins
 
-    # Aggregate by average rank
+    # Aggregate by average rank - single pass over all dilemmas
     model_total_ranks = {}
     model_count = {}
+    aggregated_wins = {}
 
     for did in all_dilemma_ids:
         # Collect rankings for this dilemma from all judges
@@ -553,37 +554,23 @@ def aggregate_multi_judge_results(all_results: dict[str, dict]) -> dict:
                         dilemma_ranks[model].append(rank)
                     break
 
+        if not dilemma_ranks:
+            continue
+
         # Compute average rank for this dilemma
-        dilemma_avg_ranks = {}
-        for model, ranks in dilemma_ranks.items():
-            if ranks:
-                dilemma_avg_ranks[model] = sum(ranks) / len(ranks)
-                model_total_ranks[model] = (
-                    model_total_ranks.get(model, 0) + dilemma_avg_ranks[model]
-                )
-                model_count[model] = model_count.get(model, 0) + 1
+        dilemma_avg_ranks = {
+            model: sum(ranks) / len(ranks)
+            for model, ranks in dilemma_ranks.items()
+            if ranks
+        }
 
-    # Determine winner for each dilemma based on average rank
-    aggregated_wins = {}
-    for did in all_dilemma_ids:
-        dilemma_ranks = {}
-
-        for judge, data in all_results.items():
-            for comp in data.get("comparisons", []):
-                if comp["dilemma_id"] == did:
-                    for r in comp.get("rankings", []):
-                        model = r["model"]
-                        rank = r["rank"]
-                        if model not in dilemma_ranks:
-                            dilemma_ranks[model] = []
-                        dilemma_ranks[model].append(rank)
-                    break
-
-        # Winner is model with lowest average rank
-        if dilemma_ranks:
-            avg_ranks = {m: sum(r) / len(r) for m, r in dilemma_ranks.items()}
-            winner = min(avg_ranks, key=lambda m: avg_ranks[m])
+        # Update overall stats and determine winner in single pass
+        if dilemma_avg_ranks:
+            winner = min(dilemma_avg_ranks, key=lambda m: dilemma_avg_ranks[m])
             aggregated_wins[winner] = aggregated_wins.get(winner, 0) + 1
+            for model, avg_rank in dilemma_avg_ranks.items():
+                model_total_ranks[model] = model_total_ranks.get(model, 0) + avg_rank
+                model_count[model] = model_count.get(model, 0) + 1
 
     # Compute overall average ranks
     avg_ranks = {}

@@ -704,22 +704,16 @@ def main():
 
     args = parser.parse_args()
 
-    def is_comparison_mode(args) -> bool:
-        """Determine if we should run in comparison analysis mode."""
-        # Explicit --compare flag
-        if args.compare:
-            return True
-        # Any comparison-specific flags
-        if any(
-            [args.elo, args.wins, args.head_to_head, args.confidence, args.judge_bias]
-        ):
-            return True
-        # Files with 'compare' in the name
-        if args.files and any("compare" in f for f in args.files):
-            return True
-        return False
+    # Check for comparison-specific flags used without --compare
+    comparison_flags = [args.elo, args.wins, args.head_to_head, args.judge_bias]
+    if any(comparison_flags) and not args.compare:
+        print(
+            "Error: --elo, --wins, --head-to-head, and --judge-bias require --compare"
+        )
+        print("Example: python analyze.py --compare --elo")
+        return
 
-    if is_comparison_mode(args):
+    if args.compare:
         # Comparison analysis mode
         show_all = args.all or not any(
             [

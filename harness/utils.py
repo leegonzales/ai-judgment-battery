@@ -136,6 +136,8 @@ def get_judge_config(judge_model: str) -> tuple[str, str]:
 def normalize_judge_key(judge_model: str) -> str:
     """Normalize a judge model name to a simple key for comparison.
 
+    Uses data-driven approach based on MODEL_CONFIGS for maintainability.
+
     Args:
         judge_model: Full model ID like "claude-opus-4-5-20251101"
 
@@ -144,23 +146,15 @@ def normalize_judge_key(judge_model: str) -> str:
     """
     judge_lower = judge_model.lower()
 
-    if "opus" in judge_lower:
-        return "claude-opus"
-    elif "sonnet" in judge_lower:
-        return "claude-sonnet"
-    elif "haiku" in judge_lower:
-        return "claude-haiku"
-    elif "gpt-5.1" in judge_lower or judge_lower == "gpt-5.1":
-        return "gpt-5.1"
-    elif "gpt-5.2" in judge_lower or judge_lower == "gpt-5.2":
-        return "gpt-5.2"
-    elif "gemini-3-pro" in judge_lower or "gemini-3-pro-preview" in judge_lower:
-        return "gemini-3-pro"
-    elif "gemini-3-flash" in judge_lower:
-        return "gemini-3-flash"
-    elif "gemini-2.5-pro" in judge_lower:
-        return "gemini-2.5-pro"
-    elif "gemini-2.5-flash" in judge_lower:
-        return "gemini-2.5-flash"
-    else:
-        return judge_model
+    # First, try exact match on model_id
+    id_to_key = {v["model_id"].lower(): k for k, v in MODEL_CONFIGS.items()}
+    if judge_lower in id_to_key:
+        return id_to_key[judge_lower]
+
+    # Fallback to substring matching, sorted by key length (longer = more specific)
+    sorted_keys = sorted(MODEL_CONFIGS.keys(), key=len, reverse=True)
+    for key in sorted_keys:
+        if key in judge_lower:
+            return key
+
+    return judge_model
