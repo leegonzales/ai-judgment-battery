@@ -14,6 +14,7 @@ import random
 import sys
 import threading
 import time
+from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
@@ -210,7 +211,10 @@ def run_judge_structured(
             ),
         )
 
-        result = json.loads(response.text)
+        try:
+            result = json.loads(response.text)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Failed to parse Gemini JSON response: {e}")
         usage = {"input_tokens": 0, "output_tokens": 0}
         if hasattr(response, "usage_metadata") and response.usage_metadata:
             usage["input_tokens"] = response.usage_metadata.prompt_token_count
@@ -518,8 +522,6 @@ def aggregate_multi_judge_results(all_results: dict[str, dict]) -> dict:
     For each dilemma, computes average rank for each model across all judges.
     Returns aggregated wins and per-judge breakdowns.
     """
-    from collections import defaultdict
-
     # Pre-process: build a map of dilemma_id -> {judge -> rankings}
     # This avoids O(D * J * C) nested loops
     dilemma_rankings = defaultdict(dict)  # did -> {judge -> rankings_list}

@@ -46,7 +46,8 @@ def load_all_ai_rankings() -> dict[str, dict[str, list]]:
                     if did not in all_rankings:
                         all_rankings[did] = {}
                     all_rankings[did][judge] = sorted_models
-        except Exception:
+        except (json.JSONDecodeError, KeyError, TypeError):
+            # Skip malformed comparison files
             continue
 
     return all_rankings

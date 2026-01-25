@@ -356,23 +356,23 @@ def calculate_elo(
 
 
 def calculate_comparison_win_rates(comparisons: list[dict]) -> dict[str, dict]:
-    """Calculate win rates and head-to-head statistics from comparisons."""
+    """Calculate win rates and head-to-head statistics from pairwise comparison results.
+
+    Uses the rankings to extract true pairwise results: if model A ranks 1st and
+    model B ranks 2nd, that counts as A beating B in a head-to-head matchup.
+    """
+    # Extract all pairwise results
+    pairwise = extract_pairwise_results(comparisons)
+
+    # Count wins, losses, and head-to-head from pairwise data
     wins = defaultdict(int)
     losses = defaultdict(int)
     head_to_head = defaultdict(lambda: defaultdict(int))
-    total_comparisons = 0
 
-    for run in comparisons:
-        for comp in run.get("comparisons", []):
-            winner = comp.get("winner")
-            models = comp.get("models_compared", [])
-            if winner:
-                wins[winner] += 1
-                for model in models:
-                    if model != winner:
-                        losses[model] += 1
-                        head_to_head[winner][model] += 1
-                total_comparisons += 1
+    for winner, loser, _ in pairwise:
+        wins[winner] += 1
+        losses[loser] += 1
+        head_to_head[winner][loser] += 1
 
     stats = {}
     all_models = set(wins.keys()) | set(losses.keys())

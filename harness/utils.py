@@ -88,7 +88,8 @@ def find_best_results_for_model(model_key: str) -> Optional[Path]:
             if valid > best_count:
                 best_count = valid
                 best_file = f
-        except Exception:
+        except (json.JSONDecodeError, KeyError, TypeError):
+            # Skip malformed results files
             continue
 
     return best_file
