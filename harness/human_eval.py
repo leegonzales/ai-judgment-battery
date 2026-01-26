@@ -10,6 +10,7 @@ import argparse
 import json
 import random
 import sys
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
@@ -22,6 +23,45 @@ from harness.utils import (
     get_response_for_dilemma,
     load_results_file,
 )
+
+
+def stratified_sample(dilemma_ids: list[str], num_samples: int) -> list[str]:
+    """Sample dilemmas ensuring diversity across categories.
+
+    Ensures no more than ceil(num_samples / num_categories) from any category.
+    This prevents over-representation of similar dilemmas.
+    """
+    # Group by category (first letter of ID)
+    by_category = defaultdict(list)
+    for did in dilemma_ids:
+        category = did[0].upper()
+        by_category[category].append(did)
+
+    # Shuffle within each category
+    for cat in by_category:
+        random.shuffle(by_category[cat])
+
+    # Round-robin selection across categories
+    result = []
+    categories = sorted(by_category.keys())
+    cat_idx = 0
+
+    while len(result) < num_samples:
+        # Try each category in turn
+        attempts = 0
+        while attempts < len(categories):
+            cat = categories[cat_idx % len(categories)]
+            cat_idx += 1
+            attempts += 1
+
+            if by_category[cat]:
+                result.append(by_category[cat].pop())
+                break
+        else:
+            # All categories exhausted
+            break
+
+    return result
 
 
 def load_all_ai_rankings() -> dict[str, dict[str, list]]:
@@ -328,9 +368,9 @@ def run_human_eval(
     if specific_dilemmas:
         dilemma_ids = [d for d in dilemma_ids if d in specific_dilemmas]
     else:
-        # Random sample
+        # Stratified sample - ensures diversity across categories
         if len(dilemma_ids) > num_samples:
-            dilemma_ids = random.sample(dilemma_ids, num_samples)
+            dilemma_ids = stratified_sample(dilemma_ids, num_samples)
 
     print(f"Dilemmas to evaluate: {len(dilemma_ids)}")
     print("-" * 70)
