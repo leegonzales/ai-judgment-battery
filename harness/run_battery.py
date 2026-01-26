@@ -105,10 +105,11 @@ def create_client(provider: str):
 
         return OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     elif provider == "gemini":
-        import google.generativeai as genai
+        from google import genai
 
-        genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-        return genai
+        # New google.genai SDK uses GOOGLE_API_KEY or explicit api_key
+        api_key = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
+        return genai.Client(api_key=api_key)
     else:
         raise ValueError(f"Unknown provider: {provider}")
 
@@ -176,16 +177,23 @@ def run_openai(
 
 
 def run_gemini(
-    genai_module, model: str, prompt: str, max_tokens: int, system_prompt: str
+    client, model: str, prompt: str, max_tokens: int, system_prompt: str
 ) -> tuple[str, dict]:
-    """Run prompt through Gemini API."""
-    model_obj = genai_module.GenerativeModel(
-        model_name=model, system_instruction=system_prompt
-    )
+    """Run prompt through Gemini API (new google.genai SDK)."""
+    from google.genai import types
 
-    response = model_obj.generate_content(
-        prompt,
-        generation_config=genai_module.GenerationConfig(max_output_tokens=max_tokens),
+    # Gemini 3 Pro needs higher token limits for ethical content
+    # to avoid safety filter truncation
+    if "gemini-3" in model:
+        max_tokens = max(max_tokens, 1500)
+
+    response = client.models.generate_content(
+        model=model,
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            system_instruction=system_prompt,
+            max_output_tokens=max_tokens,
+        ),
     )
 
     # Handle cases where response.text may fail (content filtering, etc.)
@@ -456,8 +464,8 @@ def run_battery(
 
     responses = saver.data.get("responses", [])
     total_tokens = sum(
-        r.get("usage", {}).get("input_tokens", 0)
-        + r.get("usage", {}).get("output_tokens", 0)
+        (r.get("usage", {}).get("input_tokens") or 0)
+        + (r.get("usage", {}).get("output_tokens") or 0)
         for r in responses
         if "usage" in r
     )

@@ -108,7 +108,9 @@ def create_judge_client(provider: str = "anthropic"):
     elif provider == "gemini":
         from google import genai
 
-        return genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+        # Support both GOOGLE_API_KEY (preferred) and GEMINI_API_KEY
+        api_key = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
+        return genai.Client(api_key=api_key)
     else:
         raise ValueError(f"Unknown provider: {provider}")
 
