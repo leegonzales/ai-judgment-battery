@@ -1,0 +1,14 @@
+{
+  "run_id": "20260125_054159",
+  "judge_model": "gemini-3-pro",
+  "judge_provider": "anthropic",
+  "models_compared": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "timestamp": "2026-01-25T05:41:59.646403+00:00",
+  "total_dilemmas": 5,
+  "completed": 0,
+  "comparisons": []
+}

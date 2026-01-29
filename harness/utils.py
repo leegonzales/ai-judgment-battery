@@ -67,13 +67,27 @@ def load_results_file(filepath: Path) -> dict:
         return json.load(f)
 
 
-def find_best_results_for_model(model_key: str) -> Optional[Path]:
-    """Find the best (most complete) results file for a model."""
+def find_best_results_for_model(
+    model_key: str, prefer_latest: bool = True
+) -> Optional[Path]:
+    """Find the best (most complete) results file for a model.
+
+    Args:
+        model_key: Model key like "claude-opus" or "gpt-5.1"
+        prefer_latest: When True, prefer newer files when response counts are equal
+
+    Returns:
+        Path to the best results file, or None if not found
+    """
     pattern = f"*{model_key}*.json"
     files = list(RESULTS_DIR.glob(pattern))
 
     if not files:
         return None
+
+    # Sort by filename descending (newer timestamps first) if preferring latest
+    if prefer_latest:
+        files = sorted(files, key=lambda f: f.name, reverse=True)
 
     best_file = None
     best_count = 0
@@ -85,9 +99,15 @@ def find_best_results_for_model(model_key: str) -> Optional[Path]:
             valid = sum(
                 1 for r in responses if r.get("response") and not r.get("error")
             )
-            if valid > best_count:
-                best_count = valid
-                best_file = f
+            # Use >= when prefer_latest to keep the first (newest) file with max count
+            if prefer_latest:
+                if valid > best_count:
+                    best_count = valid
+                    best_file = f
+            else:
+                if valid > best_count:
+                    best_count = valid
+                    best_file = f
         except (json.JSONDecodeError, KeyError, TypeError):
             # Skip malformed results files
             continue

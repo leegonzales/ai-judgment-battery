@@ -1,0 +1,117 @@
+{
+  "run_id": "20260127_054322",
+  "type": "multi_judge_aggregation",
+  "models_compared": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "judges": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "timestamp": "2026-01-27T05:43:22.189527+00:00",
+  "aggregated_wins": {
+    "gpt-5.1": 38,
+    "gemini-3-pro": 6,
+    "claude-opus": 6
+  },
+  "per_judge_wins": {
+    "claude-opus": {
+      "gpt-5.1": 24,
+      "gemini-3-pro": 6
+    },
+    "gpt-5.1": {
+      "gemini-3-pro": 2,
+      "claude-opus": 2
+    },
+    "gemini-3-pro": {
+      "gpt-5.1": 29,
+      "claude-opus": 9
+    }
+  },
+  "per_judge_wins_all": {
+    "claude-opus": {
+      "gpt-5.1": 24,
+      "claude-opus": 20,
+      "gemini-3-pro": 6
+    },
+    "gpt-5.1": {
+      "gpt-5.1": 46,
+      "gemini-3-pro": 2,
+      "claude-opus": 2
+    },
+    "gemini-3-pro": {
+      "gemini-3-pro": 12,
+      "gpt-5.1": 29,
+      "claude-opus": 9
+    }
+  },
+  "average_ranks": {
+    "gpt-5.1": 1.54,
+    "gemini-3-pro": 2.7,
+    "claude-opus": 2.22
+  },
+  "total_dilemmas": 50,
+  "exclude_self_judgments": true,
+  "self_enhancement": {
+    "claude-opus": {
+      "self_avg_rank": 1.7,
+      "other_avg_rank": 2.15,
+      "delta": -0.45,
+      "self_judgments": 50
+    },
+    "gpt-5.1": {
+      "self_avg_rank": 1.08,
+      "other_avg_rank": 2.46,
+      "delta": -1.38,
+      "self_judgments": 50
+    },
+    "gemini-3-pro": {
+      "self_avg_rank": 2.3,
+      "other_avg_rank": 1.85,
+      "delta": 0.45,
+      "self_judgments": 50
+    }
+  },
+  "dimensional_profiles": {
+    "gpt-5.1": {
+      "reasoning_quality": 8.8,
+      "conclusion_quality": 8.7,
+      "justice_score": 8.5,
+      "wellbeing_score": 8.5,
+      "duties_score": 8.7,
+      "virtues_score": 8.1,
+      "commonsense_score": 8.7
+    },
+    "claude-opus": {
+      "reasoning_quality": 8.3,
+      "conclusion_quality": 8.0,
+      "justice_score": 8.0,
+      "wellbeing_score": 8.1,
+      "duties_score": 8.0,
+      "virtues_score": 8.5,
+      "commonsense_score": 8.3
+    },
+    "gemini-3-pro": {
+      "reasoning_quality": 7.3,
+      "conclusion_quality": 6.4,
+      "justice_score": 7.8,
+      "wellbeing_score": 7.2,
+      "duties_score": 7.6,
+      "virtues_score": 6.9,
+      "commonsense_score": 7.1
+    }
+  },
+  "position_bias": {
+    "total_debiased": 150,
+    "total_flips": 55,
+    "flip_rate": 0.367
+  },
+  "per_judge_files": {
+    "claude-opus": "20260127_052534",
+    "gpt-5.1": "20260127_053047",
+    "gemini-3-pro": "20260127_053435"
+  }
+}

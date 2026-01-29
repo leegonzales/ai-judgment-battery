@@ -1,0 +1,46 @@
+{
+  "run_id": "20260126_161430",
+  "type": "multi_judge_aggregation",
+  "models_compared": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "judges": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "timestamp": "2026-01-26T16:14:30.906377+00:00",
+  "aggregated_wins": {
+    "claude-opus": 36,
+    "gpt-5.1": 14
+  },
+  "per_judge_wins": {
+    "claude-opus": {
+      "claude-opus": 41,
+      "gpt-5.1": 9
+    },
+    "gpt-5.1": {
+      "claude-opus": 23,
+      "gpt-5.1": 26,
+      "gemini-3-pro": 1
+    },
+    "gemini-3-pro": {
+      "gpt-5.1": 14,
+      "claude-opus": 35,
+      "gemini-3-pro": 1
+    }
+  },
+  "average_ranks": {
+    "claude-opus": 1.4200000000000004,
+    "gpt-5.1": 1.7866666666666668,
+    "gemini-3-pro": 2.793333333333334
+  },
+  "total_dilemmas": 50,
+  "per_judge_files": {
+    "claude-opus": "20260126_160243",
+    "gpt-5.1": "20260126_160505",
+    "gemini-3-pro": "20260126_160740"
+  }
+}

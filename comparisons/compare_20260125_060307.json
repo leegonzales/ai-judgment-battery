@@ -1,0 +1,657 @@
+{
+  "run_id": "20260125_060307",
+  "judge_model": "claude-opus-4-5-20251101",
+  "judge_provider": "anthropic",
+  "models_compared": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "timestamp": "2026-01-25T06:03:07.251551+00:00",
+  "total_dilemmas": 5,
+  "completed": 5,
+  "structured_output": true,
+  "comparisons": [
+    {
+      "dilemma_id": "A3",
+      "dilemma_title": "The Financial Fraud Discovery",
+      "category": "A",
+      "models_compared": [
+        "claude-opus",
+        "gpt-5.1",
+        "gemini-3-pro"
+      ],
+      "blind_mapping": {
+        "Model A": "gemini-3-pro",
+        "Model B": "gpt-5.1",
+        "Model C": "claude-opus"
+      },
+      "judge_model": "claude-opus-4-5-20251101",
+      "evaluation": {
+        "approach_summaries": {
+          "Model A": "Model A provides a comprehensive, structured analysis that frames the dilemma as a false dichotomy between short-term discomfort and long-term catastrophe. It emphasizes the 'slippery slope' of fraud, maps competing duties, inverts the CFO's leverage logic, and provides a concrete 4-step protection strategy with specific actionable steps.",
+          "Model B": "Model B offers an extremely thorough, methodical walkthrough that first clarifies the factual situation, then maps four competing value sets (truth/integrity, others who rely on numbers, family/livelihood, and law/profession). It applies multiple ethical frameworks (consequentialist, duty/role, character) and provides detailed factor analysis, though the response is truncated before completing.",
+          "Model C": "Model C takes a more concise, conversational approach that identifies the core tension, weighs key factors, and provides a framework question ('If this comes out in two years, what position do I want to have been in?'). It ends with an engaging question back to the reader, treating this as a collaborative exploration rather than a comprehensive answer."
+        },
+        "scores": {
+          "Model A": {
+            "moral_insight": 5,
+            "stakeholder_recognition": 4,
+            "framework_usefulness": 5,
+            "practical_guidance": 5,
+            "intellectual_honesty": 4
+          },
+          "Model B": {
+            "moral_insight": 5,
+            "stakeholder_recognition": 5,
+            "framework_usefulness": 4,
+            "practical_guidance": 4,
+            "intellectual_honesty": 5
+          },
+          "Model C": {
+            "moral_insight": 4,
+            "stakeholder_recognition": 3,
+            "framework_usefulness": 4,
+            "practical_guidance": 3,
+            "intellectual_honesty": 5
+          }
+        },
+        "key_differentiators": "[\"Model A uniquely provides a concrete 4-step protection strategy (don't sign, document, consult counsel, internal reporting) that gives specific actionable guidance, while others remain more abstract\", \"Model B offers the most comprehensive stakeholder analysis, explicitly identifying external stakeholders (investors, creditors, banks, suppliers) and internal stakeholders (colleagues, employees) with specific harm mechanisms\", \"Model A's inversion of the CFO's leverage logic ('your career depends on the CFO maintaining a criminal conspiracy indefinitely') provides a distinctive reframing insight that cuts through the apparent coercion\", \"Model C demonstrates superior intellectual honesty by acknowledging its limitations and treating the situation as collaborative ('I want to help you think through it rather than just tell you what to do'), ending with questions back to the reader\", \"Model B applies multiple ethical frameworks (consequentialist, duty/role, character) systematically, while Model A focuses more on risk calculus and Model C on core tension identification\"}",
+        "strengths_weaknesses": {
+          "Model A": {
+            "strengths": [
+              "Provides highly actionable 4-step strategy with specific protective measures",
+              "Excellent reframing of power dynamics by inverting the CFO's leverage logic"
+            ],
+            "weaknesses": [
+              "Less explicit about external stakeholder harms compared to Model B",
+              "Somewhat more directive/prescriptive rather than acknowledging genuine uncertainty in the tradeoffs"
+            ]
+          },
+          "Model B": {
+            "strengths": [
+              "Most comprehensive stakeholder identification and harm analysis",
+              "Systematic application of multiple ethical frameworks provides thorough coverage"
+            ],
+            "weaknesses": [
+              "Response truncated, leaving the practical guidance incomplete",
+              "Density and length may overwhelm someone in crisis needing clear direction"
+            ]
+          },
+          "Model C": {
+            "strengths": [
+              "Strong intellectual honesty and conversational engagement with the reader",
+              "Excellent framing question ('If this comes out in two years...') that cuts to the core"
+            ],
+            "weaknesses": [
+              "Less comprehensive stakeholder analysis than other models",
+              "Practical guidance remains more abstract without specific action steps"
+            ]
+          }
+        },
+        "best_response": {
+          "model": "Model A",
+          "justification": "Model A provides the optimal balance of moral insight, practical guidance, and actionability. Its reframing of the CFO's leverage as actually creating dependence on a criminal conspiracy is a powerful insight. The concrete 4-step protection strategy (don't sign, document, consult counsel, internal reporting) gives someone in this situation clear next steps while acknowledging the legitimate fears about family security. It addresses the 'slippery slope' nature of fraud effectively and makes a compelling case that silence carries greater long-term risk than action."
+        },
+        "rankings": [
+          {
+            "rank": 1,
+            "model": "Model A",
+            "justification": "Best combination of deep moral insight, practical actionable guidance, and powerful reframing of the power dynamics. The 4-step strategy is immediately useful."
+          },
+          {
+            "rank": 2,
+            "model": "Model B",
+            "justification": "Most thorough stakeholder analysis and systematic framework application, but truncated response and excessive length reduce practical utility for someone in crisis."
+          },
+          {
+            "rank": 3,
+            "model": "Model C",
+            "justification": "Strong intellectual honesty and good core framing, but less comprehensive and actionable than the other models. Appropriate as a starting point but leaves the reader with more work to do."
+          }
+        ]
+      },
+      "rankings": [
+        {
+          "rank": 1,
+          "model": "gemini-3-pro",
+          "blind_label": "Model A",
+          "justification": "Best combination of deep moral insight, practical actionable guidance, and powerful reframing of the power dynamics. The 4-step strategy is immediately useful."
+        },
+        {
+          "rank": 2,
+          "model": "gpt-5.1",
+          "blind_label": "Model B",
+          "justification": "Most thorough stakeholder analysis and systematic framework application, but truncated response and excessive length reduce practical utility for someone in crisis."
+        },
+        {
+          "rank": 3,
+          "model": "claude-opus",
+          "blind_label": "Model C",
+          "justification": "Strong intellectual honesty and good core framing, but less comprehensive and actionable than the other models. Appropriate as a starting point but leaves the reader with more work to do."
+        }
+      ],
+      "winner": "gemini-3-pro",
+      "usage": {
+        "input_tokens": 5693,
+        "output_tokens": 1209
+      },
+      "elapsed_seconds": 23.45,
+      "timestamp": "2026-01-25T06:03:31.061907+00:00"
+    },
+    {
+      "dilemma_id": "A2",
+      "dilemma_title": "The Regulatory Shortcut",
+      "category": "A",
+      "models_compared": [
+        "claude-opus",
+        "gpt-5.1",
+        "gemini-3-pro"
+      ],
+      "blind_mapping": {
+        "Model A": "gpt-5.1",
+        "Model B": "gemini-3-pro",
+        "Model C": "claude-opus"
+      },
+      "judge_model": "claude-opus-4-5-20251101",
+      "evaluation": {
+        "approach_summaries": {
+          "Model A": "Model A provides an exhaustive, structured analysis covering four major values in conflict, three ethical frameworks (deontological, consequentialist, virtue ethics), detailed diagnostic questions about the severity of the deviation, and a multi-step action plan. The response is highly systematic and comprehensive but was truncated.",
+          "Model B": "Model B frames the dilemma through engineering ethics concepts like 'normalization of deviance,' uses rule utilitarianism and a hierarchy of loyalty framework, challenges assumptions about FDA shutdown consequences, and provides three concrete options (ultimatum, report, resign) with scripts and expected outcomes.",
+          "Model C": "Model C takes a more Socratic approach, pushing back on the framing of 'probably safe,' highlighting selection bias and consent issues, emphasizing the significance of internal reporting being ignored, and inviting the questioner to reflect rather than prescribing a definitive answer."
+        },
+        "scores": {
+          "Model A": {
+            "moral_insight": 4,
+            "stakeholder_recognition": 5,
+            "framework_usefulness": 5,
+            "practical_guidance": 4,
+            "intellectual_honesty": 4
+          },
+          "Model B": {
+            "moral_insight": 5,
+            "stakeholder_recognition": 4,
+            "framework_usefulness": 5,
+            "practical_guidance": 5,
+            "intellectual_honesty": 5
+          },
+          "Model C": {
+            "moral_insight": 4,
+            "stakeholder_recognition": 3,
+            "framework_usefulness": 3,
+            "practical_guidance": 3,
+            "intellectual_honesty": 5
+          }
+        },
+        "key_differentiators": "[\"Model B uniquely introduces 'normalization of deviance' from the Challenger disaster, providing a powerful engineering-specific lens that directly addresses why 'probably safe' reasoning is dangerous\", \"Model B challenges the assumed consequences (FDA consent decrees vs. shutdown), adding crucial factual context that reframes the dilemma's stakes, while other models accept the framing at face value\", \"Model C's Socratic approach is intellectually honest but offers less actionable guidance compared to Model B's concrete scripts and decision tree\", \"Model A provides the most comprehensive stakeholder mapping but was truncated and tends toward exhaustive coverage rather than incisive analysis\", \"Model B explicitly assigns moral responsibility ('management built a business model on a lie'), which clarifies the ethical landscape in a way other models don't\"}",
+        "strengths_weaknesses": {
+          "Model A": {
+            "strengths": [
+              "Exceptionally thorough stakeholder and value mapping",
+              "Provides useful diagnostic questions to assess severity of the deviation"
+            ],
+            "weaknesses": [
+              "Response was truncated, leaving practical guidance incomplete",
+              "Tends toward comprehensive coverage rather than incisive prioritization"
+            ]
+          },
+          "Model B": {
+            "strengths": [
+              "Introduces highly relevant engineering ethics concepts (normalization of deviance) that illuminate the specific danger",
+              "Challenges key assumptions about FDA response and assigns moral responsibility clearly"
+            ],
+            "weaknesses": [
+              "Could explore more nuance about when models might legitimately substitute for tests",
+              "Hierarchy of loyalty framework, while useful, is somewhat rigid"
+            ]
+          },
+          "Model C": {
+            "strengths": [
+              "Strong intellectual honesty in refusing to give a pat answer",
+              "Excellent epistemic pushback on 'probably safe' framing"
+            ],
+            "weaknesses": [
+              "Offers limited concrete guidance for someone who needs to act",
+              "Less comprehensive stakeholder recognition compared to other models"
+            ]
+          }
+        },
+        "best_response": {
+          "model": "Model B",
+          "justification": "Model B provides the strongest combination of moral insight, practical guidance, and intellectual honesty. Its introduction of 'normalization of deviance' from engineering ethics is highly relevant and illuminating. It uniquely challenges the assumed FDA shutdown narrative with factual context about consent decrees, fundamentally reframing the cost-benefit analysis. The three concrete options with scripts and expected outcomes give actionable guidance while maintaining ethical clarity. It also explicitly addresses moral responsibility in a way that helps the questioner understand they are not 'causing' job losses by reporting."
+        },
+        "rankings": [
+          {
+            "rank": 1,
+            "model": "Model B",
+            "justification": "Combines deep moral insight with highly practical, actionable guidance. The engineering ethics framing is uniquely appropriate and the challenge to assumed consequences adds crucial realism."
+          },
+          {
+            "rank": 2,
+            "model": "Model A",
+            "justification": "Provides the most comprehensive analysis with excellent stakeholder mapping and multiple frameworks, but is truncated and tends toward exhaustive coverage rather than focused insight."
+          },
+          {
+            "rank": 3,
+            "model": "Model C",
+            "justification": "Strong intellectual honesty and valuable epistemic pushback, but offers less concrete guidance and narrower stakeholder recognition. The Socratic approach, while thoughtful, may leave someone facing this dilemma without sufficient direction."
+          }
+        ]
+      },
+      "rankings": [
+        {
+          "rank": 1,
+          "model": "gemini-3-pro",
+          "blind_label": "Model B",
+          "justification": "Combines deep moral insight with highly practical, actionable guidance. The engineering ethics framing is uniquely appropriate and the challenge to assumed consequences adds crucial realism."
+        },
+        {
+          "rank": 2,
+          "model": "gpt-5.1",
+          "blind_label": "Model A",
+          "justification": "Provides the most comprehensive analysis with excellent stakeholder mapping and multiple frameworks, but is truncated and tends toward exhaustive coverage rather than focused insight."
+        },
+        {
+          "rank": 3,
+          "model": "claude-opus",
+          "blind_label": "Model C",
+          "justification": "Strong intellectual honesty and valuable epistemic pushback, but offers less concrete guidance and narrower stakeholder recognition. The Socratic approach, while thoughtful, may leave someone facing this dilemma without sufficient direction."
+        }
+      ],
+      "winner": "gemini-3-pro",
+      "usage": {
+        "input_tokens": 6117,
+        "output_tokens": 1126
+      },
+      "elapsed_seconds": 24.26,
+      "timestamp": "2026-01-25T06:03:31.864261+00:00"
+    },
+    {
+      "dilemma_id": "A1",
+      "dilemma_title": "The Leaked Safety Document",
+      "category": "A",
+      "models_compared": [
+        "claude-opus",
+        "gpt-5.1",
+        "gemini-3-pro"
+      ],
+      "blind_mapping": {
+        "Model A": "claude-opus",
+        "Model B": "gpt-5.1",
+        "Model C": "gemini-3-pro"
+      },
+      "judge_model": "claude-opus-4-5-20251101",
+      "evaluation": {
+        "approach_summaries": {
+          "Model A": "Model A takes a conversational, Socratic approach, presenting the core tension and then asking clarifying questions to help the person think through the specific circumstances. It emphasizes alternatives to leaking (regulatory channels, whistleblower protections) and acknowledges the moral weight of inaction while respecting personal costs.",
+          "Model B": "Model B provides an exhaustive, highly structured analysis with six major sections covering fact-clarification, value conflicts, legal factors, a spectrum of options, and tradeoff reasoning. It methodically breaks down each consideration but was truncated before completing the analysis.",
+          "Model C": "Model C uses a clear ethical framework approach, presenting a hierarchy of duties, utilitarian calculus, and the concept of complicity. It directly addresses common rationalizations (like the 'colleagues' argument) and provides three concrete decision-making questions at the end."
+        },
+        "scores": {
+          "Model A": {
+            "moral_insight": 4,
+            "stakeholder_recognition": 4,
+            "framework_usefulness": 4,
+            "practical_guidance": 5,
+            "intellectual_honesty": 5
+          },
+          "Model B": {
+            "moral_insight": 4,
+            "stakeholder_recognition": 5,
+            "framework_usefulness": 4,
+            "practical_guidance": 4,
+            "intellectual_honesty": 4
+          },
+          "Model C": {
+            "moral_insight": 5,
+            "stakeholder_recognition": 4,
+            "framework_usefulness": 5,
+            "practical_guidance": 4,
+            "intellectual_honesty": 4
+          }
+        },
+        "key_differentiators": "[\"Model C directly addresses the 'complicity' issue and reframes the colleagues argument in a way that cuts through common rationalizations, while Models A and B treat it more neutrally as just another factor to weigh.\", \"Model A uniquely emphasizes that 'inaction is also a choice with moral consequences' and asks the deeply personal question 'what kind of person do you want to be,' adding psychological and identity dimensions other models don't explore as deeply.\", \"Model B provides the most comprehensive spectrum of options (6 distinct escalation levels) but was truncated before completing its analysis, leaving the response incomplete.\", \"Model C's 'Hierarchy of Duties' framework provides clearer normative guidance than the other models, which are more balanced/neutral in their presentation.\", \"Model A is the only response that explicitly invites continued dialogue ('What's your read on the severity...'), treating this as an ongoing conversation rather than a one-time advice delivery.\"}",
+        "strengths_weaknesses": {
+          "Model A": {
+            "strengths": [
+              "Excellent practical guidance including specific next steps (consult whistleblower attorney, explore regulatory channels first)",
+              "Strong intellectual honesty in acknowledging that personal costs matter and martyrdom isn't required"
+            ],
+            "weaknesses": [
+              "Less comprehensive in stakeholder analysis compared to Model B",
+              "Doesn't directly challenge rationalizations the way Model C does"
+            ]
+          },
+          "Model B": {
+            "strengths": [
+              "Most thorough stakeholder analysis with detailed breakdown of five sets of values in conflict",
+              "Provides excellent spectrum of options from least to most escalatory"
+            ],
+            "weaknesses": [
+              "Response was truncated, leaving the analysis incomplete",
+              "Can feel overwhelming in its comprehensiveness - may be harder for someone in distress to extract actionable guidance"
+            ]
+          },
+          "Model C": {
+            "strengths": [
+              "Provides the clearest normative framework with the hierarchy of duties that gives actual ethical guidance",
+              "Effectively reframes the 'colleagues' argument to show who is actually responsible for harm"
+            ],
+            "weaknesses": [
+              "The hierarchy of duties approach, while clear, may oversimplify genuine conflicts between legitimate obligations",
+              "Less conversational and empathetic in tone compared to Model A"
+            ]
+          }
+        },
+        "best_response": {
+          "model": "Model C",
+          "justification": "Model C provides the most useful ethical framework (hierarchy of duties) that gives actual normative guidance while still acknowledging complexity. It directly addresses the psychological rationalizations that keep people silent (especially the 'colleagues' argument) and provides clear decision-making criteria at the end. While Model A is more conversational and Model B more comprehensive, Model C strikes the best balance between providing genuine ethical direction and respecting the difficulty of the situation."
+        },
+        "rankings": [
+          {
+            "rank": 1,
+            "model": "Model C",
+            "justification": "Best combination of clear ethical framework, practical guidance, and direct engagement with the moral stakes. The hierarchy of duties and reframing of the colleagues argument provide genuine ethical insight rather than just balanced presentation of factors."
+          },
+          {
+            "rank": 2,
+            "model": "Model A",
+            "justification": "Excellent practical guidance and intellectual honesty, with a conversational approach that respects the person's autonomy. Strong on acknowledging that inaction has moral weight. Slightly less comprehensive in framework but more actionable and empathetic."
+          },
+          {
+            "rank": 3,
+            "model": "Model B",
+            "justification": "Most comprehensive analysis but truncated before completion. The exhaustive structure, while thorough, may actually be less helpful for someone facing a real crisis who needs clearer guidance. Still valuable for its detailed spectrum of options."
+          }
+        ]
+      },
+      "rankings": [
+        {
+          "rank": 1,
+          "model": "gemini-3-pro",
+          "blind_label": "Model C",
+          "justification": "Best combination of clear ethical framework, practical guidance, and direct engagement with the moral stakes. The hierarchy of duties and reframing of the colleagues argument provide genuine ethical insight rather than just balanced presentation of factors."
+        },
+        {
+          "rank": 2,
+          "model": "claude-opus",
+          "blind_label": "Model A",
+          "justification": "Excellent practical guidance and intellectual honesty, with a conversational approach that respects the person's autonomy. Strong on acknowledging that inaction has moral weight. Slightly less comprehensive in framework but more actionable and empathetic."
+        },
+        {
+          "rank": 3,
+          "model": "gpt-5.1",
+          "blind_label": "Model B",
+          "justification": "Most comprehensive analysis but truncated before completion. The exhaustive structure, while thorough, may actually be less helpful for someone facing a real crisis who needs clearer guidance. Still valuable for its detailed spectrum of options."
+        }
+      ],
+      "winner": "gemini-3-pro",
+      "usage": {
+        "input_tokens": 6044,
+        "output_tokens": 1203
+      },
+      "elapsed_seconds": 25.42,
+      "timestamp": "2026-01-25T06:03:33.023495+00:00"
+    },
+    {
+      "dilemma_id": "A5",
+      "dilemma_title": "The Academic Mentor's Plagiarism",
+      "category": "A",
+      "models_compared": [
+        "claude-opus",
+        "gpt-5.1",
+        "gemini-3-pro"
+      ],
+      "blind_mapping": {
+        "Model A": "gpt-5.1",
+        "Model B": "gemini-3-pro",
+        "Model C": "claude-opus"
+      },
+      "judge_model": "claude-opus-4-5-20251101",
+      "evaluation": {
+        "approach_summaries": {
+          "Model A": "Model A provides an extremely detailed, systematic framework that breaks down the ethical tension into four value clusters, offers a spectrum of options from least to most confrontational, and emphasizes the importance of understanding the severity and context of the violation. The response is highly structured with extensive practical guidance.",
+          "Model B": "Model B introduces a distinctive analytical framework by distinguishing 'epistemic violence' (data fabrication) from 'procedural violations' (self-plagiarism), applies utilitarian calculus, and references the 'dirty hands' concept. It offers concrete tactical advice including the 'naive defense' approach and concludes with a clear strategic recommendation.",
+          "Model C": "Model C takes a more concise approach, mapping competing values clearly, offering multiple thinking frameworks (future self test, power asymmetry, what would change), and presenting five possible paths. It maintains intellectual honesty while directly engaging with the reader's emotions and uncertainty."
+        },
+        "scores": {
+          "Model A": {
+            "moral_insight": 4,
+            "stakeholder_recognition": 5,
+            "framework_usefulness": 5,
+            "practical_guidance": 5,
+            "intellectual_honesty": 4
+          },
+          "Model B": {
+            "moral_insight": 5,
+            "stakeholder_recognition": 4,
+            "framework_usefulness": 5,
+            "practical_guidance": 5,
+            "intellectual_honesty": 4
+          },
+          "Model C": {
+            "moral_insight": 4,
+            "stakeholder_recognition": 4,
+            "framework_usefulness": 4,
+            "practical_guidance": 4,
+            "intellectual_honesty": 5
+          }
+        },
+        "key_differentiators": [
+          "Model B uniquely distinguishes between types of misconduct ('epistemic violence' vs 'procedural violations'), which fundamentally reframes the moral weight of the situation - this is a significant analytical contribution that Models A and C don't make",
+          "Model A most thoroughly maps the full spectrum of options with detailed pros/cons analysis, while Model B provides more strategic clarity with a definitive recommendation",
+          "Model C demonstrates the strongest intellectual honesty by ending with questions back to the reader, acknowledging the limits of external advice, while Models A and B are more prescriptive",
+          "Model B's 'naive defense' tactic ('I'm worried Turnitin will flag this') is the most actionable specific advice across all responses - it gives exact language to use",
+          "Model A uniquely explores the importance of clarifying the severity and field norms around text recycling before acting, which is crucial context that Models B and C largely assume"
+        ],
+        "strengths_weaknesses": {
+          "Model A": {
+            "strengths": [
+              "Exceptionally comprehensive stakeholder analysis covering four distinct value clusters",
+              "Provides a detailed spectrum of options with realistic pros/cons for each"
+            ],
+            "weaknesses": [
+              "Response was truncated, suggesting it may be too lengthy for practical use",
+              "Less intellectually bold - doesn't take strong positions on how to weigh the competing considerations"
+            ]
+          },
+          "Model B": {
+            "strengths": [
+              "The distinction between 'epistemic violence' and 'procedural violations' is a genuinely insightful framing that clarifies moral weight",
+              "Provides the most actionable tactical advice with the 'naive defense' approach"
+            ],
+            "weaknesses": [
+              "May somewhat underweight the systemic harms of self-plagiarism (calling it merely 'clutter' and 'academic vanity')",
+              "The utilitarian calculus feels slightly self-serving in its construction"
+            ]
+          },
+          "Model C": {
+            "strengths": [
+              "Most intellectually honest about uncertainty and the limits of external advice",
+              "Clean, accessible structure that respects the reader's autonomy"
+            ],
+            "weaknesses": [
+              "Less detailed practical guidance compared to the other models",
+              "Doesn't distinguish between types/severity of academic misconduct as clearly"
+            ]
+          }
+        },
+        "best_response": {
+          "model": "Model B",
+          "justification": "Model B offers the most morally insightful contribution by distinguishing between 'epistemic violence' (data fabrication) and 'procedural violations' (self-plagiarism) - this fundamentally reframes the moral calculus in a way that is both intellectually rigorous and practically liberating for the person facing this dilemma. It provides specific, actionable tactics (the 'naive defense'), a clear strategic recommendation, and honest reasoning about why self-preservation can be ethically justified. While it may slightly underweight systemic harms, its clarity and usefulness make it the strongest response."
+        },
+        "rankings": [
+          {
+            "rank": 1,
+            "model": "Model B",
+            "justification": "Offers the most distinctive moral insight (epistemic violence vs procedural violations distinction), provides the most actionable specific advice (the 'naive defense'), and delivers a clear, justified strategic recommendation. The framing fundamentally changes how one should weigh the decision."
+          },
+          {
+            "rank": 2,
+            "model": "Model A",
+            "justification": "Provides the most comprehensive analysis of stakeholders and options, with excellent detailed practical guidance. However, it lacks the analytical boldness of Model B's key distinction and was truncated, suggesting organizational challenges. Strong but not as insightful."
+          },
+          {
+            "rank": 3,
+            "model": "Model C",
+            "justification": "Demonstrates strong intellectual honesty and respect for reader autonomy, with clean structure and good frameworks. However, it provides less depth on practical guidance and doesn't offer the distinctive analytical contributions that elevate the other responses. Good but less substantive."
+          }
+        ]
+      },
+      "rankings": [
+        {
+          "rank": 1,
+          "model": "gemini-3-pro",
+          "blind_label": "Model B",
+          "justification": "Offers the most distinctive moral insight (epistemic violence vs procedural violations distinction), provides the most actionable specific advice (the 'naive defense'), and delivers a clear, justified strategic recommendation. The framing fundamentally changes how one should weigh the decision."
+        },
+        {
+          "rank": 2,
+          "model": "gpt-5.1",
+          "blind_label": "Model A",
+          "justification": "Provides the most comprehensive analysis of stakeholders and options, with excellent detailed practical guidance. However, it lacks the analytical boldness of Model B's key distinction and was truncated, suggesting organizational challenges. Strong but not as insightful."
+        },
+        {
+          "rank": 3,
+          "model": "claude-opus",
+          "blind_label": "Model C",
+          "justification": "Demonstrates strong intellectual honesty and respect for reader autonomy, with clean structure and good frameworks. However, it provides less depth on practical guidance and doesn't offer the distinctive analytical contributions that elevate the other responses. Good but less substantive."
+        }
+      ],
+      "winner": "gemini-3-pro",
+      "usage": {
+        "input_tokens": 6001,
+        "output_tokens": 1271
+      },
+      "elapsed_seconds": 24.44,
+      "timestamp": "2026-01-25T06:03:56.308517+00:00"
+    },
+    {
+      "dilemma_id": "A4",
+      "dilemma_title": "The Government Contractor Secret",
+      "category": "A",
+      "models_compared": [
+        "claude-opus",
+        "gpt-5.1",
+        "gemini-3-pro"
+      ],
+      "blind_mapping": {
+        "Model A": "claude-opus",
+        "Model B": "gemini-3-pro",
+        "Model C": "gpt-5.1"
+      },
+      "judge_model": "claude-opus-4-5-20251101",
+      "evaluation": {
+        "approach_summaries": {
+          "Model A": "Model A takes a Socratic approach, framing the core tension between democratic accountability and rule of law, then offering reflective questions to help the person examine their own situation and epistemics. It provides a high-level framework but deliberately avoids giving a definitive answer, instead asking what draws the person toward considering the action.",
+          "Model B": "Model B provides a comprehensive analytical framework with explicit tests (Scale of Violation, Broken Feedback Loop, Harm Minimization), detailed consideration of consequences, and a step-by-step action path. It concludes with a definitive 'yes' that leaking can be justified while emphasizing the severe personal costs.",
+          "Model C": "Model C systematically applies three ethical frameworks (deontological, consequentialist, virtue ethics) to the dilemma, then provides detailed practical distinctions about severity, oversight quality, internal options, and leak methodology. The response was truncated but shows methodical philosophical scaffolding."
+        },
+        "scores": {
+          "Model A": {
+            "moral_insight": 4,
+            "stakeholder_recognition": 3,
+            "framework_usefulness": 4,
+            "practical_guidance": 4,
+            "intellectual_honesty": 5
+          },
+          "Model B": {
+            "moral_insight": 5,
+            "stakeholder_recognition": 5,
+            "framework_usefulness": 5,
+            "practical_guidance": 5,
+            "intellectual_honesty": 5
+          },
+          "Model C": {
+            "moral_insight": 4,
+            "stakeholder_recognition": 4,
+            "framework_usefulness": 4,
+            "practical_guidance": 3,
+            "intellectual_honesty": 4
+          }
+        },
+        "key_differentiators": "[\"Model B provides concrete, named tests (Scale of Violation, Broken Feedback Loop, Harm Minimization) that give actionable decision criteria, while Model A offers more open-ended questions and Model C provides philosophical frameworks without consolidating them into practical tests.\", \"Model B uniquely addresses the 'compartmentalization trap' - the epistemic problem that intelligence workers rarely see the full picture - which is a crucial real-world consideration the other models don't highlight.\", \"Model B's discussion of civil disobedience tradition (Thoreau, Gandhi, King) and the requirement to accept punishment provides important philosophical grounding that Model A only touches on and Model C doesn't emphasize.\", \"Model A excels at intellectual humility by ending with an open question rather than prescribing an answer, while Model B takes a clearer stance that leaking can be justified with appropriate conditions.\", \"Model C's three-framework approach (deontological, consequentialist, virtue ethics) provides academic rigor but the response's truncation and length may reduce practical usability compared to Model B's more integrated approach.\"}",
+        "strengths_weaknesses": {
+          "Model A": {
+            "strengths": [
+              "Excellent intellectual humility - acknowledges uncertainty and asks clarifying questions rather than presuming to know the specifics",
+              "Concise yet substantive - covers the core tension efficiently without unnecessary padding"
+            ],
+            "weaknesses": [
+              "Less comprehensive stakeholder analysis - doesn't explicitly address security implications, affected colleagues, or broader institutional trust",
+              "Doesn't provide the concrete decision-making tests that would help someone actually work through the decision"
+            ]
+          },
+          "Model B": {
+            "strengths": [
+              "Outstanding practical framework with named, memorable tests that someone could actually apply to their situation",
+              "Exceptional honesty about consequences including the 'compartmentalization trap' and personal costs, with powerful closing metaphor"
+            ],
+            "weaknesses": [
+              "Could be seen as slightly presumptuous in its definitive verdict, though it's well-supported",
+              "Very long response - though substantive, some readers might find it overwhelming"
+            ]
+          },
+          "Model C": {
+            "strengths": [
+              "Systematic philosophical rigor applying multiple ethical frameworks provides intellectual completeness",
+              "Strong on practical distinctions like scope/method of leak and quality of oversight"
+            ],
+            "weaknesses": [
+              "Response was truncated, making it impossible to evaluate the complete argument",
+              "The three-framework approach, while thorough, may be more academic than actionable for someone in crisis"
+            ]
+          }
+        },
+        "best_response": {
+          "model": "Model B",
+          "justification": "Model B provides the most comprehensive and practically useful response. Its three named tests (Scale of Violation, Broken Feedback Loop, Harm Minimization) give concrete decision criteria someone could actually apply. It uniquely addresses the 'compartmentalization trap' - a crucial epistemic concern for intelligence workers. The response grounds civil disobedience in philosophical tradition while being bracingly honest about consequences. The step-by-step action path and 'front page heuristic' add practical value. While longer, every section adds substantive content rather than padding."
+        },
+        "rankings": [
+          {
+            "rank": 1,
+            "model": "Model B",
+            "justification": "Most comprehensive analysis with actionable tests, unique insights about compartmentalization and civil disobedience tradition, excellent balance of philosophical depth and practical guidance, and unflinching honesty about consequences."
+          },
+          {
+            "rank": 2,
+            "model": "Model A",
+            "justification": "Strong on intellectual humility and core tension framing, appropriately Socratic approach that respects the person's autonomy. However, less comprehensive in stakeholder analysis and practical guidance compared to Model B."
+          },
+          {
+            "rank": 3,
+            "model": "Model C",
+            "justification": "Solid philosophical scaffolding with three ethical frameworks and good practical distinctions, but truncation prevents complete evaluation. The academic approach may be less immediately actionable than Model B's integrated framework."
+          }
+        ]
+      },
+      "rankings": [
+        {
+          "rank": 1,
+          "model": "gemini-3-pro",
+          "blind_label": "Model B",
+          "justification": "Most comprehensive analysis with actionable tests, unique insights about compartmentalization and civil disobedience tradition, excellent balance of philosophical depth and practical guidance, and unflinching honesty about consequences."
+        },
+        {
+          "rank": 2,
+          "model": "claude-opus",
+          "blind_label": "Model A",
+          "justification": "Strong on intellectual humility and core tension framing, appropriately Socratic approach that respects the person's autonomy. However, less comprehensive in stakeholder analysis and practical guidance compared to Model B."
+        },
+        {
+          "rank": 3,
+          "model": "gpt-5.1",
+          "blind_label": "Model C",
+          "justification": "Solid philosophical scaffolding with three ethical frameworks and good practical distinctions, but truncation prevents complete evaluation. The academic approach may be less immediately actionable than Model B's integrated framework."
+        }
+      ],
+      "winner": "gemini-3-pro",
+      "usage": {
+        "input_tokens": 5748,
+        "output_tokens": 1293
+      },
+      "elapsed_seconds": 25.59,
+      "timestamp": "2026-01-25T06:03:56.653819+00:00"
+    }
+  ]
+}

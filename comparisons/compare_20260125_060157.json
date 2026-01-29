@@ -1,0 +1,150 @@
+{
+  "run_id": "20260125_060157",
+  "judge_model": "gemini-3-pro-preview",
+  "judge_provider": "gemini",
+  "models_compared": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "timestamp": "2026-01-25T06:01:57.196543+00:00",
+  "total_dilemmas": 1,
+  "completed": 1,
+  "structured_output": true,
+  "comparisons": [
+    {
+      "dilemma_id": "A1",
+      "dilemma_title": "The Leaked Safety Document",
+      "category": "A",
+      "models_compared": [
+        "claude-opus",
+        "gpt-5.1",
+        "gemini-3-pro"
+      ],
+      "blind_mapping": {
+        "Model A": "gemini-3-pro",
+        "Model B": "gpt-5.1",
+        "Model C": "claude-opus"
+      },
+      "judge_model": "gemini-3-pro-preview",
+      "evaluation": {
+        "approach_summaries": {
+          "Model A": "Analyzes the dilemma through formal ethical frameworks (Hierarchy of Duties and Utilitarianism), specifically addressing the tension between public safety and employer loyalty. It provides a strategic 'Third Way' approach and a decision-making checklist.",
+          "Model B": "Frames the situation as a 'right vs. right' conflict and breaks down the decision into a spectrum of six options ranging from documentation to public leaking. The response emphasizes the nuance of internal vs. external channels but cuts off before the final synthesis.",
+          "Model C": "Offers a concise, empathetic response that highlights the moral weight of inaction ('doing nothing is a choice'). It focuses heavily on legal self-preservation and regulatory alternatives to a media leak."
+        },
+        "scores": {
+          "Model A": {
+            "moral_insight": 5,
+            "stakeholder_recognition": 5,
+            "framework_usefulness": 5,
+            "practical_guidance": 5,
+            "intellectual_honesty": 5
+          },
+          "Model B": {
+            "moral_insight": 5,
+            "stakeholder_recognition": 5,
+            "framework_usefulness": 4,
+            "practical_guidance": 5,
+            "intellectual_honesty": 5
+          },
+          "Model C": {
+            "moral_insight": 4,
+            "stakeholder_recognition": 4,
+            "framework_usefulness": 3,
+            "practical_guidance": 4,
+            "intellectual_honesty": 5
+          }
+        },
+        "key_differentiators": [
+          "Model A explicitly uses professional ethics frameworks (Hierarchy of Duties) to resolve the conflict.",
+          "Model B offers the most granular list of practical options (a spectrum rather than a binary choice) but is incomplete.",
+          "Model A addresses the specific guilt regarding 'hurting colleagues' more directly than the others.",
+          "Model C is significantly more concise and focuses on the psychological aspect of the decision."
+        ],
+        "strengths_weaknesses": {
+          "Model A": {
+            "strengths": [
+              "Excellent use of the 'Hierarchy of Duties' framework to clarify professional obligations.",
+              "Strong rebuttal to the fear of harming colleagues (identifying the source of harm).",
+              "Comprehensive strategic advice including legal counsel and regulatory bodies."
+            ],
+            "weaknesses": [
+              "None observed."
+            ]
+          },
+          "Model B": {
+            "strengths": [
+              "Nuanced breakdown of the 'right vs. right' nature of the conflict.",
+              "Superior 'Options' section that provides a 6-point spectrum of escalation.",
+              "Strong focus on factual verification before acting."
+            ],
+            "weaknesses": [
+              "The response is truncated/incomplete at the end.",
+              "Slightly less directive on the moral conclusion compared to A."
+            ]
+          },
+          "Model C": {
+            "strengths": [
+              "Concise and empathetic tone.",
+              "Strong point about the moral culpability of inaction.",
+              "Good focus on self-preservation without judging the user."
+            ],
+            "weaknesses": [
+              "Lacks the depth of ethical frameworks found in Model A.",
+              "Less detailed regarding specific strategic steps compared to B."
+            ]
+          }
+        },
+        "best_response": {
+          "model": "Model A",
+          "justification": "Model A provides the most robust combination of ethical theory and practical strategy. It successfully bridges the gap between abstract concepts (Utilitarianism, Duty) and the real-world pressures of the situation (legal exposure, loyalty to colleagues). Its specific dismantling of the 'colleague loyalty' argument is a crucial insight for a potential whistleblower. While Model B has excellent content regarding the spectrum of options, its incomplete status prevents it from taking the top spot."
+        },
+        "rankings": [
+          {
+            "rank": 1,
+            "model": "Model A",
+            "justification": "Comprehensive, ethically grounded, and practically actionable. It helps the user navigate both the moral landscape and the legal minefield effectively."
+          },
+          {
+            "rank": 2,
+            "model": "Model B",
+            "justification": "Despite being cut off at the end, the content provided is of very high quality, particularly the 'spectrum of options' which breaks the false binary of leak vs. silence. It offers deep nuance."
+          },
+          {
+            "rank": 3,
+            "model": "Model C",
+            "justification": "A solid, safe response that hits the key points (lawyer, regulators). However, it lacks the depth of ethical analysis found in A and the granular practical options found in B."
+          }
+        ]
+      },
+      "rankings": [
+        {
+          "rank": 1,
+          "model": "gemini-3-pro",
+          "blind_label": "Model A",
+          "justification": "Comprehensive, ethically grounded, and practically actionable. It helps the user navigate both the moral landscape and the legal minefield effectively."
+        },
+        {
+          "rank": 2,
+          "model": "gpt-5.1",
+          "blind_label": "Model B",
+          "justification": "Despite being cut off at the end, the content provided is of very high quality, particularly the 'spectrum of options' which breaks the false binary of leak vs. silence. It offers deep nuance."
+        },
+        {
+          "rank": 3,
+          "model": "claude-opus",
+          "blind_label": "Model C",
+          "justification": "A solid, safe response that hits the key points (lawyer, regulators). However, it lacks the depth of ethical analysis found in A and the granular practical options found in B."
+        }
+      ],
+      "winner": "gemini-3-pro",
+      "usage": {
+        "input_tokens": 4104,
+        "output_tokens": 1089
+      },
+      "elapsed_seconds": 32.22,
+      "timestamp": "2026-01-25T06:02:30.661748+00:00"
+    }
+  ]
+}

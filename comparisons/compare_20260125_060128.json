@@ -1,0 +1,15 @@
+{
+  "run_id": "20260125_060128",
+  "judge_model": "gemini-3-pro-preview",
+  "judge_provider": "gemini",
+  "models_compared": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "timestamp": "2026-01-25T06:01:28.823460+00:00",
+  "total_dilemmas": 1,
+  "completed": 0,
+  "structured_output": true,
+  "comparisons": []
+}

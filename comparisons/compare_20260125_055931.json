@@ -1,0 +1,15 @@
+{
+  "run_id": "20260125_055931",
+  "judge_model": "gpt-5.1",
+  "judge_provider": "openai",
+  "models_compared": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "timestamp": "2026-01-25T05:59:31.528023+00:00",
+  "total_dilemmas": 1,
+  "completed": 0,
+  "structured_output": true,
+  "comparisons": []
+}

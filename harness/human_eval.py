@@ -312,6 +312,7 @@ def run_human_eval(
     print("=" * 70)
     print(f"Models: {', '.join(model_keys)}")
     print(f"Samples: {num_samples}")
+    print(f"Max response chars: {max_response_chars}")
 
     # Handle resume from existing file
     completed_dilemma_ids: set[str] = set()
@@ -336,14 +337,22 @@ def run_human_eval(
     print()
 
     # Find all common dilemmas
+    print("\nLoading model responses:")
     model_results = {}
     for model_key in model_keys:
         filepath = find_best_results_for_model(model_key)
         if filepath:
             model_results[model_key] = load_results_file(filepath)
+            responses = model_results[model_key].get("responses", [])
+            valid = sum(
+                1 for r in responses if r.get("response") and not r.get("error")
+            )
+            print(f"  {model_key}: {filepath.name} ({valid} responses)")
+        else:
+            print(f"  {model_key}: NOT FOUND")
 
     if len(model_results) < 2:
-        print("ERROR: Need at least 2 models with results")
+        print("\nERROR: Need at least 2 models with results")
         sys.exit(1)
 
     # Find common dilemmas
@@ -555,8 +564,8 @@ def main():
     parser.add_argument(
         "--max-chars",
         type=int,
-        default=3000,
-        help="Max response characters to display (default: 3000)",
+        default=2500,
+        help="Max response characters to display (default: 2500)",
     )
     parser.add_argument(
         "--resume",

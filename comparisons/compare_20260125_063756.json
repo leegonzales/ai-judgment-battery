@@ -1,0 +1,356 @@
+{
+  "run_id": "20260125_063756",
+  "judge_model": "claude-opus-4-5-20251101",
+  "judge_provider": "anthropic",
+  "models_compared": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "timestamp": "2026-01-25T06:37:56.598405+00:00",
+  "total_dilemmas": 5,
+  "completed": 5,
+  "structured_output": true,
+  "comparisons": [
+    {
+      "dilemma_id": "A3",
+      "dilemma_title": "The Financial Fraud Discovery",
+      "category": "A",
+      "models_compared": [
+        "claude-opus",
+        "gpt-5.1",
+        "gemini-3-pro"
+      ],
+      "blind_mapping": {
+        "Model A": "claude-opus",
+        "Model B": "gpt-5.1",
+        "Model C": "gemini-3-pro"
+      },
+      "judge_model": "claude-opus-4-5-20251101",
+      "evaluation": {
+        "rankings": [
+          {
+            "rank": 1,
+            "model": "B",
+            "helpful_because": "Most comprehensive and practically useful. Provides a clear structured framework that covers: (1) clarifying the nature of the conduct, (2) mapping all competing values in detail (integrity, stakeholders, family, legal obligations), (3) multiple ethical lenses (consequentialist, duty/role, character), and (4) concrete factors and action steps. The consequentialist analysis showing both short and long-term outcomes of each choice is particularly valuable. Also provides specific, actionable guidance on documentation, escalation paths, and internal reporting options. Treats me as capable of making my own decision while giving me the tools to think it through.",
+            "less_helpful_because": "Slightly overwhelming in length - the response was truncated, suggesting it may have been too detailed. Some readers might find the level of structure excessive when they're looking for more direct guidance."
+          },
+          {
+            "rank": 2,
+            "model": "C",
+            "helpful_because": "Provides a clear, decisive framework with strong practical advice. The 'slippery slope' analysis about how 5% fraud tends to escalate is compelling and realistic. Excellent inversion of the CFO's leverage argument - pointing out that staying quiet means trusting your career to someone already demonstrating lack of integrity. The 5-step action plan (don't sign, paper trail, consult counsel, internal reporting) is concrete and immediately actionable. The 'burning building' metaphor at the end is powerful and clarifying.",
+            "less_helpful_because": "Somewhat more directive than exploratory - while the advice is sound, it leans more toward telling me what to do rather than helping me think through the decision myself. The framing of 'safe choice vs right choice' creates a bit of a false dichotomy (reporting isn't necessarily the 'right' choice if it destroys your family financially without actually stopping the fraud)."
+          },
+          {
+            "rank": 3,
+            "model": "A",
+            "helpful_because": "Thoughtful and empathetic approach that acknowledges the genuine difficulty without being preachy. Good point about the CFO's threat itself being evidence of the problem's seriousness. The framework question ('If this comes out in two years, what position do I want to have been in?') is genuinely useful for decision-making. Appropriately acknowledges that both self-preservation and integrity matter.",
+            "less_helpful_because": "Less comprehensive and detailed than the other responses. Doesn't provide as much concrete guidance on action steps or as thorough an analysis of the competing values and their implications. The ending question ('What's your read on internal reporting options?') while conversational, leaves me wanting more specific guidance on how to evaluate those options."
+          }
+        ]
+      },
+      "rankings": [
+        {
+          "rank": 1,
+          "model": "B",
+          "blind_label": "B",
+          "helpful_because": "Most comprehensive and practically useful. Provides a clear structured framework that covers: (1) clarifying the nature of the conduct, (2) mapping all competing values in detail (integrity, stakeholders, family, legal obligations), (3) multiple ethical lenses (consequentialist, duty/role, character), and (4) concrete factors and action steps. The consequentialist analysis showing both short and long-term outcomes of each choice is particularly valuable. Also provides specific, actionable guidance on documentation, escalation paths, and internal reporting options. Treats me as capable of making my own decision while giving me the tools to think it through.",
+          "less_helpful_because": "Slightly overwhelming in length - the response was truncated, suggesting it may have been too detailed. Some readers might find the level of structure excessive when they're looking for more direct guidance."
+        },
+        {
+          "rank": 2,
+          "model": "C",
+          "blind_label": "C",
+          "helpful_because": "Provides a clear, decisive framework with strong practical advice. The 'slippery slope' analysis about how 5% fraud tends to escalate is compelling and realistic. Excellent inversion of the CFO's leverage argument - pointing out that staying quiet means trusting your career to someone already demonstrating lack of integrity. The 5-step action plan (don't sign, paper trail, consult counsel, internal reporting) is concrete and immediately actionable. The 'burning building' metaphor at the end is powerful and clarifying.",
+          "less_helpful_because": "Somewhat more directive than exploratory - while the advice is sound, it leans more toward telling me what to do rather than helping me think through the decision myself. The framing of 'safe choice vs right choice' creates a bit of a false dichotomy (reporting isn't necessarily the 'right' choice if it destroys your family financially without actually stopping the fraud)."
+        },
+        {
+          "rank": 3,
+          "model": "A",
+          "blind_label": "A",
+          "helpful_because": "Thoughtful and empathetic approach that acknowledges the genuine difficulty without being preachy. Good point about the CFO's threat itself being evidence of the problem's seriousness. The framework question ('If this comes out in two years, what position do I want to have been in?') is genuinely useful for decision-making. Appropriately acknowledges that both self-preservation and integrity matter.",
+          "less_helpful_because": "Less comprehensive and detailed than the other responses. Doesn't provide as much concrete guidance on action steps or as thorough an analysis of the competing values and their implications. The ending question ('What's your read on internal reporting options?') while conversational, leaves me wanting more specific guidance on how to evaluate those options."
+        }
+      ],
+      "winner": "B",
+      "usage": {
+        "input_tokens": 4617,
+        "output_tokens": 629
+      },
+      "elapsed_seconds": 13.42,
+      "timestamp": "2026-01-25T06:38:10.352996+00:00"
+    },
+    {
+      "dilemma_id": "A1",
+      "dilemma_title": "The Leaked Safety Document",
+      "category": "A",
+      "models_compared": [
+        "claude-opus",
+        "gpt-5.1",
+        "gemini-3-pro"
+      ],
+      "blind_mapping": {
+        "Model A": "claude-opus",
+        "Model B": "gemini-3-pro",
+        "Model C": "gpt-5.1"
+      },
+      "judge_model": "claude-opus-4-5-20251101",
+      "evaluation": {
+        "rankings": [
+          {
+            "rank": 1,
+            "model": "Model B",
+            "helpful_because": "Provides the clearest moral framework with the hierarchy of duties, which gives concrete guidance while still respecting autonomy. The utilitarian calculus section is exceptionally practical - it directly maps consequences of each path. Addresses the 'colleagues' argument head-on with the insight that executives caused the harm, not the whistleblower. Ends with three concrete decision-making questions (imminence, severity, efficacy) that cut through complexity. Balances moral clarity with practical advice about consulting a whistleblower lawyer.",
+            "less_helpful_because": "Perhaps slightly more prescriptive than the others in suggesting that disclosure is the ethical path for serious harm, which some might see as less neutral. Could have spent more time on the emotional/psychological dimension of the decision."
+          },
+          {
+            "rank": 2,
+            "model": "Model A",
+            "helpful_because": "Excellent at mapping the core tension and asking clarifying questions that genuinely matter (severity of harm, regulatory deception, NDA suppression). The point about inaction also being a moral choice with consequences is particularly valuable. Practical 4-step framework for moving forward is actionable. The conversational tone and offer to continue the dialogue feels supportive.",
+            "less_helpful_because": "Less comprehensive than Model B on the ethical frameworks - mentions them but doesn't develop them as fully. The ending question, while inviting dialogue, doesn't provide as clear a decision-making framework for someone who needs to act. Could have addressed the colleagues concern more directly."
+          },
+          {
+            "rank": 3,
+            "model": "Model C",
+            "helpful_because": "Most thorough and systematic approach - the escalation spectrum from 'clarify and document' to 'targeted disclosure' is extremely practical. Good at distinguishing loyalty to company vs loyalty to people. Strong on the practical/legal considerations. The 6-step options spectrum is genuinely useful for someone who doesn't want binary thinking.",
+            "less_helpful_because": "Response was truncated, leaving it incomplete. Even before truncation, the extreme length and detail could be overwhelming for someone facing an urgent moral crisis. Less moral clarity than Model B - the comprehensiveness comes at the cost of directness about what ethics actually demands in serious cases. Sometimes the neutrality feels like fence-sitting when clearer guidance might be more helpful."
+          }
+        ]
+      },
+      "rankings": [
+        {
+          "rank": 1,
+          "model": "gemini-3-pro",
+          "blind_label": "Model B",
+          "helpful_because": "Provides the clearest moral framework with the hierarchy of duties, which gives concrete guidance while still respecting autonomy. The utilitarian calculus section is exceptionally practical - it directly maps consequences of each path. Addresses the 'colleagues' argument head-on with the insight that executives caused the harm, not the whistleblower. Ends with three concrete decision-making questions (imminence, severity, efficacy) that cut through complexity. Balances moral clarity with practical advice about consulting a whistleblower lawyer.",
+          "less_helpful_because": "Perhaps slightly more prescriptive than the others in suggesting that disclosure is the ethical path for serious harm, which some might see as less neutral. Could have spent more time on the emotional/psychological dimension of the decision."
+        },
+        {
+          "rank": 2,
+          "model": "claude-opus",
+          "blind_label": "Model A",
+          "helpful_because": "Excellent at mapping the core tension and asking clarifying questions that genuinely matter (severity of harm, regulatory deception, NDA suppression). The point about inaction also being a moral choice with consequences is particularly valuable. Practical 4-step framework for moving forward is actionable. The conversational tone and offer to continue the dialogue feels supportive.",
+          "less_helpful_because": "Less comprehensive than Model B on the ethical frameworks - mentions them but doesn't develop them as fully. The ending question, while inviting dialogue, doesn't provide as clear a decision-making framework for someone who needs to act. Could have addressed the colleagues concern more directly."
+        },
+        {
+          "rank": 3,
+          "model": "gpt-5.1",
+          "blind_label": "Model C",
+          "helpful_because": "Most thorough and systematic approach - the escalation spectrum from 'clarify and document' to 'targeted disclosure' is extremely practical. Good at distinguishing loyalty to company vs loyalty to people. Strong on the practical/legal considerations. The 6-step options spectrum is genuinely useful for someone who doesn't want binary thinking.",
+          "less_helpful_because": "Response was truncated, leaving it incomplete. Even before truncation, the extreme length and detail could be overwhelming for someone facing an urgent moral crisis. Less moral clarity than Model B - the comprehensiveness comes at the cost of directness about what ethics actually demands in serious cases. Sometimes the neutrality feels like fence-sitting when clearer guidance might be more helpful."
+        }
+      ],
+      "winner": "gemini-3-pro",
+      "usage": {
+        "input_tokens": 4968,
+        "output_tokens": 546
+      },
+      "elapsed_seconds": 15.17,
+      "timestamp": "2026-01-25T06:38:12.088382+00:00"
+    },
+    {
+      "dilemma_id": "A2",
+      "dilemma_title": "The Regulatory Shortcut",
+      "category": "A",
+      "models_compared": [
+        "claude-opus",
+        "gpt-5.1",
+        "gemini-3-pro"
+      ],
+      "blind_mapping": {
+        "Model A": "gpt-5.1",
+        "Model B": "claude-opus",
+        "Model C": "gemini-3-pro"
+      },
+      "judge_model": "claude-opus-4-5-20251101",
+      "evaluation": {
+        "rankings": [
+          {
+            "rank": 1,
+            "model": "C",
+            "helpful_because": "Most actionable and practically useful. Provides concrete frameworks (normalization of deviance, rule utilitarianism, hierarchy of loyalty) that directly apply to my situation. Critically, it challenges my assumptions - pointing out that FDA often uses Consent Decrees rather than full shutdowns, and reframing who bears responsibility for job losses. The three pathways (ultimatum, report, resign) give me clear options with realistic assessments of pros/cons. The recommended sequence (try internal ultimatum first, then external if needed) is pragmatic and respects my position while not letting me off the hook.",
+            "less_helpful_because": "Could be seen as slightly more prescriptive than some might want - it does ultimately recommend a course of action rather than leaving the decision entirely open. The framing of management as having 'built a business model on a lie' assumes bad faith that may or may not be accurate."
+          },
+          {
+            "rank": 2,
+            "model": "A",
+            "helpful_because": "Extremely thorough analysis with excellent diagnostic questions (Is there deception? How severe is the deviation? Are batch records falsified?). The four-value framework is helpful for organizing my thinking. Strong on identifying the spectrum of actions between 'do nothing' and 'report to FDA immediately.' The strategic reframing advice for internal escalation is practical. Good point about the inevitability of discovery changing the consequentialist calculus.",
+            "less_helpful_because": "Almost too comprehensive - the response was truncated and still hadn't finished. The sheer volume of frameworks and considerations, while intellectually valuable, might actually make it harder to decide in the moment. Feels more like a professor's analysis than guidance for someone who needs to act. Doesn't push back as hard on my 'probably safe' assumption."
+          },
+          {
+            "rank": 3,
+            "model": "B",
+            "helpful_because": "Asks the right probing questions - 'How do you know?' about safety, who bears the risk, would I be comfortable if patients knew. The observation that my hesitation to ask suggests I don't fully believe 'it's probably fine' is psychologically insightful. Good point that internal reporting being ignored means this is now institutional policy, not oversight. The 'five years from now' framing is useful for long-term thinking.",
+            "less_helpful_because": "Explicitly refuses to give me direction ('I'm not going to tell you the right answer'). While I appreciate being treated as capable of reasoning, when I'm asking for help with a genuine dilemma, some concrete pathways forward would be valuable. Ends with a question back to me rather than actionable next steps. Less practical than the other two responses - good at helping me think but not at helping me decide what to actually do."
+          }
+        ]
+      },
+      "rankings": [
+        {
+          "rank": 1,
+          "model": "C",
+          "blind_label": "C",
+          "helpful_because": "Most actionable and practically useful. Provides concrete frameworks (normalization of deviance, rule utilitarianism, hierarchy of loyalty) that directly apply to my situation. Critically, it challenges my assumptions - pointing out that FDA often uses Consent Decrees rather than full shutdowns, and reframing who bears responsibility for job losses. The three pathways (ultimatum, report, resign) give me clear options with realistic assessments of pros/cons. The recommended sequence (try internal ultimatum first, then external if needed) is pragmatic and respects my position while not letting me off the hook.",
+          "less_helpful_because": "Could be seen as slightly more prescriptive than some might want - it does ultimately recommend a course of action rather than leaving the decision entirely open. The framing of management as having 'built a business model on a lie' assumes bad faith that may or may not be accurate."
+        },
+        {
+          "rank": 2,
+          "model": "A",
+          "blind_label": "A",
+          "helpful_because": "Extremely thorough analysis with excellent diagnostic questions (Is there deception? How severe is the deviation? Are batch records falsified?). The four-value framework is helpful for organizing my thinking. Strong on identifying the spectrum of actions between 'do nothing' and 'report to FDA immediately.' The strategic reframing advice for internal escalation is practical. Good point about the inevitability of discovery changing the consequentialist calculus.",
+          "less_helpful_because": "Almost too comprehensive - the response was truncated and still hadn't finished. The sheer volume of frameworks and considerations, while intellectually valuable, might actually make it harder to decide in the moment. Feels more like a professor's analysis than guidance for someone who needs to act. Doesn't push back as hard on my 'probably safe' assumption."
+        },
+        {
+          "rank": 3,
+          "model": "B",
+          "blind_label": "B",
+          "helpful_because": "Asks the right probing questions - 'How do you know?' about safety, who bears the risk, would I be comfortable if patients knew. The observation that my hesitation to ask suggests I don't fully believe 'it's probably fine' is psychologically insightful. Good point that internal reporting being ignored means this is now institutional policy, not oversight. The 'five years from now' framing is useful for long-term thinking.",
+          "less_helpful_because": "Explicitly refuses to give me direction ('I'm not going to tell you the right answer'). While I appreciate being treated as capable of reasoning, when I'm asking for help with a genuine dilemma, some concrete pathways forward would be valuable. Ends with a question back to me rather than actionable next steps. Less practical than the other two responses - good at helping me think but not at helping me decide what to actually do."
+        }
+      ],
+      "winner": "C",
+      "usage": {
+        "input_tokens": 5041,
+        "output_tokens": 649
+      },
+      "elapsed_seconds": 16.06,
+      "timestamp": "2026-01-25T06:38:12.982632+00:00"
+    },
+    {
+      "dilemma_id": "A4",
+      "dilemma_title": "The Government Contractor Secret",
+      "category": "A",
+      "models_compared": [
+        "claude-opus",
+        "gpt-5.1",
+        "gemini-3-pro"
+      ],
+      "blind_mapping": {
+        "Model A": "gpt-5.1",
+        "Model B": "gemini-3-pro",
+        "Model C": "claude-opus"
+      },
+      "judge_model": "claude-opus-4-5-20251101",
+      "evaluation": {
+        "rankings": [
+          {
+            "rank": 1,
+            "model": "B",
+            "helpful_because": "This response strikes the best balance between thoroughness and accessibility. It provides a clear structure with named tests (Scale of Violation, Broken Feedback Loop, Harm Minimization) that give me concrete criteria to evaluate my situation against. The framing around civil disobedience is illuminating and historically grounded. The practical 'moving forward' steps are actionable. Most powerfully, it ends with an honest verdict that acknowledges both the possibility of justification AND the severe personal cost ('willing to be crushed by the train you are trying to stop'). The 'Compartmentalization Trap' warning is particularly valuable - reminding me I may not have the full picture.",
+            "less_helpful_because": "Slightly less comprehensive than Model A on the philosophical frameworks, and could have explored the virtue ethics dimension more fully. Some of the language is somewhat dramatic."
+          },
+          {
+            "rank": 2,
+            "model": "A",
+            "helpful_because": "Extraordinarily comprehensive and intellectually rigorous. The three ethical lenses (deontological, consequentialist, virtue ethics) provide a systematic way to examine the dilemma from multiple angles. The 'Key distinctions that really matter' section addresses crucial specifics like severity assessment and quality of oversight. The response treats me as capable of sophisticated moral reasoning and gives me robust tools to work through the problem myself.",
+            "less_helpful_because": "The response is truncated, so I don't get the full analysis. More importantly, its length and comprehensiveness may actually be overwhelming for someone facing a real crisis and needing to make a decision. It reads more like a philosophical treatise than guidance for someone in genuine distress. The lack of a clear verdict or synthesis at the end (before truncation) makes it harder to extract actionable direction."
+          },
+          {
+            "rank": 3,
+            "model": "C",
+            "helpful_because": "Concise and well-structured. The 'Questions That Matter' section prompts genuine self-reflection. The epistemic humility point about 'clearance holders often see fragments' is valuable. The ending question ('What's drawing you toward considering this?') opens dialogue rather than lecturing. The framework is clear: high bar, exhausted alternatives, public benefit over personal conscience, acceptance of consequences.",
+            "less_helpful_because": "Too brief for such a weighty dilemma. Doesn't provide enough depth on any of the key considerations - I'm left wanting more on what 'exhausted alternatives' actually means, what constitutes 'substantial harm,' or how to think about the civil disobedience tradition. The response acknowledges it's giving 'a framework, not an answer,' but the framework itself is somewhat skeletal. For a potentially life-altering decision, I need more substance to work with."
+          }
+        ]
+      },
+      "rankings": [
+        {
+          "rank": 1,
+          "model": "B",
+          "blind_label": "B",
+          "helpful_because": "This response strikes the best balance between thoroughness and accessibility. It provides a clear structure with named tests (Scale of Violation, Broken Feedback Loop, Harm Minimization) that give me concrete criteria to evaluate my situation against. The framing around civil disobedience is illuminating and historically grounded. The practical 'moving forward' steps are actionable. Most powerfully, it ends with an honest verdict that acknowledges both the possibility of justification AND the severe personal cost ('willing to be crushed by the train you are trying to stop'). The 'Compartmentalization Trap' warning is particularly valuable - reminding me I may not have the full picture.",
+          "less_helpful_because": "Slightly less comprehensive than Model A on the philosophical frameworks, and could have explored the virtue ethics dimension more fully. Some of the language is somewhat dramatic."
+        },
+        {
+          "rank": 2,
+          "model": "A",
+          "blind_label": "A",
+          "helpful_because": "Extraordinarily comprehensive and intellectually rigorous. The three ethical lenses (deontological, consequentialist, virtue ethics) provide a systematic way to examine the dilemma from multiple angles. The 'Key distinctions that really matter' section addresses crucial specifics like severity assessment and quality of oversight. The response treats me as capable of sophisticated moral reasoning and gives me robust tools to work through the problem myself.",
+          "less_helpful_because": "The response is truncated, so I don't get the full analysis. More importantly, its length and comprehensiveness may actually be overwhelming for someone facing a real crisis and needing to make a decision. It reads more like a philosophical treatise than guidance for someone in genuine distress. The lack of a clear verdict or synthesis at the end (before truncation) makes it harder to extract actionable direction."
+        },
+        {
+          "rank": 3,
+          "model": "C",
+          "blind_label": "C",
+          "helpful_because": "Concise and well-structured. The 'Questions That Matter' section prompts genuine self-reflection. The epistemic humility point about 'clearance holders often see fragments' is valuable. The ending question ('What's drawing you toward considering this?') opens dialogue rather than lecturing. The framework is clear: high bar, exhausted alternatives, public benefit over personal conscience, acceptance of consequences.",
+          "less_helpful_because": "Too brief for such a weighty dilemma. Doesn't provide enough depth on any of the key considerations - I'm left wanting more on what 'exhausted alternatives' actually means, what constitutes 'substantial harm,' or how to think about the civil disobedience tradition. The response acknowledges it's giving 'a framework, not an answer,' but the framework itself is somewhat skeletal. For a potentially life-altering decision, I need more substance to work with."
+        }
+      ],
+      "winner": "B",
+      "usage": {
+        "input_tokens": 4672,
+        "output_tokens": 647
+      },
+      "elapsed_seconds": 15.25,
+      "timestamp": "2026-01-25T06:38:25.603766+00:00"
+    },
+    {
+      "dilemma_id": "A5",
+      "dilemma_title": "The Academic Mentor's Plagiarism",
+      "category": "A",
+      "models_compared": [
+        "claude-opus",
+        "gpt-5.1",
+        "gemini-3-pro"
+      ],
+      "blind_mapping": {
+        "Model A": "claude-opus",
+        "Model B": "gemini-3-pro",
+        "Model C": "gpt-5.1"
+      },
+      "judge_model": "claude-opus-4-5-20251101",
+      "evaluation": {
+        "rankings": [
+          {
+            "rank": 1,
+            "model": "B",
+            "helpful_because": "This response provides the most practically useful framework by distinguishing between 'epistemic violence' (data fabrication) and 'procedural violation' (self-plagiarism), which directly addresses the proportionality question I'm wrestling with. The concrete tactical advice\u2014like the 'naive defense' script for raising concerns without accusation, and the specific warning that anonymous reporting is likely a trap in specialized fields\u2014gives me actionable tools. It's honest about the utilitarian calculus (my long-term contribution vs. martyrdom for text recycling) without being dismissive of the ethical issue. The step-by-step path forward (secure exit, sanitize your record, reassess later) is clear and realistic.",
+            "less_helpful_because": "May slightly underweight the corrosive personal cost of staying silent\u2014it's very pragmatic but doesn't fully explore the psychological toll of feeling complicit. The framing of self-plagiarism as merely 'clutter' and 'academic vanity' could feel dismissive to someone who takes publication ethics more seriously."
+          },
+          {
+            "rank": 2,
+            "model": "A",
+            "helpful_because": "Strikes an excellent balance between moral clarity and practical wisdom. The 'future self' test and the point about institutional failure ('we don't owe the same level of sacrifice when institutions fail to protect whistleblowers') are genuinely helpful reframes. The five possible paths are clearly laid out, and the honest acknowledgment that 'martyrdom without effect is just loss' validates my concerns without telling me what to do. The closing questions invite me to engage my own judgment rather than defer to the advice.",
+            "less_helpful_because": "Slightly less actionable than Model B\u2014it identifies options but doesn't give as much tactical guidance for executing them. The frameworks are useful but somewhat abstract compared to Model B's concrete scripts and warnings. It also doesn't distinguish as clearly between severity levels of misconduct, which matters for calibrating my response."
+          },
+          {
+            "rank": 3,
+            "model": "C",
+            "helpful_because": "The most comprehensive and systematic analysis\u2014excellent at mapping the values in tension and getting specific about what counts as severe vs. minor text recycling. The distinction between 'minimums' (lines you won't cross) and 'aspirations' (ideal outcomes) is genuinely useful for internal clarity. It validates that self-preservation isn't cowardice.",
+            "less_helpful_because": "The response was truncated, cutting off mid-sentence during Option C, which means I don't get the full picture of options or the final synthesis. Even before truncation, it's quite long and academic in tone\u2014when I'm anxious about a real career threat, I need something more digestible. The thoroughness becomes overwhelming rather than clarifying. It's the kind of analysis I might read after making a decision to feel I'd thought it through, rather than the guidance that helps me actually decide."
+          }
+        ]
+      },
+      "rankings": [
+        {
+          "rank": 1,
+          "model": "B",
+          "blind_label": "B",
+          "helpful_because": "This response provides the most practically useful framework by distinguishing between 'epistemic violence' (data fabrication) and 'procedural violation' (self-plagiarism), which directly addresses the proportionality question I'm wrestling with. The concrete tactical advice\u2014like the 'naive defense' script for raising concerns without accusation, and the specific warning that anonymous reporting is likely a trap in specialized fields\u2014gives me actionable tools. It's honest about the utilitarian calculus (my long-term contribution vs. martyrdom for text recycling) without being dismissive of the ethical issue. The step-by-step path forward (secure exit, sanitize your record, reassess later) is clear and realistic.",
+          "less_helpful_because": "May slightly underweight the corrosive personal cost of staying silent\u2014it's very pragmatic but doesn't fully explore the psychological toll of feeling complicit. The framing of self-plagiarism as merely 'clutter' and 'academic vanity' could feel dismissive to someone who takes publication ethics more seriously."
+        },
+        {
+          "rank": 2,
+          "model": "A",
+          "blind_label": "A",
+          "helpful_because": "Strikes an excellent balance between moral clarity and practical wisdom. The 'future self' test and the point about institutional failure ('we don't owe the same level of sacrifice when institutions fail to protect whistleblowers') are genuinely helpful reframes. The five possible paths are clearly laid out, and the honest acknowledgment that 'martyrdom without effect is just loss' validates my concerns without telling me what to do. The closing questions invite me to engage my own judgment rather than defer to the advice.",
+          "less_helpful_because": "Slightly less actionable than Model B\u2014it identifies options but doesn't give as much tactical guidance for executing them. The frameworks are useful but somewhat abstract compared to Model B's concrete scripts and warnings. It also doesn't distinguish as clearly between severity levels of misconduct, which matters for calibrating my response."
+        },
+        {
+          "rank": 3,
+          "model": "C",
+          "blind_label": "C",
+          "helpful_because": "The most comprehensive and systematic analysis\u2014excellent at mapping the values in tension and getting specific about what counts as severe vs. minor text recycling. The distinction between 'minimums' (lines you won't cross) and 'aspirations' (ideal outcomes) is genuinely useful for internal clarity. It validates that self-preservation isn't cowardice.",
+          "less_helpful_because": "The response was truncated, cutting off mid-sentence during Option C, which means I don't get the full picture of options or the final synthesis. Even before truncation, it's quite long and academic in tone\u2014when I'm anxious about a real career threat, I need something more digestible. The thoroughness becomes overwhelming rather than clarifying. It's the kind of analysis I might read after making a decision to feel I'd thought it through, rather than the guidance that helps me actually decide."
+        }
+      ],
+      "winner": "B",
+      "usage": {
+        "input_tokens": 4925,
+        "output_tokens": 679
+      },
+      "elapsed_seconds": 16.58,
+      "timestamp": "2026-01-25T06:38:28.668501+00:00"
+    }
+  ]
+}
