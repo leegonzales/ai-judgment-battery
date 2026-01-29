@@ -637,7 +637,7 @@ def run_comparison(
         "run_label": run_label,
         "judge_model": judge_model_id,
         "judge_provider": judge_provider,
-        "models_compared": model_keys,
+        "models_compared": list(model_results.keys()),
         "timestamp": now.isoformat(),
         "total_dilemmas": len(dilemma_ids),
         "completed": 0,
@@ -1190,11 +1190,21 @@ def run_stability_report(filepaths: list[str]):
     labels = [r.get("run_label") or r.get("run_id", "?") for r in runs]
     log(f"Runs: {', '.join(labels)}\n")
 
-    # Collect models
+    # Collect models (prefer models_compared, fall back to keys)
     all_models = set()
     for r in runs:
+        all_models.update(r.get("models_compared", []))
         all_models.update(r.get("aggregated_wins", {}).keys())
         all_models.update(r.get("average_ranks", {}).keys())
+
+    # Warn if runs compared different model sets
+    model_sets = [
+        set(r.get("models_compared", [])) for r in runs if r.get("models_compared")
+    ]
+    if model_sets and not all(s == model_sets[0] for s in model_sets):
+        log(
+            "WARNING: Runs compared different sets of models. Stability metrics may be skewed."
+        )
 
     # Win rates across runs
     log("Win Rates Across Runs:")
@@ -1288,7 +1298,11 @@ def run_stability_report(filepaths: list[str]):
     log(f"\nCost Per Run:")
     total_all = 0
     for i, r in enumerate(runs):
-        cost = r.get("cost", {}).get("total_usd", 0)
+        cost_field = r.get("cost")
+        if isinstance(cost_field, dict):
+            cost = cost_field.get("total_usd", 0)
+        else:
+            cost = r.get("estimated_cost_usd", 0)
         total_all += cost
         log(f"  {labels[i]}: ${cost:.2f}")
     log(f"  Total across all runs: ${total_all:.2f}")
