@@ -31,13 +31,19 @@ interface ProgressData {
     total: number;
 }
 
-function getEvaluatorId(): string {
-    let id = localStorage.getItem("evaluator_id");
-    if (!id) {
-        id = crypto.randomUUID();
-        localStorage.setItem("evaluator_id", id);
+function getEvaluatorId(): string | null {
+    if (typeof localStorage === "undefined") return null;
+    try {
+        let id = localStorage.getItem("evaluator_id");
+        if (!id) {
+            id = crypto.randomUUID();
+            localStorage.setItem("evaluator_id", id);
+        }
+        return id;
+    } catch (err) {
+        console.error("Error accessing localStorage:", err);
+        return null;
     }
-    return id;
 }
 
 export default function EvaluatePage() {
@@ -61,6 +67,11 @@ export default function EvaluatePage() {
         setLoading(true);
         setError(null);
         const evaluatorId = getEvaluatorId();
+        if (!evaluatorId) {
+            setError("Unable to access local storage. Please enable it and reload.");
+            setLoading(false);
+            return;
+        }
 
         try {
             const [nextRes, progRes] = await Promise.all([
@@ -113,10 +124,14 @@ export default function EvaluatePage() {
     function handleSetRank(label: string, rank: number) {
         setRankings((prev) => {
             const next = { ...prev };
-            for (const k of Object.keys(next)) {
-                if (next[k] === rank) next[k] = null;
+            if (prev[label] === rank) {
+                next[label] = null;
+            } else {
+                for (const k of Object.keys(next)) {
+                    if (next[k] === rank) next[k] = null;
+                }
+                next[label] = rank;
             }
-            next[label] = rank;
             return next;
         });
     }
@@ -148,6 +163,11 @@ export default function EvaluatePage() {
         if (!dilemma) return;
         setSubmitting(true);
         const evaluatorId = getEvaluatorId();
+        if (!evaluatorId) {
+            setError("Unable to access local storage.");
+            setSubmitting(false);
+            return;
+        }
         const elapsed = Math.round((Date.now() - startTime.current) / 1000);
 
         try {
