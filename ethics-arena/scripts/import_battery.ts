@@ -53,9 +53,17 @@ function parseArgs(argv: string[]) {
     return {
         dryRun: args.includes("--dry-run"),
         clear: args.includes("--clear"),
-        dilemmasPath: args.includes("--dilemmas")
-            ? args[args.indexOf("--dilemmas") + 1]
-            : path.join(BATTERY_ROOT, "dilemmas", "all_dilemmas.json"),
+        dilemmasPath: (() => {
+            const idx = args.indexOf("--dilemmas");
+            if (
+                idx !== -1 &&
+                idx + 1 < args.length &&
+                !args[idx + 1].startsWith("--")
+            ) {
+                return args[idx + 1];
+            }
+            return path.join(BATTERY_ROOT, "dilemmas", "all_dilemmas.json");
+        })(),
         resultPaths: getResultPaths(args),
     };
 }
@@ -233,77 +241,82 @@ async function main() {
     // Create tables
     sqlite.exec(CREATE_TABLES_SQL);
 
-    // Clear if requested
-    if (clear) {
-        console.log("Clearing existing data...");
-        sqlite.exec(`
-            DELETE FROM assignments;
-            DELETE FROM evaluations;
-            DELETE FROM model_responses;
-            DELETE FROM dilemmas;
-            DELETE FROM dilemma_sets;
-            DELETE FROM evaluators;
-        `);
-        console.log("  Cleared.\n");
-    }
-
-    // Import dilemmas
-    const setId = uuid();
-    const setName = `${dilemmaData.description || "Battery"} v${dilemmaData.version || "1"}`;
-
-    db.insert(schema.dilemmaSets)
-        .values({ id: setId, name: setName })
-        .onConflictDoNothing()
-        .run();
-
-    let dilemmaCount = 0;
-    for (const d of dilemmaData.dilemmas) {
-        db.insert(schema.dilemmas)
-            .values({
-                id: d.id,
-                setId,
-                category: d.category,
-                title: d.title,
-                scenario: d.scenario,
-                question: d.question,
-            })
-            .onConflictDoNothing()
-            .run();
-        dilemmaCount++;
-    }
-    console.log(`Imported ${dilemmaCount} dilemmas`);
-
-    // Import model responses
+    // Wrap all writes in a transaction for atomicity
     const modelKeysImported = new Set<string>();
+    let dilemmaCount = 0;
     let responseCount = 0;
 
-    for (const { path: resultPath, data: runData } of resultDataList) {
-        const modelKey = runData.model_key;
-        const runId = runData.run_id;
-        modelKeysImported.add(modelKey);
+    const runImport = sqlite.transaction(() => {
+        // Clear if requested
+        if (clear) {
+            console.log("Clearing existing data...");
+            sqlite.exec(`
+                DELETE FROM assignments;
+                DELETE FROM evaluations;
+                DELETE FROM model_responses;
+                DELETE FROM dilemmas;
+                DELETE FROM dilemma_sets;
+                DELETE FROM evaluators;
+            `);
+            console.log("  Cleared.\n");
+        }
 
-        let fileResponses = 0;
-        for (const resp of runData.responses ?? []) {
-            if (!resp.dilemma_id || !resp.response) {
-                continue;
-            }
-            db.insert(schema.modelResponses)
+        // Import dilemmas
+        const setId = uuid();
+        const setName = `${dilemmaData.description || "Battery"} v${dilemmaData.version || "1"}`;
+
+        db.insert(schema.dilemmaSets)
+            .values({ id: setId, name: setName })
+            .onConflictDoNothing()
+            .run();
+
+        for (const d of dilemmaData.dilemmas) {
+            db.insert(schema.dilemmas)
                 .values({
-                    id: uuid(),
-                    dilemmaId: resp.dilemma_id,
-                    modelKey,
-                    responseText: resp.response,
-                    sourceRunId: runId,
+                    id: d.id,
+                    setId,
+                    category: d.category,
+                    title: d.title,
+                    scenario: d.scenario,
+                    question: d.question,
                 })
                 .onConflictDoNothing()
                 .run();
-            responseCount++;
-            fileResponses++;
+            dilemmaCount++;
         }
-        console.log(
-            `Imported ${fileResponses} responses from ${path.basename(resultPath)} (${modelKey})`
-        );
-    }
+        console.log(`Imported ${dilemmaCount} dilemmas`);
+
+        // Import model responses
+        for (const { path: resultPath, data: runData } of resultDataList) {
+            const modelKey = runData.model_key;
+            const runId = runData.run_id;
+            modelKeysImported.add(modelKey);
+
+            let fileResponses = 0;
+            for (const resp of runData.responses ?? []) {
+                if (!resp.dilemma_id || !resp.response) {
+                    continue;
+                }
+                db.insert(schema.modelResponses)
+                    .values({
+                        id: uuid(),
+                        dilemmaId: resp.dilemma_id,
+                        modelKey,
+                        responseText: resp.response,
+                        sourceRunId: runId,
+                    })
+                    .onConflictDoNothing()
+                    .run();
+                responseCount++;
+                fileResponses++;
+            }
+            console.log(
+                `Imported ${fileResponses} responses from ${path.basename(resultPath)} (${modelKey})`
+            );
+        }
+    });
+
+    runImport();
 
     console.log(
         `\n=== Summary ===`
