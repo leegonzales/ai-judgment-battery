@@ -140,23 +140,22 @@ export default function EvaluatePage() {
         setRankings(Object.fromEntries(labels.map((l) => [l, null])));
     }
 
-    // Click a response panel to assign the next available rank
+    // Click a response panel to toggle or assign next available rank
     function handleResponseClick(label: string) {
-        const assigned = new Set(
-            Object.values(rankings).filter((v): v is number => v !== null)
-        );
-        // If already ranked, unrank it
-        if (rankings[label] !== null) {
-            setRankings((prev) => ({ ...prev, [label]: null }));
-            return;
-        }
-        // Assign next available rank
-        for (const rank of [1, 2, 3]) {
-            if (!assigned.has(rank)) {
-                handleSetRank(label, rank);
-                return;
+        setRankings((prev) => {
+            if (prev[label] !== null) {
+                return { ...prev, [label]: null };
             }
-        }
+            const assigned = new Set(
+                Object.values(prev).filter((v): v is number => v !== null)
+            );
+            for (const rank of [1, 2, 3]) {
+                if (!assigned.has(rank)) {
+                    return { ...prev, [label]: rank };
+                }
+            }
+            return prev;
+        });
     }
 
     async function handleSubmit(rationale: string) {
