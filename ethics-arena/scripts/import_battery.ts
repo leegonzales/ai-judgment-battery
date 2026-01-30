@@ -281,45 +281,46 @@ async function main() {
             .onConflictDoNothing()
             .run();
 
-        for (const d of dilemmaData.dilemmas) {
+        const dilemmaValues = dilemmaData.dilemmas.map((d) => ({
+            id: d.id,
+            setId,
+            category: d.category,
+            title: d.title,
+            scenario: d.scenario,
+            question: d.question,
+        }));
+        if (dilemmaValues.length > 0) {
             db.insert(schema.dilemmas)
-                .values({
-                    id: d.id,
-                    setId,
-                    category: d.category,
-                    title: d.title,
-                    scenario: d.scenario,
-                    question: d.question,
-                })
+                .values(dilemmaValues)
                 .onConflictDoNothing()
                 .run();
-            dilemmaCount++;
         }
+        dilemmaCount = dilemmaValues.length;
         logBuffer.push(`Imported ${dilemmaCount} dilemmas`);
 
-        // Import model responses
+        // Import model responses (bulk per file)
         for (const { path: resultPath, data: runData } of resultDataList) {
             const modelKey = runData.model_key;
             const runId = runData.run_id;
             modelKeysImported.add(modelKey);
 
-            let fileResponses = 0;
-            for (const resp of runData.responses ?? []) {
-                if (!resp.dilemma_id || !resp.response) {
-                    continue;
-                }
+            const responsesToInsert = (runData.responses ?? [])
+                .filter((resp) => resp.dilemma_id && resp.response)
+                .map((resp) => ({
+                    id: uuid(),
+                    dilemmaId: resp.dilemma_id,
+                    modelKey,
+                    responseText: resp.response,
+                    sourceRunId: runId,
+                }));
+
+            const fileResponses = responsesToInsert.length;
+            if (fileResponses > 0) {
                 db.insert(schema.modelResponses)
-                    .values({
-                        id: uuid(),
-                        dilemmaId: resp.dilemma_id,
-                        modelKey,
-                        responseText: resp.response,
-                        sourceRunId: runId,
-                    })
+                    .values(responsesToInsert)
                     .onConflictDoNothing()
                     .run();
-                responseCount++;
-                fileResponses++;
+                responseCount += fileResponses;
             }
             logBuffer.push(
                 `Imported ${fileResponses} responses from ${path.basename(resultPath)} (${modelKey})`
