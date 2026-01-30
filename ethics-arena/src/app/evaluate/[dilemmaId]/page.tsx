@@ -98,7 +98,8 @@ export default function EvaluatePage() {
                 "",
                 `/evaluate/${nextData.dilemma.id}`
             );
-        } catch {
+        } catch (err) {
+            console.error("Failed to load dilemma:", err);
             setError("Failed to load dilemma. Please try again.");
         } finally {
             setLoading(false);
@@ -172,7 +173,8 @@ export default function EvaluatePage() {
             }
 
             await fetchNext();
-        } catch {
+        } catch (err) {
+            console.error("Submission failed:", err);
             setError("Submission failed. Please try again.");
         } finally {
             setSubmitting(false);
