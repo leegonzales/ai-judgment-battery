@@ -31,6 +31,15 @@ interface ProgressData {
     total: number;
 }
 
+function getEvaluatorId(): string {
+    let id = localStorage.getItem("evaluator_id");
+    if (!id) {
+        id = crypto.randomUUID();
+        localStorage.setItem("evaluator_id", id);
+    }
+    return id;
+}
+
 export default function EvaluatePage() {
     const router = useRouter();
     const [dilemma, setDilemma] = useState<Dilemma | null>(null);
@@ -47,15 +56,6 @@ export default function EvaluatePage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const startTime = useRef(Date.now());
-
-    const getEvaluatorId = () => {
-        let id = localStorage.getItem("evaluator_id");
-        if (!id) {
-            id = crypto.randomUUID();
-            localStorage.setItem("evaluator_id", id);
-        }
-        return id;
-    };
 
     const fetchNext = useCallback(async () => {
         setLoading(true);
@@ -167,8 +167,14 @@ export default function EvaluatePage() {
             });
 
             if (!res.ok) {
-                const data = await res.json();
-                setError(data.error || "Submission failed");
+                try {
+                    const data = await res.json();
+                    setError(data.error || "Submission failed");
+                } catch {
+                    setError(
+                        `Submission failed with status: ${res.status}`
+                    );
+                }
                 return;
             }
 

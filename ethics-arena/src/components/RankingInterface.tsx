@@ -68,11 +68,7 @@ export default function RankingInterface({
                                                   : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                                         }`}
                                     >
-                                        {rank === 1
-                                            ? "1st"
-                                            : rank === 2
-                                              ? "2nd"
-                                              : "3rd"}
+                                        {{ 1: "1st", 2: "2nd", 3: "3rd" }[rank]}
                                     </button>
                                 );
                             })}
