@@ -48,22 +48,32 @@ interface ResultFile {
     }>;
 }
 
+function getFlagValue(
+    args: string[],
+    flag: string,
+    defaultValue: string
+): string {
+    const idx = args.indexOf(flag);
+    if (
+        idx !== -1 &&
+        idx + 1 < args.length &&
+        !args[idx + 1].startsWith("--")
+    ) {
+        return args[idx + 1];
+    }
+    return defaultValue;
+}
+
 function parseArgs(argv: string[]) {
     const args = argv.slice(2);
     return {
         dryRun: args.includes("--dry-run"),
         clear: args.includes("--clear"),
-        dilemmasPath: (() => {
-            const idx = args.indexOf("--dilemmas");
-            if (
-                idx !== -1 &&
-                idx + 1 < args.length &&
-                !args[idx + 1].startsWith("--")
-            ) {
-                return args[idx + 1];
-            }
-            return path.join(BATTERY_ROOT, "dilemmas", "all_dilemmas.json");
-        })(),
+        dilemmasPath: getFlagValue(
+            args,
+            "--dilemmas",
+            path.join(BATTERY_ROOT, "dilemmas", "all_dilemmas.json")
+        ),
         resultPaths: getResultPaths(args),
     };
 }
@@ -241,15 +251,16 @@ async function main() {
     // Create tables
     sqlite.exec(CREATE_TABLES_SQL);
 
-    // Wrap all writes in a transaction for atomicity
+    // Wrap all writes in a transaction for atomicity.
+    // Buffer log messages so they only print after successful commit.
     const modelKeysImported = new Set<string>();
     let dilemmaCount = 0;
     let responseCount = 0;
+    const logBuffer: string[] = [];
 
     const runImport = sqlite.transaction(() => {
         // Clear if requested
         if (clear) {
-            console.log("Clearing existing data...");
             sqlite.exec(`
                 DELETE FROM assignments;
                 DELETE FROM evaluations;
@@ -258,7 +269,7 @@ async function main() {
                 DELETE FROM dilemma_sets;
                 DELETE FROM evaluators;
             `);
-            console.log("  Cleared.\n");
+            logBuffer.push("Cleared existing data.");
         }
 
         // Import dilemmas
@@ -284,7 +295,7 @@ async function main() {
                 .run();
             dilemmaCount++;
         }
-        console.log(`Imported ${dilemmaCount} dilemmas`);
+        logBuffer.push(`Imported ${dilemmaCount} dilemmas`);
 
         // Import model responses
         for (const { path: resultPath, data: runData } of resultDataList) {
@@ -310,13 +321,18 @@ async function main() {
                 responseCount++;
                 fileResponses++;
             }
-            console.log(
+            logBuffer.push(
                 `Imported ${fileResponses} responses from ${path.basename(resultPath)} (${modelKey})`
             );
         }
     });
 
     runImport();
+
+    // Print buffered logs only after successful commit
+    for (const msg of logBuffer) {
+        console.log(msg);
+    }
 
     console.log(
         `\n=== Summary ===`
