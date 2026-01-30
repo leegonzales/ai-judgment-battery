@@ -2,6 +2,15 @@
 
 import { useState } from "react";
 
+const RANK_LABELS: Record<number, string> = { 1: "1st", 2: "2nd", 3: "3rd" };
+
+function rankButtonClass(isActive: boolean, isTaken: boolean): string {
+    const base = "rounded-lg px-3 py-1 text-sm font-medium transition-colors";
+    if (isActive) return `${base} bg-indigo-600 text-white`;
+    if (isTaken) return `${base} cursor-not-allowed bg-gray-800 text-gray-600`;
+    return `${base} bg-gray-800 text-gray-300 hover:bg-gray-700`;
+}
+
 interface RankingInterfaceProps {
     labels: string[];
     rankings: Record<string, number | null>;
@@ -60,15 +69,9 @@ export default function RankingInterface({
                                         type="button"
                                         disabled={isTaken}
                                         onClick={() => onSetRank(label, rank)}
-                                        className={`rounded-lg px-3 py-1 text-sm font-medium transition-colors ${
-                                            isActive
-                                                ? "bg-indigo-600 text-white"
-                                                : isTaken
-                                                  ? "cursor-not-allowed bg-gray-800 text-gray-600"
-                                                  : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                                        }`}
+                                        className={rankButtonClass(isActive, isTaken)}
                                     >
-                                        {{ 1: "1st", 2: "2nd", 3: "3rd" }[rank]}
+                                        {RANK_LABELS[rank]}
                                     </button>
                                 );
                             })}
