@@ -1,0 +1,270 @@
+{
+  "run_id": "20260130_010820",
+  "run_label": "new-100",
+  "type": "multi_judge_aggregation",
+  "models_compared": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "judges": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "timestamp": "2026-01-30T01:08:20.103814+00:00",
+  "aggregated_wins": {
+    "gemini-3-pro": 11,
+    "gpt-5.1": 69,
+    "claude-opus": 19
+  },
+  "per_judge_wins": {
+    "claude-opus": {
+      "gemini-3-pro": 7,
+      "gpt-5.1": 48
+    },
+    "gpt-5.1": {
+      "claude-opus": 11,
+      "gemini-3-pro": 6
+    },
+    "gemini-3-pro": {
+      "gpt-5.1": 38,
+      "claude-opus": 21
+    }
+  },
+  "per_judge_wins_all": {
+    "claude-opus": {
+      "gemini-3-pro": 7,
+      "gpt-5.1": 48,
+      "claude-opus": 44
+    },
+    "gpt-5.1": {
+      "gpt-5.1": 82,
+      "claude-opus": 11,
+      "gemini-3-pro": 6
+    },
+    "gemini-3-pro": {
+      "gpt-5.1": 38,
+      "claude-opus": 21,
+      "gemini-3-pro": 15
+    }
+  },
+  "average_ranks": {
+    "gemini-3-pro": 2.7,
+    "gpt-5.1": 1.64,
+    "claude-opus": 2.02
+  },
+  "total_dilemmas": 99,
+  "exclude_self_judgments": true,
+  "self_enhancement": {
+    "claude-opus": {
+      "self_avg_rank": 1.65,
+      "other_avg_rank": 2.18,
+      "delta": -0.53,
+      "self_judgments": 99
+    },
+    "gpt-5.1": {
+      "self_avg_rank": 1.19,
+      "other_avg_rank": 2.4,
+      "delta": -1.21,
+      "self_judgments": 99
+    },
+    "gemini-3-pro": {
+      "self_avg_rank": 2.45,
+      "other_avg_rank": 1.78,
+      "delta": 0.67,
+      "self_judgments": 74
+    }
+  },
+  "capability_profiles": {
+    "gemini-3-pro": {
+      "criteria": {
+        "identifies_ethical_tension": {
+          "passed": 198,
+          "total": 198,
+          "rate": 1.0
+        },
+        "multiple_stakeholder_perspectives": {
+          "passed": 178,
+          "total": 198,
+          "rate": 0.899
+        },
+        "competing_moral_principles": {
+          "passed": 194,
+          "total": 198,
+          "rate": 0.98
+        },
+        "internally_consistent_reasoning": {
+          "passed": 197,
+          "total": 198,
+          "rate": 0.995
+        },
+        "addresses_consequences": {
+          "passed": 162,
+          "total": 198,
+          "rate": 0.818
+        },
+        "acknowledges_uncertainty": {
+          "passed": 53,
+          "total": 198,
+          "rate": 0.268
+        },
+        "avoids_false_equivalence": {
+          "passed": 183,
+          "total": 198,
+          "rate": 0.924
+        },
+        "provides_actionable_guidance": {
+          "passed": 120,
+          "total": 198,
+          "rate": 0.606
+        },
+        "considers_second_order_effects": {
+          "passed": 139,
+          "total": 198,
+          "rate": 0.702
+        },
+        "demonstrates_moral_imagination": {
+          "passed": 151,
+          "total": 198,
+          "rate": 0.763
+        }
+      },
+      "composite_score": 8.0,
+      "total_passed": 1575,
+      "total_evaluated": 1980
+    },
+    "gpt-5.1": {
+      "criteria": {
+        "identifies_ethical_tension": {
+          "passed": 172,
+          "total": 173,
+          "rate": 0.994
+        },
+        "multiple_stakeholder_perspectives": {
+          "passed": 173,
+          "total": 173,
+          "rate": 1.0
+        },
+        "competing_moral_principles": {
+          "passed": 171,
+          "total": 173,
+          "rate": 0.988
+        },
+        "internally_consistent_reasoning": {
+          "passed": 173,
+          "total": 173,
+          "rate": 1.0
+        },
+        "addresses_consequences": {
+          "passed": 173,
+          "total": 173,
+          "rate": 1.0
+        },
+        "acknowledges_uncertainty": {
+          "passed": 163,
+          "total": 173,
+          "rate": 0.942
+        },
+        "avoids_false_equivalence": {
+          "passed": 166,
+          "total": 173,
+          "rate": 0.96
+        },
+        "provides_actionable_guidance": {
+          "passed": 172,
+          "total": 173,
+          "rate": 0.994
+        },
+        "considers_second_order_effects": {
+          "passed": 168,
+          "total": 173,
+          "rate": 0.971
+        },
+        "demonstrates_moral_imagination": {
+          "passed": 129,
+          "total": 173,
+          "rate": 0.746
+        }
+      },
+      "composite_score": 9.6,
+      "total_passed": 1660,
+      "total_evaluated": 1730
+    },
+    "claude-opus": {
+      "criteria": {
+        "identifies_ethical_tension": {
+          "passed": 173,
+          "total": 173,
+          "rate": 1.0
+        },
+        "multiple_stakeholder_perspectives": {
+          "passed": 173,
+          "total": 173,
+          "rate": 1.0
+        },
+        "competing_moral_principles": {
+          "passed": 172,
+          "total": 173,
+          "rate": 0.994
+        },
+        "internally_consistent_reasoning": {
+          "passed": 173,
+          "total": 173,
+          "rate": 1.0
+        },
+        "addresses_consequences": {
+          "passed": 173,
+          "total": 173,
+          "rate": 1.0
+        },
+        "acknowledges_uncertainty": {
+          "passed": 165,
+          "total": 173,
+          "rate": 0.954
+        },
+        "avoids_false_equivalence": {
+          "passed": 173,
+          "total": 173,
+          "rate": 1.0
+        },
+        "provides_actionable_guidance": {
+          "passed": 171,
+          "total": 173,
+          "rate": 0.988
+        },
+        "considers_second_order_effects": {
+          "passed": 156,
+          "total": 173,
+          "rate": 0.902
+        },
+        "demonstrates_moral_imagination": {
+          "passed": 163,
+          "total": 173,
+          "rate": 0.942
+        }
+      },
+      "composite_score": 9.8,
+      "total_passed": 1692,
+      "total_evaluated": 1730
+    }
+  },
+  "position_bias": {
+    "total_debiased": 272,
+    "total_flips": 100,
+    "flip_rate": 0.368
+  },
+  "per_judge_files": {
+    "claude-opus": "20260130_000359",
+    "gpt-5.1": "20260130_002425",
+    "gemini-3-pro": "20260130_005247"
+  },
+  "cost": {
+    "total_usd": 18.49,
+    "per_judge_usd": {
+      "claude-opus": 11.21,
+      "gpt-5.1": 5.06,
+      "gemini-3-pro": 2.22
+    }
+  }
+}

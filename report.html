@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Judgment Battery — Report</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #242836;
+    --border: #2e3345;
+    --text: #e0e0e6;
+    --text2: #9498a8;
+    --accent: #6c8aff;
+    --green: #4ade80;
+    --yellow: #facc15;
+    --red: #f87171;
+    --orange: #fb923c;
+    --cyan: #22d3ee;
+    --purple: #a78bfa;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+  }
+  h1 span { color: var(--accent); }
+  .subtitle {
+    color: var(--text2);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: -0.01em;
+  }
+  h2 .num {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 0.3rem;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.8rem;
+  }
+  p, li { color: var(--text); font-size: 0.92rem; }
+  p { margin-bottom: 0.75rem; }
+  ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+  li { margin-bottom: 0.3rem; }
+  strong { color: #fff; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .stat-card .model-name {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text2);
+    margin-bottom: 0.5rem;
+  }
+  .stat-card .big-num {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .stat-card .label {
+    font-size: 0.78rem;
+    color: var(--text2);
+  }
+  .gpt .big-num { color: var(--green); }
+  .claude .big-num { color: var(--accent); }
+  .gemini .big-num { color: var(--orange); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+  }
+  th {
+    text-align: left;
+    font-weight: 600;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 2px solid var(--border);
+    color: var(--text2);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  td {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:last-child td { border-bottom: none; }
+  .num-col { text-align: right; font-variant-numeric: tabular-nums; }
+  .model-label {
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot-gpt { background: var(--green); }
+  .dot-claude { background: var(--accent); }
+  .dot-gemini { background: var(--orange); }
+
+  .bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .bar-bg {
+    flex: 1;
+    height: 20px;
+    background: var(--surface2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.6s ease;
+  }
+  .bar-val {
+    font-size: 0.82rem;
+    font-weight: 600;
+    min-width: 44px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .badge-pass { background: rgba(74,222,128,0.15); color: var(--green); }
+  .badge-warn { background: rgba(250,204,21,0.15); color: var(--yellow); }
+  .badge-fail { background: rgba(248,113,113,0.15); color: var(--red); }
+
+  .heatmap {
+    display: grid;
+    grid-template-columns: 120px repeat(3, 1fr);
+    gap: 2px;
+    font-size: 0.82rem;
+    margin-bottom: 1rem;
+  }
+  .heatmap-header {
+    font-weight: 600;
+    padding: 0.5rem;
+    color: var(--text2);
+    text-align: center;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .heatmap-label {
+    padding: 0.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+  }
+  .heatmap-cell {
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .insight-box {
+    background: rgba(108,138,255,0.08);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+  .warning-box {
+    background: rgba(250,204,21,0.08);
+    border-left: 3px solid var(--yellow);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+
+  .meta {
+    color: var(--text2);
+    font-size: 0.8rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .meta a { color: var(--accent); text-decoration: none; }
+
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .toc-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text2);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  .toc ol {
+    padding-left: 1.25rem;
+    columns: 2;
+    column-gap: 2rem;
+  }
+  .toc li {
+    font-size: 0.88rem;
+    margin-bottom: 0.25rem;
+  }
+  .toc a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .toc a:hover { text-decoration: underline; }
+
+  @media (max-width: 700px) {
+    body { padding: 1rem; }
+    .card-grid { grid-template-columns: 1fr; }
+    .heatmap { grid-template-columns: 100px repeat(3, 1fr); font-size: 0.75rem; }
+    .toc ol { columns: 1; }
+  }
+</style>
+</head>
+<body>
+
+<h1>AI Judgment <span>Battery</span></h1>
+<p class="subtitle">Comparative evaluation of frontier AI models on ethical reasoning &middot; January 2026</p>
+
+<nav class="toc">
+  <div class="toc-title">Contents</div>
+  <ol>
+    <li><a href="#overview">Study Overview</a></li>
+    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#rankings">Overall Rankings</a></li>
+    <li><a href="#capability">Capability Profiles</a></li>
+    <li><a href="#judge-bias">Judge Bias Analysis</a></li>
+    <li><a href="#self-enhancement">Self-Enhancement Bias</a></li>
+    <li><a href="#stability">Cross-Run Stability</a></li>
+    <li><a href="#categories">Dilemma Categories</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#conclusions">Conclusions</a></li>
+  </ol>
+</nav>
+
+<!-- 1. OVERVIEW -->
+<h2 id="overview"><span class="num">1.</span> Study Overview</h2>
+<div class="card">
+  <p>This report presents results from the <strong>AI Judgment Battery</strong>, a benchmark that evaluates how well frontier AI models reason through genuinely difficult ethical dilemmas. Unlike benchmarks that test factual recall or code generation, this battery measures the quality of moral reasoning — the ability to identify tensions, consider multiple stakeholders, acknowledge uncertainty, and provide actionable guidance without resorting to false equivalence.</p>
+  <p>Three frontier models were evaluated:</p>
+  <ul>
+    <li><strong>Claude Opus 4.5</strong> (Anthropic) — <code>claude-opus-4-5-20251101</code></li>
+    <li><strong>GPT-5.1</strong> (OpenAI) — <code>gpt-5.1</code></li>
+    <li><strong>Gemini 3 Pro</strong> (Google) — <code>gemini-3-pro-preview</code></li>
+  </ul>
+  <p>Each model answered <strong>100 ethical dilemmas</strong> spanning 14 categories. Responses were then judged by all three models using a structured evaluation framework, with self-judgments excluded to mitigate bias.</p>
+</div>
+
+<div class="card-grid">
+  <div class="stat-card">
+    <div class="model-name">Dilemmas</div>
+    <div class="big-num" style="color:var(--cyan)">100</div>
+    <div class="label">across 14 categories</div>
+  </div>
+  <div class="stat-card">
+    <div class="model-name">Judges</div>
+    <div class="big-num" style="color:var(--purple)">3</div>
+    <div class="label">cross-model judging</div>
+  </div>
+  <div class="stat-card">
+    <div class="model-name">Total Cost</div>
+    <div class="big-num" style="color:var(--yellow)">$18</div>
+    <div class="label">multi-judge comparison</div>
+  </div>
+</div>
+
+<!-- 2. METHODOLOGY -->
+<h2 id="methodology"><span class="num">2.</span> Methodology</h2>
+<div class="card">
+  <h3>Response Generation</h3>
+  <p>Each model received the same 100 ethical dilemmas with identical prompts and no system-level coaching. Responses were generated in parallel with 5 workers per model. All responses were collected before any judging began.</p>
+
+  <h3>Structured Judging</h3>
+  <p>Each judge model evaluated pairs of anonymized, position-randomized responses using a structured output schema. For every comparison, the judge produced:</p>
+  <ul>
+    <li><strong>Chain-of-thought reasoning</strong> explaining the evaluation</li>
+    <li><strong>Rankings</strong> (1st, 2nd, 3rd) with justification</li>
+    <li><strong>10 binary capability criteria</strong> (pass/fail per response)</li>
+  </ul>
+
+  <h3>Bias Controls</h3>
+  <ul>
+    <li><strong>Position debiasing:</strong> Each comparison is run twice with response order swapped. If rankings flip, the result is discarded. This filters out ~37% of judgments.</li>
+    <li><strong>Self-judgment exclusion:</strong> When aggregating wins, a model's judgments of itself are excluded. This eliminates the strong self-preference bias observed in all models.</li>
+    <li><strong>Anonymized responses:</strong> Judges see "Response A / B / C" with no model attribution.</li>
+  </ul>
+
+  <h3>Aggregation</h3>
+  <p>Final rankings use average rank across all non-self judges. A model's win on a dilemma is determined by the majority of external judges ranking it first.</p>
+</div>
+
+<!-- 3. RANKINGS -->
+<h2 id="rankings"><span class="num">3.</span> Overall Rankings</h2>
+
+<div class="card-grid">
+  <div class="stat-card gpt">
+    <div class="model-name">GPT-5.1</div>
+    <div class="big-num">69</div>
+    <div class="label">wins (69.7%) &middot; rank 1.64</div>
+  </div>
+  <div class="stat-card claude">
+    <div class="model-name">Claude Opus 4.5</div>
+    <div class="big-num">19</div>
+    <div class="label">wins (19.2%) &middot; rank 2.02</div>
+  </div>
+  <div class="stat-card gemini">
+    <div class="model-name">Gemini 3 Pro</div>
+    <div class="big-num">11</div>
+    <div class="label">wins (11.1%) &middot; rank 2.70</div>
+  </div>
+</div>
+
+<div class="card">
+  <table>
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th class="num-col">Wins</th>
+        <th class="num-col">Win Rate</th>
+        <th class="num-col">Avg Rank</th>
+        <th class="num-col">Composite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="model-label"><span class="dot dot-gpt"></span>GPT-5.1</span></td>
+        <td class="num-col">69</td>
+        <td class="num-col">69.7%</td>
+        <td class="num-col">1.64</td>
+        <td class="num-col">9.6 / 10</td>
+      </tr>
+      <tr>
+        <td><span class="model-label"><span class="dot dot-claude"></span>Claude Opus 4.5</span></td>
+        <td class="num-col">19</td>
+        <td class="num-col">19.2%</td>
+        <td class="num-col">2.02</td>
+        <td class="num-col">9.8 / 10</td>
+      </tr>
+      <tr>
+        <td><span class="model-label"><span class="dot dot-gemini"></span>Gemini 3 Pro</span></td>
+        <td class="num-col">11</td>
+        <td class="num-col">11.1%</td>
+        <td class="num-col">2.70</td>
+        <td class="num-col">8.0 / 10</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <strong>The ranking paradox:</strong> Claude Opus scores highest on the composite capability checklist (9.8/10) yet wins fewer head-to-head comparisons than GPT-5.1 (9.6/10). This suggests GPT-5.1's responses are <em>preferred</em> by judges even when Claude's satisfy more individual criteria — indicating that overall response quality is more than the sum of its parts.
+  </div>
+</div>
+
+<!-- 4. ELO RATINGS -->
+<h2 id="elo"><span class="num">4.</span> Elo Ratings</h2>
+<p>Standard Elo ratings computed from 272 pairwise comparisons (3 judges &times; ~99 dilemmas, position-debiased). Each ranking implies pairwise outcomes: 1st beats 2nd and 3rd, 2nd beats 3rd. K-factor = 32, initial rating = 1500.</p>
+
+<div class="card-grid">
+  <div class="stat-card gpt">
+    <div class="model-name">GPT-5.1</div>
+    <div class="big-num">1614</div>
+    <div class="label">Elo &middot; +114</div>
+  </div>
+  <div class="stat-card claude">
+    <div class="model-name">Claude Opus 4.5</div>
+    <div class="big-num">1595</div>
+    <div class="label">Elo &middot; +95</div>
+  </div>
+  <div class="stat-card gemini">
+    <div class="model-name">Gemini 3 Pro</div>
+    <div class="big-num">1291</div>
+    <div class="label">Elo &middot; &minus;209</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3 style="margin-bottom: 0.75rem;">Head-to-Head Matrix</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Winner &rarr; Loser</th>
+        <th class="num-col">Claude Opus</th>
+        <th class="num-col">GPT-5.1</th>
+        <th class="num-col">Gemini 3 Pro</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="model-label"><span class="dot dot-claude"></span>Claude Opus</span></td>
+        <td class="num-col">&mdash;</td>
+        <td class="num-col">89</td>
+        <td class="num-col">215</td>
+      </tr>
+      <tr>
+        <td><span class="model-label"><span class="dot dot-gpt"></span>GPT-5.1</span></td>
+        <td class="num-col">183</td>
+        <td class="num-col">&mdash;</td>
+        <td class="num-col">228</td>
+      </tr>
+      <tr>
+        <td><span class="model-label"><span class="dot dot-gemini"></span>Gemini 3 Pro</span></td>
+        <td class="num-col">57</td>
+        <td class="num-col">44</td>
+        <td class="num-col">&mdash;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin: 1.25rem 0 0.75rem;">Pairwise Win Rates</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Matchup</th>
+        <th class="num-col">Win Rate</th>
+        <th class="num-col">95% CI (Wilson)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GPT-5.1 overall</td>
+        <td class="num-col">75.6%</td>
+        <td class="num-col">71.8% &ndash; 79.0%</td>
+      </tr>
+      <tr>
+        <td>Claude Opus overall</td>
+        <td class="num-col">55.9%</td>
+        <td class="num-col">51.7% &ndash; 60.0%</td>
+      </tr>
+      <tr>
+        <td>Gemini 3 Pro overall</td>
+        <td class="num-col">18.6%</td>
+        <td class="num-col">15.5% &ndash; 22.1%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <strong>Close at the top:</strong> Only 19 Elo points separate GPT-5.1 and Claude Opus — a narrow gap suggesting competitive parity between the top two. The real separation is between this pair and Gemini 3 Pro, which sits 300+ points below. GPT-5.1 beats Claude 67% of the time head-to-head, but Claude beats Gemini 79% — reinforcing a clear two-tier structure.
+  </div>
+</div>
+
+<!-- 5. CAPABILITY PROFILES -->
+<h2 id="capability"><span class="num">5.</span> Capability Profiles</h2>
+<p>Each response is evaluated against 10 binary criteria. Pass rates are aggregated across all judges (excluding self-judgments).</p>
+
+<div class="card">
+  <table>
+    <thead>
+      <tr>
+        <th>Criterion</th>
+        <th class="num-col"><span class="dot dot-claude"></span> Claude</th>
+        <th class="num-col"><span class="dot dot-gpt"></span> GPT-5.1</th>
+        <th class="num-col"><span class="dot dot-gemini"></span> Gemini</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Identifies ethical tension</td>
+        <td class="num-col"><span class="badge badge-pass">100%</span></td>
+        <td class="num-col"><span class="badge badge-pass">99.4%</span></td>
+        <td class="num-col"><span class="badge badge-pass">100%</span></td>
+      </tr>
+      <tr>
+        <td>Multiple stakeholder perspectives</td>
+        <td class="num-col"><span class="badge badge-pass">100%</span></td>
+        <td class="num-col"><span class="badge badge-pass">100%</span></td>
+        <td class="num-col"><span class="badge badge-warn">89.9%</span></td>
+      </tr>
+      <tr>
+        <td>Competing moral principles</td>
+        <td class="num-col"><span class="badge badge-pass">99.4%</span></td>
+        <td class="num-col"><span class="badge badge-pass">98.8%</span></td>
+        <td class="num-col"><span class="badge badge-pass">98.0%</span></td>
+      </tr>
+      <tr>
+        <td>Internally consistent reasoning</td>
+        <td class="num-col"><span class="badge badge-pass">100%</span></td>
+        <td class="num-col"><span class="badge badge-pass">100%</span></td>
+        <td class="num-col"><span class="badge badge-pass">99.5%</span></td>
+      </tr>
+      <tr>
+        <td>Addresses consequences</td>
+        <td class="num-col"><span class="badge badge-pass">100%</span></td>
+        <td class="num-col"><span class="badge badge-pass">100%</span></td>
+        <td class="num-col"><span class="badge badge-warn">81.8%</span></td>
+      </tr>
+      <tr>
+        <td>Acknowledges uncertainty</td>
+        <td class="num-col"><span class="badge badge-pass">95.4%</span></td>
+        <td class="num-col"><span class="badge badge-pass">94.2%</span></td>
+        <td class="num-col"><span class="badge badge-fail">26.8%</span></td>
+      </tr>
+      <tr>
+        <td>Avoids false equivalence</td>
+        <td class="num-col"><span class="badge badge-pass">100%</span></td>
+        <td class="num-col"><span class="badge badge-pass">96.0%</span></td>
+        <td class="num-col"><span class="badge badge-pass">92.4%</span></td>
+      </tr>
+      <tr>
+        <td>Provides actionable guidance</td>
+        <td class="num-col"><span class="badge badge-pass">98.8%</span></td>
+        <td class="num-col"><span class="badge badge-pass">99.4%</span></td>
+        <td class="num-col"><span class="badge badge-fail">60.6%</span></td>
+      </tr>
+      <tr>
+        <td>Considers second-order effects</td>
+        <td class="num-col"><span class="badge badge-pass">90.2%</span></td>
+        <td class="num-col"><span class="badge badge-pass">97.1%</span></td>
+        <td class="num-col"><span class="badge badge-warn">70.2%</span></td>
+      </tr>
+      <tr>
+        <td>Demonstrates moral imagination</td>
+        <td class="num-col"><span class="badge badge-pass">94.2%</span></td>
+        <td class="num-col"><span class="badge badge-warn">74.6%</span></td>
+        <td class="num-col"><span class="badge badge-warn">76.3%</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Composite Scores</h3>
+  <div style="margin-bottom:0.75rem">
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem">
+      <span style="width:110px;font-size:0.85rem;font-weight:500"><span class="dot dot-claude"></span> Claude Opus</span>
+      <div class="bar-bg"><div class="bar-fill" style="width:98%;background:var(--accent)"></div></div>
+      <span class="bar-val" style="color:var(--accent)">9.8</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem">
+      <span style="width:110px;font-size:0.85rem;font-weight:500"><span class="dot dot-gpt"></span> GPT-5.1</span>
+      <div class="bar-bg"><div class="bar-fill" style="width:96%;background:var(--green)"></div></div>
+      <span class="bar-val" style="color:var(--green)">9.6</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.5rem">
+      <span style="width:110px;font-size:0.85rem;font-weight:500"><span class="dot dot-gemini"></span> Gemini 3 Pro</span>
+      <div class="bar-bg"><div class="bar-fill" style="width:80%;background:var(--orange)"></div></div>
+      <span class="bar-val" style="color:var(--orange)">8.0</span>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <strong>Gemini's uncertainty gap:</strong> Gemini 3 Pro passes the "acknowledges uncertainty" criterion only 26.8% of the time — a consistent weakness across all runs. This suggests Gemini tends toward confident, declarative responses rather than hedging on genuinely ambiguous ethical questions. Its actionable guidance score (60.6%) also lags, indicating responses may be thorough in description but weak on practical recommendation.
+  </div>
+
+  <div class="insight-box">
+    <strong>Claude's moral imagination edge:</strong> Claude Opus scores 94.2% on "demonstrates moral imagination" compared to GPT-5.1's 74.6%. This criterion captures the ability to surface non-obvious framings, creative analogies, and novel ethical considerations beyond standard analysis. Despite this, GPT-5.1 wins more head-to-head comparisons, suggesting judges may prioritize structured completeness over creative depth.
+  </div>
+</div>
+
+<!-- 5. JUDGE BIAS -->
+<h2 id="judge-bias"><span class="num">6.</span> Judge Bias Analysis</h2>
+<p>Each model served as a judge. The matrix below shows how many wins each judge awarded (excluding self-judgments, which are shown separately).</p>
+
+<div class="card">
+  <h3>Per-Judge Win Allocation (Self-Judgments Excluded)</h3>
+  <div class="heatmap">
+    <div class="heatmap-header"></div>
+    <div class="heatmap-header">→ Claude</div>
+    <div class="heatmap-header">→ GPT-5.1</div>
+    <div class="heatmap-header">→ Gemini</div>
+
+    <div class="heatmap-label"><span class="dot dot-claude"></span>&nbsp; Claude judge</div>
+    <div class="heatmap-cell" style="background:rgba(108,138,255,0.15);color:var(--text2)">—</div>
+    <div class="heatmap-cell" style="background:rgba(74,222,128,0.25);color:var(--green)">48</div>
+    <div class="heatmap-cell" style="background:rgba(251,146,60,0.1);color:var(--orange)">7</div>
+
+    <div class="heatmap-label"><span class="dot dot-gpt"></span>&nbsp; GPT-5.1 judge</div>
+    <div class="heatmap-cell" style="background:rgba(108,138,255,0.15);color:var(--accent)">11</div>
+    <div class="heatmap-cell" style="background:rgba(74,222,128,0.15);color:var(--text2)">—</div>
+    <div class="heatmap-cell" style="background:rgba(251,146,60,0.1);color:var(--orange)">6</div>
+
+    <div class="heatmap-label"><span class="dot dot-gemini"></span>&nbsp; Gemini judge</div>
+    <div class="heatmap-cell" style="background:rgba(108,138,255,0.2);color:var(--accent)">21</div>
+    <div class="heatmap-cell" style="background:rgba(74,222,128,0.3);color:var(--green)">38</div>
+    <div class="heatmap-cell" style="background:rgba(251,146,60,0.1);color:var(--text2)">—</div>
+  </div>
+
+  <h3>Self-Judgment Win Rates (For Reference)</h3>
+  <div class="heatmap">
+    <div class="heatmap-header"></div>
+    <div class="heatmap-header">Self-Wins</div>
+    <div class="heatmap-header">Out of</div>
+    <div class="heatmap-header">Self Win %</div>
+
+    <div class="heatmap-label"><span class="dot dot-claude"></span>&nbsp; Claude</div>
+    <div class="heatmap-cell" style="background:rgba(108,138,255,0.15)">44</div>
+    <div class="heatmap-cell">99</div>
+    <div class="heatmap-cell" style="color:var(--yellow)">44.4%</div>
+
+    <div class="heatmap-label"><span class="dot dot-gpt"></span>&nbsp; GPT-5.1</div>
+    <div class="heatmap-cell" style="background:rgba(74,222,128,0.2)">82</div>
+    <div class="heatmap-cell">99</div>
+    <div class="heatmap-cell" style="color:var(--red)">82.8%</div>
+
+    <div class="heatmap-label"><span class="dot dot-gemini"></span>&nbsp; Gemini</div>
+    <div class="heatmap-cell" style="background:rgba(251,146,60,0.15)">15</div>
+    <div class="heatmap-cell">74</div>
+    <div class="heatmap-cell" style="color:var(--green)">20.3%</div>
+  </div>
+
+  <div class="warning-box">
+    <strong>GPT-5.1's extreme self-preference:</strong> When judging its own responses, GPT-5.1 ranks itself first 82.8% of the time — nearly 3x the rate that external judges agree (external win rate ~51%). This is the strongest self-enhancement bias observed in the study.
+  </div>
+
+  <p><strong>Position bias:</strong> 36.8% of comparisons flipped when response order was swapped, indicating moderate positional sensitivity across all judges. These flipped results are excluded from final rankings.</p>
+</div>
+
+<!-- 6. SELF-ENHANCEMENT -->
+<h2 id="self-enhancement"><span class="num">7.</span> Self-Enhancement Bias</h2>
+<p>Self-enhancement delta measures how much a model inflates its own ranking compared to how other judges rank it. Negative values indicate self-preference; positive values indicate self-penalization.</p>
+
+<div class="card">
+  <table>
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th class="num-col">Self Avg Rank</th>
+        <th class="num-col">Others' Avg Rank</th>
+        <th class="num-col">Delta</th>
+        <th>Interpretation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="model-label"><span class="dot dot-gpt"></span>GPT-5.1</span></td>
+        <td class="num-col">1.19</td>
+        <td class="num-col">2.40</td>
+        <td class="num-col" style="color:var(--red);font-weight:700">−1.21</td>
+        <td><span class="badge badge-fail">Extreme self-preference</span></td>
+      </tr>
+      <tr>
+        <td><span class="model-label"><span class="dot dot-claude"></span>Claude Opus</span></td>
+        <td class="num-col">1.65</td>
+        <td class="num-col">2.18</td>
+        <td class="num-col" style="color:var(--yellow);font-weight:700">−0.53</td>
+        <td><span class="badge badge-warn">Moderate self-preference</span></td>
+      </tr>
+      <tr>
+        <td><span class="model-label"><span class="dot dot-gemini"></span>Gemini 3 Pro</span></td>
+        <td class="num-col">2.45</td>
+        <td class="num-col">1.78</td>
+        <td class="num-col" style="color:var(--green);font-weight:700">+0.67</td>
+        <td><span class="badge badge-pass">Self-penalizing</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <strong>A counterintuitive finding:</strong> Gemini consistently ranks itself <em>lower</em> than external judges do. This self-penalization has been stable across all validation runs (delta +0.39 to +0.67). Whether this reflects genuine calibration or an artifact of Gemini's tendency to favor more verbose, structured responses (which its competitors produce) is an open question.
+  </div>
+</div>
+
+<!-- 7. STABILITY -->
+<h2 id="stability"><span class="num">8.</span> Cross-Run Stability</h2>
+<p>To validate reproducibility, the battery was run multiple times with 50-dilemma subsets. Results below compare three independent multi-judge runs plus the full 100-dilemma run.</p>
+
+<div class="card">
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th class="num-col">Validation-1<br><small>(50 dilemmas)</small></th>
+        <th class="num-col">Validation-2<br><small>(50 dilemmas)</small></th>
+        <th class="num-col">Full Run<br><small>(100 dilemmas)</small></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GPT-5.1 win rate</td>
+        <td class="num-col">68.0%</td>
+        <td class="num-col">68.0%</td>
+        <td class="num-col">69.7%</td>
+      </tr>
+      <tr>
+        <td>Claude Opus win rate</td>
+        <td class="num-col">20.0%</td>
+        <td class="num-col">16.0%</td>
+        <td class="num-col">19.2%</td>
+      </tr>
+      <tr>
+        <td>Gemini 3 Pro win rate</td>
+        <td class="num-col">12.0%</td>
+        <td class="num-col">16.0%</td>
+        <td class="num-col">11.1%</td>
+      </tr>
+      <tr>
+        <td>GPT-5.1 avg rank</td>
+        <td class="num-col">1.75</td>
+        <td class="num-col">1.86</td>
+        <td class="num-col">1.64</td>
+      </tr>
+      <tr>
+        <td>Claude Opus avg rank</td>
+        <td class="num-col">2.12</td>
+        <td class="num-col">2.20</td>
+        <td class="num-col">2.02</td>
+      </tr>
+      <tr>
+        <td>Gemini 3 Pro avg rank</td>
+        <td class="num-col">2.69</td>
+        <td class="num-col">2.67</td>
+        <td class="num-col">2.70</td>
+      </tr>
+      <tr>
+        <td>Position bias (flip rate)</td>
+        <td class="num-col">43.3%</td>
+        <td class="num-col">35.8%</td>
+        <td class="num-col">36.8%</td>
+      </tr>
+      <tr>
+        <td>Rank order</td>
+        <td class="num-col">GPT &gt; Claude &gt; Gemini</td>
+        <td class="num-col">GPT &gt; Claude &gt; Gemini</td>
+        <td class="num-col">GPT &gt; Claude &gt; Gemini</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <strong>100% rank-order consistency:</strong> The ordering GPT-5.1 &gt; Claude Opus &gt; Gemini 3 Pro holds across every run, every judge combination, and every dilemma subset. Win rates vary by &lt;10 percentage points, and average ranks by &lt;0.2. The benchmark produces stable, reproducible results.
+  </div>
+</div>
+
+<!-- 8. CATEGORIES -->
+<h2 id="categories"><span class="num">9.</span> Dilemma Categories</h2>
+<div class="card">
+  <table>
+    <thead>
+      <tr>
+        <th>Cat</th>
+        <th>Name</th>
+        <th class="num-col">Count</th>
+        <th>Source</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>A</td><td>Whistleblower / Loyalty Conflicts</td><td class="num-col">8</td><td>Original</td></tr>
+      <tr><td>B</td><td>Professional Ethics Gray Zones</td><td class="num-col">8</td><td>Original</td></tr>
+      <tr><td>C</td><td>Personal Relationships vs Principles</td><td class="num-col">8</td><td>Original</td></tr>
+      <tr><td>D</td><td>Resource Allocation Under Scarcity</td><td class="num-col">8</td><td>Original</td></tr>
+      <tr><td>E</td><td>Information Asymmetry</td><td class="num-col">6</td><td>Original</td></tr>
+      <tr><td>F</td><td>Competing Obligations</td><td class="num-col">6</td><td>Original</td></tr>
+      <tr><td>G</td><td>Moral Uncertainty</td><td class="num-col">6</td><td>Original</td></tr>
+      <tr style="border-top:2px solid var(--border)">
+        <td>H</td><td>Technology &amp; Digital Ethics</td><td class="num-col">8</td><td>Claude + Gemini + Codex</td></tr>
+      <tr><td>I</td><td>Environmental &amp; Intergenerational Justice</td><td class="num-col">7</td><td>Claude + Gemini + Codex</td></tr>
+      <tr><td>J</td><td>Institutional Power &amp; Structural Inequity</td><td class="num-col">7</td><td>Claude + Gemini + Codex</td></tr>
+      <tr><td>K</td><td>Consent, Autonomy &amp; Paternalism</td><td class="num-col">6</td><td>Claude + Gemini + Codex</td></tr>
+      <tr><td>L</td><td>Truth, Deception &amp; Strategic Communication</td><td class="num-col">7</td><td>Claude + Gemini + Codex</td></tr>
+      <tr><td>M</td><td>Community vs Individual Rights</td><td class="num-col">7</td><td>Claude + Gemini + Codex</td></tr>
+      <tr><td>N</td><td>Emerging Frontiers</td><td class="num-col">8</td><td>Claude + Gemini + Codex</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:0.75rem;color:var(--text2);font-size:0.82rem">Categories A–G were human-authored. Categories H–N were generated by three different AI models (Claude, Gemini, Codex) to ensure diversity of framing and reduce single-author bias in dilemma construction.</p>
+</div>
+
+<!-- 9. LIMITATIONS -->
+<h2 id="limitations"><span class="num">10.</span> Limitations</h2>
+<div class="card">
+  <ul>
+    <li><strong>AI judging AI is circular.</strong> All three judges are the same models being evaluated. While self-judgment exclusion and position debiasing mitigate the worst biases, this is not equivalent to human evaluation. The benchmark measures what AI models <em>prefer</em> in ethical reasoning, which may diverge from what humans value.</li>
+    <li><strong>Self-enhancement bias is partially controlled, not eliminated.</strong> Excluding self-judgments removes the most obvious bias, but subtler stylistic preferences (e.g., all models may prefer verbose, structured responses) remain unaddressed.</li>
+    <li><strong>Position bias is high.</strong> ~37% of judgments flip when response order changes. While these are excluded, this means a third of the judging signal is discarded, and the retained signal may still be influenced by order effects.</li>
+    <li><strong>No human ground truth.</strong> Without human evaluation, we cannot confirm whether the AI-preferred rankings align with human ethical judgment. A human validation study is planned.</li>
+    <li><strong>Dilemma construction bias.</strong> Categories H–N were generated by the same models being tested. While three different models contributed dilemmas, each model may have crafted scenarios that favor its own reasoning style.</li>
+    <li><strong>Single-run responses.</strong> Each model responded to each dilemma once. Response quality may vary across runs due to temperature and sampling.</li>
+  </ul>
+</div>
+
+<!-- 10. CONCLUSIONS -->
+<h2 id="conclusions"><span class="num">11.</span> Conclusions</h2>
+<div class="card">
+  <p><strong>GPT-5.1 dominates head-to-head comparisons</strong> across all judges and all dilemma categories, winning ~70% of matchups with a remarkably stable average rank of 1.64. This lead is consistent across multiple independent runs.</p>
+
+  <p><strong>Claude Opus 4.5 scores highest on individual capability criteria</strong> (9.8/10 composite) but wins fewer comparisons (19%). Its particular strength is moral imagination (94.2%) — the ability to surface creative, non-obvious ethical framings. The gap between criteria scores and win rates suggests that holistic response quality involves factors beyond a checklist.</p>
+
+  <p><strong>Gemini 3 Pro trails consistently</strong> with specific weaknesses in acknowledging uncertainty (26.8%) and providing actionable guidance (60.6%). Its unique property is self-penalization — it rates itself lower than external judges do, the opposite pattern of its competitors.</p>
+
+  <p><strong>The benchmark is stable and reproducible.</strong> Rank order holds across every run. The multi-judge, position-debiased, self-exclusion design produces consistent results despite the inherent noise of LLM-as-judge evaluation.</p>
+
+  <p><strong>The most important caveat:</strong> This benchmark measures what AI models consider good ethical reasoning. Whether that correlates with genuinely good ethical reasoning is an empirical question that requires human validation — which remains the critical next step.</p>
+</div>
+
+<div class="meta">
+  <p><strong>AI Judgment Battery</strong> &middot; Report generated January 30, 2026</p>
+  <p>Run ID: <code>20260130_010820</code> &middot; Label: <code>new-100</code> &middot; 99 dilemmas compared &middot; 3 judges &middot; Cost: $18.49</p>
+  <p>Source: <a href="https://github.com/leegonzales/ai-judgment-battery">github.com/leegonzales/ai-judgment-battery</a></p>
+</div>
+
+</body>
+</html>
