@@ -31,7 +31,8 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         sessionStorage.removeItem("admin_password");
         setError("Invalid password");
       }
-    } catch {
+    } catch (err) {
+      console.error("Password verification failed:", err);
       setError("Connection error");
     } finally {
       setChecking(false);
