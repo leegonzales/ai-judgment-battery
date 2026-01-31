@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, ReactNode } from "react";
+import { useState, useEffect, useCallback, ReactNode } from "react";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   const [password, setPassword] = useState("");
@@ -8,16 +8,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   const [error, setError] = useState("");
   const [checking, setChecking] = useState(true);
 
-  useEffect(() => {
-    const stored = sessionStorage.getItem("admin_password");
-    if (stored) {
-      verifyPassword(stored);
-    } else {
-      setChecking(false);
-    }
-  }, []);
-
-  async function verifyPassword(pw: string) {
+  const verifyPassword = useCallback(async (pw: string) => {
     setChecking(true);
     setError("");
     try {
@@ -37,7 +28,16 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
     } finally {
       setChecking(false);
     }
-  }
+  }, []);
+
+  useEffect(() => {
+    const stored = sessionStorage.getItem("admin_password");
+    if (stored) {
+      verifyPassword(stored);
+    } else {
+      setChecking(false);
+    }
+  }, [verifyPassword]);
 
   function handleLogout() {
     sessionStorage.removeItem("admin_password");
