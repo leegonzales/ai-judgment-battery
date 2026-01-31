@@ -243,12 +243,15 @@ def parse_subjective_rankings(
         if match:
             rankings.append({"rank": int(match.group(1)), "model": label})
 
-    # If that didn't work, try reverse: "Model X" appears in order
+    # If that didn't work, rank by order of appearance in text
     if not rankings:
-        for i, label in enumerate(model_labels):
-            pos = ranking_text.find(label)
-            if pos >= 0:
-                rankings.append({"rank": i + 1, "model": label})
+        positions = sorted(
+            (ranking_text.find(label), label)
+            for label in model_labels
+            if ranking_text.find(label) >= 0
+        )
+        for i, (_, label) in enumerate(positions):
+            rankings.append({"rank": i + 1, "model": label})
 
     # Sort by rank
     rankings.sort(key=lambda r: r["rank"])
@@ -550,6 +553,37 @@ def _decode_rankings(evaluation: dict, blind_to_real: dict) -> tuple[list[dict],
     return rankings, reasoning
 
 
+def _run_and_decode_evaluation(
+    client,
+    judge_provider: str,
+    judge_model: str,
+    prompt: str,
+    labels: list[str],
+    mapping: dict,
+    criteria_mode: str,
+) -> tuple[list[dict], str, dict]:
+    """Run judge and decode results for either criteria mode.
+
+    Returns (rankings, reasoning, usage).
+    """
+    if criteria_mode == "subjective":
+        analysis, usage = run_judge_subjective(
+            client, judge_provider, judge_model, prompt
+        )
+        blind_rankings = parse_subjective_rankings(analysis, labels)
+        rankings = [
+            {"rank": r["rank"], "model": mapping.get(r["model"], r["model"])}
+            for r in blind_rankings
+        ]
+        return rankings, analysis, usage
+    else:
+        eval_output, usage = run_judge_structured(
+            client, judge_provider, judge_model, prompt, labels
+        )
+        rankings, reasoning = _decode_rankings(eval_output, mapping)
+        return rankings, reasoning, usage
+
+
 def compare_dilemma(
     client,
     judge_provider: str,
@@ -582,23 +616,15 @@ def compare_dilemma(
     )
 
     start_time = time.time()
-
-    if criteria_mode == "subjective":
-        analysis1, usage1 = run_judge_subjective(
-            client, judge_provider, judge_model, prompt1
-        )
-        blind_rankings1 = parse_subjective_rankings(analysis1, labels1)
-        # Decode blind labels to real model names
-        rankings1 = []
-        for r in blind_rankings1:
-            real_name = mapping1.get(r["model"], r["model"])
-            rankings1.append({"rank": r["rank"], "model": real_name})
-        reasoning1 = analysis1
-    else:
-        eval1, usage1 = run_judge_structured(
-            client, judge_provider, judge_model, prompt1, labels1
-        )
-        rankings1, reasoning1 = _decode_rankings(eval1, mapping1)
+    rankings1, reasoning1, usage1 = _run_and_decode_evaluation(
+        client,
+        judge_provider,
+        judge_model,
+        prompt1,
+        labels1,
+        mapping1,
+        criteria_mode,
+    )
 
     position_flipped = False
     rankings2 = None
@@ -616,21 +642,15 @@ def compare_dilemma(
             criteria_mode=criteria_mode,
         )
 
-        if criteria_mode == "subjective":
-            analysis2, usage2 = run_judge_subjective(
-                client, judge_provider, judge_model, prompt2
-            )
-            blind_rankings2 = parse_subjective_rankings(analysis2, labels2)
-            rankings2 = []
-            for r in blind_rankings2:
-                real_name = mapping2.get(r["model"], r["model"])
-                rankings2.append({"rank": r["rank"], "model": real_name})
-            reasoning2 = analysis2
-        else:
-            eval2, usage2 = run_judge_structured(
-                client, judge_provider, judge_model, prompt2, labels2
-            )
-            rankings2, reasoning2 = _decode_rankings(eval2, mapping2)
+        rankings2, reasoning2, usage2 = _run_and_decode_evaluation(
+            client,
+            judge_provider,
+            judge_model,
+            prompt2,
+            labels2,
+            mapping2,
+            criteria_mode,
+        )
 
         # Detect position flip: did the winner change?
         winner1 = rankings1[0]["model"] if rankings1 else None
