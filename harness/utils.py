@@ -68,19 +68,23 @@ def load_results_file(filepath: Path) -> dict:
 
 
 def find_best_results_for_model(
-    model_key: str, prefer_latest: bool = True
+    model_key: str, prefer_latest: bool = True, tag: Optional[str] = None
 ) -> Optional[Path]:
     """Find the best (most complete) results file for a model.
 
     Args:
         model_key: Model key like "claude-opus" or "gpt-5.1"
         prefer_latest: When True, prefer newer files when response counts are equal
+        tag: Optional substring filter for filenames (e.g. '20260126' for Jan 26 files)
 
     Returns:
         Path to the best results file, or None if not found
     """
     pattern = f"*{model_key}*.json"
     files = list(RESULTS_DIR.glob(pattern))
+
+    if tag:
+        files = [f for f in files if tag in f.name]
 
     if not files:
         return None

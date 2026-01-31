@@ -782,6 +782,7 @@ def run_comparison(
     position_debias: bool = True,
     run_label: Optional[str] = None,
     criteria_mode: str = "binary",
+    results_tag: Optional[str] = None,
 ):
     """Run cross-model comparison with structured output."""
 
@@ -797,7 +798,7 @@ def run_comparison(
 
     model_results = {}
     for model_key in model_keys:
-        filepath = find_best_results_for_model(model_key)
+        filepath = find_best_results_for_model(model_key, tag=results_tag)
         if filepath:
             model_results[model_key] = load_results_file(filepath)
             count = len(
@@ -1213,6 +1214,7 @@ def run_multi_judge_comparison(
     exclude_self: bool = True,
     run_label: Optional[str] = None,
     criteria_mode: str = "binary",
+    results_tag: Optional[str] = None,
 ) -> dict:
     """Run comparison with multiple judges and aggregate results.
 
@@ -1263,6 +1265,7 @@ def run_multi_judge_comparison(
             position_debias=position_debias,
             run_label=run_label,
             criteria_mode=criteria_mode,
+            results_tag=results_tag,
         )
         all_results[judge] = result
 
@@ -1599,6 +1602,10 @@ def main():
         help="Label for this run (e.g. 'validation-1'), included in filenames and metadata",
     )
     parser.add_argument(
+        "--results-tag",
+        help="Filter response files by filename substring (e.g. '20260126' for Jan 26 files)",
+    )
+    parser.add_argument(
         "--criteria-mode",
         choices=["binary", "subjective"],
         default="binary",
@@ -1635,6 +1642,7 @@ def main():
             exclude_self=exclude_self,
             run_label=args.run_label,
             criteria_mode=args.criteria_mode,
+            results_tag=args.results_tag,
         )
     else:
         run_comparison(
@@ -1649,6 +1657,7 @@ def main():
             position_debias=position_debias,
             run_label=args.run_label,
             criteria_mode=args.criteria_mode,
+            results_tag=args.results_tag,
         )
 
 
