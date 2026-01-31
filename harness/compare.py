@@ -732,7 +732,7 @@ def compare_dilemma(
     }
 
     if criteria_mode == "subjective":
-        result["analysis"] = reasoning1
+        result["analysis"] = result.pop("reasoning")
         if position_debias and reasoning2:
             result["analysis_pass2"] = reasoning2
 
