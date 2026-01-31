@@ -16,35 +16,45 @@ export default function DonePage() {
   const [progress, setProgress] = useState<ProgressData | null>(null);
   const [copied, setCopied] = useState(false);
   const [checking, setChecking] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const evaluatorId = localStorage.getItem("evaluator_id");
     if (!evaluatorId) return;
 
     fetch(`/api/evaluate/progress?evaluator_id=${evaluatorId}`)
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error("Failed to fetch progress");
+        return r.json();
+      })
       .then(setProgress)
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+        setMessage("Could not load session stats.");
+      });
   }, []);
 
   async function handleContinue() {
     const evaluatorId = localStorage.getItem("evaluator_id");
     if (!evaluatorId) return;
     setChecking(true);
+    setMessage("");
     try {
       const res = await fetch(
         `/api/evaluate/next?evaluator_id=${evaluatorId}`
       );
-      if (res.ok) {
-        const data = await res.json();
-        if (data.dilemma?.id) {
-          router.push(`/evaluate/${data.dilemma.id}`);
-          return;
-        }
+      if (!res.ok) {
+        throw new Error(`Server error: ${res.statusText}`);
       }
-      alert("No more dilemmas available right now.");
-    } catch {
-      alert("Failed to check for more dilemmas.");
+      const data = await res.json();
+      if (data.dilemma?.id) {
+        router.push(`/evaluate/${data.dilemma.id}`);
+        return;
+      }
+      setMessage("No more dilemmas available right now.");
+    } catch (err) {
+      console.error(err);
+      setMessage("Failed to check for more dilemmas.");
     } finally {
       setChecking(false);
     }
@@ -59,6 +69,8 @@ export default function DonePage() {
     navigator.clipboard.writeText(window.location.origin).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    }).catch((err) => {
+      console.error("Could not copy text:", err);
     });
   }
 
@@ -100,6 +112,10 @@ export default function DonePage() {
               </div>
             )}
           </div>
+        )}
+
+        {message && (
+          <p className="mb-4 text-sm text-yellow-400">{message}</p>
         )}
 
         <div className="space-y-3">
