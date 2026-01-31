@@ -243,8 +243,9 @@ def parse_subjective_rankings(
         if match:
             rankings.append({"rank": int(match.group(1)), "model": label})
 
-    # If that didn't work, rank by order of appearance in text
-    if not rankings:
+    # Fallback if no or partial rankings parsed — rank by appearance order
+    if len(rankings) < len(model_labels):
+        rankings.clear()
         positions = sorted(
             (ranking_text.find(label), label)
             for label in model_labels
