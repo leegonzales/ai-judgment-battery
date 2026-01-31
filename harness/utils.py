@@ -68,7 +68,7 @@ def load_results_file(filepath: Path) -> dict:
 
 
 def find_best_results_for_model(
-    model_key: str, prefer_latest: bool = True, tag: str | None = None
+    model_key: str, prefer_latest: bool = True, tag: Optional[str] = None
 ) -> Optional[Path]:
     """Find the best (most complete) results file for a model.
 

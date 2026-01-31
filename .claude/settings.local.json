@@ -42,7 +42,15 @@
       "Bash(__NEW_LINE_4ff387cbf2ef2e21__ bd create --title \"Embed cost estimate in output JSON\" --body \"Auto-calculate and embed cost estimates in comparison output JSON.\n\n## Changes\n- Add PRICING dict with current per-token costs\n- Compute cost from usage tokens in run_comparison\\(\\) summary\n- Include in multi_judge aggregation output\n- Print cost in summary output\n\n## Files\n- harness/compare.py\" --priority 1 --label enhancement)",
       "Bash(__NEW_LINE_4ff387cbf2ef2e21__ bd create --title \"Add retry with backoff for API calls\" --body \"Retry failed API calls up to 3 times with exponential backoff.\n\n## Changes\n- Wrap run_judge_structured call in compare_dilemma or process_dilemma with retry logic\n- 3 attempts, exponential backoff \\(2s, 4s, 8s\\)\n- Log retry attempts\n- Only skip after all retries exhausted\n\n## Files\n- harness/compare.py: process_dilemma\\(\\) in run_comparison\\(\\)\" --priority 1 --label enhancement)",
       "Bash(__NEW_LINE_4ff387cbf2ef2e21__ bd create --title \"Cross-run stability report\" --body \"Load N multi-judge JSONs and report stability metrics across runs.\n\n## Changes\n- New function or CLI mode: --stability-report that takes multiple multi_judge JSON files\n- Report: mean±stddev of win rates per model, mean±stddev of capability pass rates per criterion, rank consistency \\(do rankings change across runs?\\)\n- Highlight any criterion or model where variance is high\n\n## Files\n- harness/compare.py or harness/analyze.py\" --priority 2 --label enhancement)",
-      "Skill(gemini-peer-review)"
+      "Skill(gemini-peer-review)",
+      "Bash(git stash:*)",
+      "Bash(git pull:*)",
+      "Bash(npm run build:*)",
+      "Bash(bd sync:*)",
+      "Skill(context-continuity-code)",
+      "Bash(bd epic add:*)",
+      "Bash(bd show:*)",
+      "Bash(test:*)"
     ]
   }
 }
