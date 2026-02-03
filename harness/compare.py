@@ -917,8 +917,14 @@ def run_comparison(
             log("All dilemmas already completed!")
             return resume_data
 
-        # Use the same output file
+        # Use existing data as base, preserving original metadata
         output_file = resume_path
+        initial_data = resume_data
+        initial_data["resumed_at"] = datetime.now(timezone.utc).isoformat()
+        initial_data["total_dilemmas"] = len(dilemma_ids) + len(completed_dilemma_ids)
+        saver = ResumingIncrementalSaver(
+            output_file, initial_data, existing_comparisons
+        )
     else:
         now = datetime.now(timezone.utc)
         label_suffix = f"_{run_label}" if run_label else ""
@@ -926,26 +932,18 @@ def run_comparison(
             COMPARISONS_DIR
             / f"compare_{now.strftime('%Y%m%d_%H%M%S')}{label_suffix}.json"
         )
-
-    now = datetime.now(timezone.utc)
-    initial_data = {
-        "run_id": now.strftime("%Y%m%d_%H%M%S"),
-        "run_label": run_label,
-        "judge_model": judge_model_id,
-        "judge_provider": judge_provider,
-        "models_compared": list(model_results.keys()),
-        "timestamp": now.isoformat(),
-        "total_dilemmas": len(dilemma_ids) + len(completed_dilemma_ids),
-        "completed": len(completed_dilemma_ids),
-        "structured_output": criteria_mode == "binary",
-        "criteria_mode": criteria_mode,
-    }
-
-    if resume_file:
-        saver = ResumingIncrementalSaver(
-            output_file, initial_data, existing_comparisons
-        )
-    else:
+        initial_data = {
+            "run_id": now.strftime("%Y%m%d_%H%M%S"),
+            "run_label": run_label,
+            "judge_model": judge_model_id,
+            "judge_provider": judge_provider,
+            "models_compared": list(model_results.keys()),
+            "timestamp": now.isoformat(),
+            "total_dilemmas": len(dilemma_ids),
+            "completed": 0,
+            "structured_output": criteria_mode == "binary",
+            "criteria_mode": criteria_mode,
+        }
         saver = IncrementalSaver(output_file, initial_data)
 
     client = create_judge_client(judge_provider)
@@ -1038,10 +1036,13 @@ def run_comparison(
                     for f in futures:
                         f.cancel()
 
-                    # Mark status and save
-                    saver.data["status"] = "quota_exhausted"
-                    saver.data["resume_instructions"] = f"--resume {output_file.name}"
-                    saver._save()
+                    # Mark status and save (with lock to avoid race condition)
+                    with saver.lock:
+                        saver.data["status"] = "quota_exhausted"
+                        saver.data["resume_instructions"] = (
+                            f"--resume {output_file.name}"
+                        )
+                        saver._save()
 
                     quota_exhausted = True
                     break
@@ -1049,8 +1050,9 @@ def run_comparison(
                     log(f"FATAL ERROR: {e}")
         except KeyboardInterrupt:
             log("\nInterrupted - saving progress...")
-            saver.data["status"] = "interrupted"
-            saver._save()
+            with saver.lock:
+                saver.data["status"] = "interrupted"
+                saver._save()
             sys.exit(130)
 
     if quota_exhausted:
