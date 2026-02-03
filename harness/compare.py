@@ -77,10 +77,9 @@ def is_quota_exhausted(exception: Exception) -> bool:
     unlike temporary rate limits which can be retried.
     """
     error_str = str(exception).lower()
-    if "resource_exhausted" in error_str:
-        if "limit: 0" in error_str or "limit:0" in error_str:
-            return True
-    return False
+    return "resource_exhausted" in error_str and (
+        "limit: 0" in error_str or "limit:0" in error_str
+    )
 
 
 CRITERIA_LABELS = {
@@ -787,11 +786,9 @@ class ResumingIncrementalSaver(IncrementalSaver):
     def __init__(
         self, output_file: Path, initial_data: dict, existing_comparisons: list
     ):
-        self.output_file = output_file
-        self.data = initial_data
+        super().__init__(output_file, initial_data)
         self.data["comparisons"] = list(existing_comparisons)
         self.data["completed"] = len(existing_comparisons)
-        self.lock = threading.Lock()
         self._save()
 
 
@@ -898,8 +895,12 @@ def run_comparison(
             log(f"ERROR: Resume file not found: {resume_file}")
             sys.exit(1)
 
-        with open(resume_path) as f:
-            resume_data = json.load(f)
+        try:
+            with open(resume_path) as f:
+                resume_data = json.load(f)
+        except json.JSONDecodeError as e:
+            log(f"ERROR: Invalid JSON in resume file {resume_file}: {e}")
+            sys.exit(1)
 
         existing_comparisons = resume_data.get("comparisons", [])
         completed_dilemma_ids = {c["dilemma_id"] for c in existing_comparisons}
