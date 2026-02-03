@@ -63,6 +63,26 @@ TOKEN_PRICING = {
 MAX_RETRIES = 3
 RETRY_BACKOFF_BASE = 2  # seconds
 
+
+class QuotaExhaustedError(Exception):
+    """Raised when API quota is exhausted (not just rate limited)."""
+
+    pass
+
+
+def is_quota_exhausted(exception: Exception) -> bool:
+    """Detect quota exhaustion vs temporary rate limit.
+
+    Quota exhaustion (limit: 0) is unrecoverable within a session,
+    unlike temporary rate limits which can be retried.
+    """
+    error_str = str(exception).lower()
+    if "resource_exhausted" in error_str:
+        if "limit: 0" in error_str or "limit:0" in error_str:
+            return True
+    return False
+
+
 CRITERIA_LABELS = {
     "identifies_ethical_tension": "Ethical Tension",
     "multiple_stakeholder_perspectives": "Stakeholders",
@@ -761,6 +781,20 @@ class IncrementalSaver:
             json.dump(self.data, f, indent=2)
 
 
+class ResumingIncrementalSaver(IncrementalSaver):
+    """Saver that preserves existing comparisons when resuming."""
+
+    def __init__(
+        self, output_file: Path, initial_data: dict, existing_comparisons: list
+    ):
+        self.output_file = output_file
+        self.data = initial_data
+        self.data["comparisons"] = list(existing_comparisons)
+        self.data["completed"] = len(existing_comparisons)
+        self.lock = threading.Lock()
+        self._save()
+
+
 def compute_cost(provider: str, usage: dict) -> float:
     """Compute cost in USD from token usage."""
     p = TOKEN_PRICING.get(provider, {"input": 0, "output": 0})
@@ -783,6 +817,7 @@ def run_comparison(
     run_label: Optional[str] = None,
     criteria_mode: str = "binary",
     results_tag: Optional[str] = None,
+    resume_file: Optional[str] = None,
 ):
     """Run cross-model comparison with structured output."""
 
@@ -852,12 +887,46 @@ def run_comparison(
         return {}
 
     COMPARISONS_DIR.mkdir(exist_ok=True)
-    now = datetime.now(timezone.utc)
-    label_suffix = f"_{run_label}" if run_label else ""
-    output_file = (
-        COMPARISONS_DIR / f"compare_{now.strftime('%Y%m%d_%H%M%S')}{label_suffix}.json"
-    )
 
+    # Handle resume mode
+    existing_comparisons: list = []
+    completed_dilemma_ids: set[str] = set()
+
+    if resume_file:
+        resume_path = Path(resume_file)
+        if not resume_path.exists():
+            log(f"ERROR: Resume file not found: {resume_file}")
+            sys.exit(1)
+
+        with open(resume_path) as f:
+            resume_data = json.load(f)
+
+        existing_comparisons = resume_data.get("comparisons", [])
+        completed_dilemma_ids = {c["dilemma_id"] for c in existing_comparisons}
+
+        # Filter out already-completed dilemmas
+        original_count = len(dilemma_ids)
+        dilemma_ids = [d for d in dilemma_ids if d not in completed_dilemma_ids]
+
+        log(f"RESUMING from {resume_path.name}")
+        log(f"  Already completed: {len(completed_dilemma_ids)}")
+        log(f"  Remaining: {len(dilemma_ids)} of {original_count}")
+
+        if not dilemma_ids:
+            log("All dilemmas already completed!")
+            return resume_data
+
+        # Use the same output file
+        output_file = resume_path
+    else:
+        now = datetime.now(timezone.utc)
+        label_suffix = f"_{run_label}" if run_label else ""
+        output_file = (
+            COMPARISONS_DIR
+            / f"compare_{now.strftime('%Y%m%d_%H%M%S')}{label_suffix}.json"
+        )
+
+    now = datetime.now(timezone.utc)
     initial_data = {
         "run_id": now.strftime("%Y%m%d_%H%M%S"),
         "run_label": run_label,
@@ -865,12 +934,18 @@ def run_comparison(
         "judge_provider": judge_provider,
         "models_compared": list(model_results.keys()),
         "timestamp": now.isoformat(),
-        "total_dilemmas": len(dilemma_ids),
-        "completed": 0,
+        "total_dilemmas": len(dilemma_ids) + len(completed_dilemma_ids),
+        "completed": len(completed_dilemma_ids),
         "structured_output": criteria_mode == "binary",
         "criteria_mode": criteria_mode,
     }
-    saver = IncrementalSaver(output_file, initial_data)
+
+    if resume_file:
+        saver = ResumingIncrementalSaver(
+            output_file, initial_data, existing_comparisons
+        )
+    else:
+        saver = IncrementalSaver(output_file, initial_data)
 
     client = create_judge_client(judge_provider)
 
@@ -920,6 +995,10 @@ def run_comparison(
 
                 return comparison
             except Exception as e:
+                # Quota exhaustion is unrecoverable - propagate immediately
+                if is_quota_exhausted(e):
+                    raise QuotaExhaustedError(f"API quota exhausted: {e}")
+
                 last_error = e
                 if attempt < MAX_RETRIES:
                     wait = RETRY_BACKOFF_BASE**attempt
@@ -939,13 +1018,42 @@ def run_comparison(
 
     log(f"Starting comparison with {workers} workers...\n")
 
+    quota_exhausted = False
     with ThreadPoolExecutor(max_workers=workers) as executor:
         futures = {executor.submit(process_dilemma, d): d for d in dilemma_ids}
-        for future in as_completed(futures):
-            try:
-                future.result()
-            except Exception as e:
-                log(f"FATAL ERROR: {e}")
+        try:
+            for future in as_completed(futures):
+                try:
+                    future.result()
+                except QuotaExhaustedError as e:
+                    log(f"\n{'='*60}")
+                    log("QUOTA EXHAUSTED - Stopping gracefully")
+                    log(f"Error: {e}")
+                    log(f"\nProgress saved. Resume with:")
+                    log(f"  python -m harness.compare --resume {output_file}")
+                    log(f"{'='*60}\n")
+
+                    # Cancel pending futures
+                    for f in futures:
+                        f.cancel()
+
+                    # Mark status and save
+                    saver.data["status"] = "quota_exhausted"
+                    saver.data["resume_instructions"] = f"--resume {output_file.name}"
+                    saver._save()
+
+                    quota_exhausted = True
+                    break
+                except Exception as e:
+                    log(f"FATAL ERROR: {e}")
+        except KeyboardInterrupt:
+            log("\nInterrupted - saving progress...")
+            saver.data["status"] = "interrupted"
+            saver._save()
+            sys.exit(130)
+
+    if quota_exhausted:
+        sys.exit(75)  # EX_TEMPFAIL - temporary failure, retry later
 
     # Summary statistics
     elapsed_total = time.time() - start_time
@@ -975,13 +1083,24 @@ def run_comparison(
     run_cost = compute_cost(judge_provider, total_usage)
     saver.data["total_usage"] = total_usage
     saver.data["estimated_cost_usd"] = round(run_cost, 2)
+    saver.data["status"] = "completed"
+    if resume_file:
+        saver.data["resumed_from"] = str(resume_file)
     saver._save()
+
+    total_comparisons = len(saver.data.get("comparisons", []))
 
     log(f"\n{'='*60}")
     log("Complete!")
     log(f"Results: {output_file}")
-    log(f"Completed: {completed}/{total} ({errors} errors)")
-    log(f"Time: {elapsed_total:.1f}s ({elapsed_total/total:.1f}s per comparison)")
+    log(f"Completed: {completed}/{total} this session ({errors} errors)")
+    if resume_file:
+        log(f"Total comparisons (including resumed): {total_comparisons}")
+    log(
+        f"Time: {elapsed_total:.1f}s ({elapsed_total/total:.1f}s per comparison)"
+        if total > 0
+        else f"Time: {elapsed_total:.1f}s"
+    )
     log(
         f"Cost: ${run_cost:.2f} ({total_input_tokens:,} in / {total_output_tokens:,} out)"
     )
@@ -991,7 +1110,11 @@ def run_comparison(
         )
     log(f"\nWins by model:")
     for model, count in sorted(wins.items(), key=lambda x: -x[1]):
-        log(f"  {model}: {count}/{total} ({100*count/total:.1f}%)")
+        log(
+            f"  {model}: {count}/{total_comparisons} ({100*count/total_comparisons:.1f}%)"
+            if total_comparisons > 0
+            else f"  {model}: {count}"
+        )
     log(f"{'='*60}\n")
 
     return saver.data
@@ -1618,6 +1741,12 @@ def main():
         metavar="FILE",
         help="Compare multiple multi_judge JSON files for cross-run stability analysis",
     )
+    parser.add_argument(
+        "--resume",
+        "-R",
+        metavar="FILE",
+        help="Resume from incomplete comparison file (skips completed dilemmas)",
+    )
 
     args = parser.parse_args()
 
@@ -1658,6 +1787,7 @@ def main():
             run_label=args.run_label,
             criteria_mode=args.criteria_mode,
             results_tag=args.results_tag,
+            resume_file=args.resume,
         )
 
 
