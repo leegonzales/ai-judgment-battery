@@ -1029,7 +1029,7 @@ def run_comparison(
                     log("QUOTA EXHAUSTED - Stopping gracefully")
                     log(f"Error: {e}")
                     log(f"\nProgress saved. Resume with:")
-                    log(f"  python -m harness.compare --resume {output_file}")
+                    log(f"  python -m harness.compare --resume {output_file.name}")
                     log(f"{'='*60}\n")
 
                     # Cancel pending futures
