@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparative Evaluation of Ethical Reasoning in Frontier AI Models</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #3182ce;
+            --text: #1a202c;
+            --muted: #718096;
+            --bg: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .authors {
+            text-align: center;
+            color: var(--muted);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .affiliation {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .abstract {
+            background: #f7fafc;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 2rem 0;
+        }
+
+        .abstract h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .abstract p {
+            font-size: 0.95rem;
+        }
+
+        .keywords {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .keywords strong {
+            color: var(--secondary);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #f7fafc;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .highlight-cell {
+            background: #fef3c7 !important;
+            font-weight: bold;
+        }
+
+        .danger-cell {
+            background: #fed7d7 !important;
+            color: #c53030;
+            font-weight: bold;
+        }
+
+        .success-cell {
+            background: #c6f6d5 !important;
+            color: #276749;
+        }
+
+        figure {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        figcaption {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-top: 0.75rem;
+            font-style: italic;
+        }
+
+        .callout {
+            background: #ebf8ff;
+            border: 1px solid #90cdf4;
+            border-radius: 4px;
+            padding: 15px 20px;
+            margin: 1.5rem 0;
+        }
+
+        .callout-warning {
+            background: #fffaf0;
+            border-color: #f6ad55;
+        }
+
+        .callout-success {
+            background: #f0fff4;
+            border-color: #68d391;
+        }
+
+        .callout strong {
+            color: var(--secondary);
+        }
+
+        blockquote {
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 700px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .metric-box {
+            background: #f7fafc;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .metric-box .value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .metric-box .label {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .footnote {
+            font-size: 0.8rem;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+            padding-top: 1rem;
+        }
+
+        .section-number {
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        code {
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.85em;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Comparative Evaluation of Ethical Reasoning Capabilities in Frontier Large Language Models: A Multi-Judge Ablation Study</h1>
+
+<p class="authors">Lee Gonzales</p>
+<p class="affiliation">Independent Researcher | February 2026</p>
+
+<div class="abstract">
+    <h2>Abstract</h2>
+    <p>
+        Millions of users seek ethical guidance from large language models, yet systematic evaluation of AI ethical reasoning capabilities remains nascent. We present the AI Judgment Battery, a benchmark of 100 ethical dilemmas across 14 domains, evaluated using a novel multi-judge methodology with comprehensive debiasing controls. Three frontier models (GPT-5.1, Claude Opus 4.5, Gemini 3 Pro) were evaluated by all three models as judges across six ablation conditions testing position bias, self-preference, and evaluation criteria. Results show robust ordinal rankings (GPT-5.1 > Claude > Gemini) stable across all methodological variants, though cardinal win rates varied substantially (48-84%). Structured binary evaluation revealed distinct capability profiles: GPT-5.1 excels at practical reasoning (98% actionability, 98% second-order effects), Claude demonstrates superior moral imagination (96% vs 73%), while Gemini exhibits a critical epistemic humility gap (25% uncertainty acknowledgment vs 97% for GPT-5.1). We document substantial position bias (22-33% flip rate), measurable self-preference effects, and ceiling effects in binary criteria that limit discriminative power on fundamental capabilities. These findings have implications for AI system selection in high-stakes advisory contexts and methodological design of LLM-as-judge evaluations.
+    </p>
+    <p class="keywords">
+        <strong>Keywords:</strong> AI ethics, large language models, LLM-as-judge, ethical reasoning, benchmark evaluation, ablation study, GPT-5.1, Claude, Gemini
+    </p>
+</div>
+
+<h2><span class="section-number">1</span>Introduction</h2>
+
+<p>
+    Large language models (LLMs) have become de facto advisors for millions of users facing ethical decisions. From workplace dilemmas to medical choices to family conflicts, people increasingly turn to AI systems for guidance on morally complex situations. This use case was not the primary design target for these systems, yet the behavior has emerged organically due to LLMs' availability, patience, and non-judgmental tone.
+</p>
+
+<p>
+    This creates an urgent need to understand: <strong>Are any of these models actually good at ethical reasoning?</strong> Not which model is smartest at coding or most accurate at factual questions, but which one helps users think through hard moral problems where reasonable people disagree and every option has costs.
+</p>
+
+<p>
+    Existing AI safety evaluations focus primarily on refusal behavior (will it help with harmful requests?) and factual accuracy. Ethical reasoning evaluation remains largely limited to trolley-problem style thought experiments that lack the realistic constraint structures, stakeholder complexity, and genuine uncertainty of real-world dilemmas.
+</p>
+
+<p>
+    We present the AI Judgment Battery, designed to test a different hypothesis: <em>A model trained for judgment (not just compliance) will engage substantively with difficult scenarios, map competing values explicitly, offer frameworks for reasoning rather than just answers, and use protective hedges (epistemic honesty) rather than cowardly hedges (opinion avoidance).</em>
+</p>
+
+<h2><span class="section-number">2</span>Related Work</h2>
+
+<p>
+    LLM-as-judge methodologies have gained traction following Zheng et al.'s MT-Bench and Chatbot Arena work, establishing that frontier models can serve as reasonable proxies for human evaluation in many contexts. However, concerns persist about self-preference bias, position effects, and the circularity of using LLMs to evaluate LLMs.
+</p>
+
+<p>
+    Ethical reasoning benchmarks include ETHICS (Hendrycks et al.), which tests commonsense moral judgments, and various trolley problem variations. These typically evaluate agreement with human consensus rather than reasoning quality on genuinely contested dilemmas.
+</p>
+
+<p>
+    Our work differs by: (1) using realistic dilemmas without clear "correct" answers, (2) evaluating reasoning process rather than conclusion agreement, (3) implementing comprehensive debiasing through ablation study, and (4) using multi-judge aggregation with quantified self-preference effects.
+</p>
+
+<h2><span class="section-number">3</span>Methods</h2>
+
+<h3>3.1 Dilemma Battery Construction</h3>
+
+<p>
+    The AI Judgment Battery comprises 100 ethical dilemmas across 14 categories:
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Domain</th>
+            <th>Count</th>
+            <th>Example Tensions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>A</td><td>Whistleblower/Loyalty</td><td>8</td><td>Public interest vs. personal risk</td></tr>
+        <tr><td>B</td><td>Professional Ethics</td><td>8</td><td>Client duty vs. broader harm</td></tr>
+        <tr><td>C</td><td>Personal Relationships</td><td>8</td><td>Loyalty vs. honesty</td></tr>
+        <tr><td>D</td><td>Resource Allocation</td><td>8</td><td>Utilitarian vs. deontological</td></tr>
+        <tr><td>E</td><td>Information Asymmetry</td><td>6</td><td>Knowledge vs. disclosure duty</td></tr>
+        <tr><td>F</td><td>Competing Obligations</td><td>6</td><td>Multiple valid claims</td></tr>
+        <tr><td>G</td><td>Moral Uncertainty</td><td>6</td><td>Acting under normative uncertainty</td></tr>
+        <tr><td>H</td><td>Technology & Digital Ethics</td><td>8</td><td>AI surveillance, algorithmic bias</td></tr>
+        <tr><td>I</td><td>Environmental Justice</td><td>7</td><td>Climate, intergenerational equity</td></tr>
+        <tr><td>J</td><td>Institutional Power</td><td>7</td><td>Reparations, structural inequity</td></tr>
+        <tr><td>K</td><td>Autonomy & Paternalism</td><td>6</td><td>Consent, children's rights</td></tr>
+        <tr><td>L</td><td>Truth & Deception</td><td>7</td><td>Strategic communication ethics</td></tr>
+        <tr><td>M</td><td>Community vs. Individual</td><td>7</td><td>Collective goods, cultural conflicts</td></tr>
+        <tr><td>N</td><td>Emerging Frontiers</td><td>8</td><td>Brain emulation, life extension</td></tr>
+    </tbody>
+</table>
+
+<p>
+    Dilemmas were designed to avoid common thought experiment pitfalls: no trolley problems with artificial constraints, realistic legal/economic/social factors, explicit power dynamics, genuine epistemic uncertainty, and no obviously "correct" answers.
+</p>
+
+<h3>3.2 Models Under Evaluation</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Provider</th>
+            <th>Model</th>
+            <th>Model ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>OpenAI</td><td>GPT-5.1</td><td><code>gpt-5.1</code></td></tr>
+        <tr><td>Anthropic</td><td>Claude Opus 4.5</td><td><code>claude-opus-4-5-20251101</code></td></tr>
+        <tr><td>Google</td><td>Gemini 3 Pro</td><td><code>gemini-3-pro-preview</code></td></tr>
+    </tbody>
+</table>
+
+<h3>3.3 Evaluation Criteria</h3>
+
+<p>
+    Responses were evaluated using 10 binary (YES/NO) criteria, selected based on research showing decomposed binary judgments produce more reliable scores than scalar ratings:
+</p>
+
+<ol>
+    <li><strong>Identifies ethical tension</strong> — Names the core moral conflict</li>
+    <li><strong>Multiple stakeholder perspectives</strong> — Considers ≥2 affected parties</li>
+    <li><strong>Competing moral principles</strong> — Acknowledges conflicting frameworks</li>
+    <li><strong>Internal consistency</strong> — Maintains logical coherence</li>
+    <li><strong>Addresses consequences</strong> — Analyzes outcomes of recommendations</li>
+    <li><strong>Acknowledges uncertainty</strong> — Admits limits and areas of disagreement</li>
+    <li><strong>Avoids false equivalence</strong> — Distinguishes stronger from weaker arguments</li>
+    <li><strong>Actionable guidance</strong> — Provides practical recommendations</li>
+    <li><strong>Second-order effects</strong> — Considers downstream implications</li>
+    <li><strong>Moral imagination</strong> — Offers creative reframings or novel solutions</li>
+</ol>
+
+<h3>3.4 Debiasing Methodology</h3>
+
+<p>
+    Four debiasing techniques were implemented:
+</p>
+
+<ul>
+    <li><strong>Blinding:</strong> Model identities replaced with "Model A/B/C" labels</li>
+    <li><strong>Position debiasing:</strong> Each comparison run twice with reversed presentation order; final rank = average of both passes</li>
+    <li><strong>Multi-judge aggregation:</strong> All three models serve as judges; results aggregated across perspectives</li>
+    <li><strong>Self-exclusion:</strong> Option to remove self-judgments from final aggregation</li>
+</ul>
+
+<h3>3.5 Ablation Study Design</h3>
+
+<p>
+    Six methodological variants were tested to distinguish robust findings from methodology-sensitive artifacts:
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Condition</th>
+            <th>Position Debias</th>
+            <th>Self-Exclusion</th>
+            <th>Criteria Mode</th>
+            <th>n</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>A: Baseline</td><td>No</td><td>No</td><td>Subjective</td><td>50</td></tr>
+        <tr><td>B: Position</td><td><strong>Yes</strong></td><td>No</td><td>Subjective</td><td>50</td></tr>
+        <tr><td>C: Self-Excl</td><td>No</td><td><strong>Yes</strong></td><td>Subjective</td><td>50</td></tr>
+        <tr><td>D: Binary</td><td>No</td><td>No</td><td><strong>Binary</strong></td><td>50</td></tr>
+        <tr><td>E: All Controls</td><td>Yes</td><td>Yes</td><td>Binary</td><td>50</td></tr>
+        <tr><td>F: Full</td><td>Yes</td><td>Yes</td><td>Binary</td><td>99</td></tr>
+    </tbody>
+</table>
+
+<h3>3.6 Statistical Methods</h3>
+
+<p>
+    Rankings were decomposed into pairwise comparisons for Elo calculation (K=32, initial=1500). Win rates were computed with Wilson score 95% confidence intervals. Per-criterion pass rates were aggregated across all judge evaluations.
+</p>
+
+<h2><span class="section-number">4</span>Results</h2>
+
+<h3>4.1 Overall Rankings</h3>
+
+<figure>
+    <img src="/Users/leegonzales/Documents/nanobanana_generated/generated-2026-02-04T06-49-56-570Z-0zzxj1.png" alt="Final Model Rankings: Elo Ratings and Win Rates">
+    <figcaption><strong>Figure 1.</strong> Final model rankings based on Elo ratings and overall win rates. GPT-5.1 achieved the highest Elo (1701) with 77% win rate, followed by Claude Opus 4.5 (1508, 33%) and Gemini 3 Pro (1291, 20%).</figcaption>
+</figure>
+
+<div class="callout callout-success">
+    <strong>Key Finding:</strong> The ranking GPT-5.1 > Claude > Gemini held across all six ablation conditions. While win rate percentages varied from 48% to 84%, the ordinal ranking never changed.
+</div>
+
+<h3>4.2 Ablation Study Results</h3>
+
+<figure>
+    <img src="/Users/leegonzales/Documents/nanobanana_generated/generated-2026-02-04T06-47-00-536Z-0b32pk.png" alt="Ablation Study Results">
+    <figcaption><strong>Figure 2.</strong> Win rates across six ablation conditions. Despite substantial variation in absolute win rates (48-84% for GPT-5.1), the ordinal ranking remained stable across all methodology variants.</figcaption>
+</figure>
+
+<p>
+    The ablation study reveals that ordinal rankings are robust while cardinal percentages are methodology-sensitive. This has important implications: <strong>trust the ranking, not the percentages.</strong>
+</p>
+
+<h3>4.3 Position Bias Effects</h3>
+
+<figure>
+    <img src="/Users/leegonzales/Documents/nanobanana_generated/generated-2026-02-04T06-49-33-880Z-vatehv.png" alt="Position Bias Effects">
+    <figcaption><strong>Figure 3.</strong> Position bias in AI-as-judge evaluation. When comparisons were run twice with reversed presentation order, 22-33% of judgments changed winners based solely on position.</figcaption>
+</figure>
+
+<table>
+    <thead>
+        <tr>
+            <th>Condition</th>
+            <th>Comparisons</th>
+            <th>Flips</th>
+            <th>Flip Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>B: Position Debias</td><td>150</td><td>47</td><td class="highlight-cell">31.3%</td></tr>
+        <tr><td>E: All Controls</td><td>100</td><td>33</td><td class="highlight-cell">33.0%</td></tr>
+        <tr><td>F: Full</td><td>198</td><td>45</td><td class="highlight-cell">22.7%</td></tr>
+    </tbody>
+</table>
+
+<p>
+    This finding underscores the importance of position debiasing in LLM-as-judge methodologies. Without dual-pass evaluation, approximately one in four results are artifacts of presentation order rather than genuine quality differences.
+</p>
+
+<h3>4.4 Self-Enhancement Bias</h3>
+
+<figure>
+    <img src="/Users/leegonzales/Documents/nanobanana_generated/generated-2026-02-04T06-47-23-534Z-gud6ls.png" alt="Self-Enhancement Bias Matrix">
+    <figcaption><strong>Figure 4.</strong> Self-enhancement bias matrix showing average rank assigned by each judge to each model. GPT-5.1 shows strongest self-preference (+1.2 rank boost); Gemini shows reverse bias (rates itself worse than others do).</figcaption>
+</figure>
+
+<table>
+    <thead>
+        <tr>
+            <th>Judge Model</th>
+            <th>Self Avg Rank</th>
+            <th>Other Avg Rank</th>
+            <th>Delta</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>GPT-5.1</td><td>1.19</td><td>2.40</td><td class="highlight-cell">-1.21</td></tr>
+        <tr><td>Claude Opus</td><td>1.66</td><td>2.17</td><td class="highlight-cell">-0.52</td></tr>
+        <tr><td>Gemini 3 Pro</td><td>2.74</td><td>2.46</td><td>+0.28</td></tr>
+    </tbody>
+</table>
+
+<p>
+    Self-preference is measurable and consistent, but does not explain the overall rankings. Even when all self-judgments are excluded (Conditions C, E, F), the ranking holds. Claude and Gemini both rank GPT-5.1 first when judging—a finding difficult to attribute to bias.
+</p>
+
+<h3>4.5 Capability Profiles</h3>
+
+<figure>
+    <img src="/Users/leegonzales/Documents/nanobanana_generated/generated-2026-02-04T06-46-39-673Z-8764bq.png" alt="AI Model Capability Profiles">
+    <figcaption><strong>Figure 5.</strong> Radar chart showing per-criterion performance across 10 ethical reasoning dimensions. Gemini's collapse on "Acknowledges Uncertainty" (25%) and "Actionable Guidance" (59%) is clearly visible.</figcaption>
+</figure>
+
+<table>
+    <thead>
+        <tr>
+            <th>Criterion</th>
+            <th>GPT-5.1</th>
+            <th>Claude</th>
+            <th>Gemini</th>
+            <th>Spread</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>Identifies ethical tension</td><td>99%</td><td>100%</td><td>100%</td><td>1pp</td></tr>
+        <tr><td>Multiple stakeholder perspectives</td><td class="success-cell">100%</td><td>100%</td><td>89%</td><td>11pp</td></tr>
+        <tr><td>Competing moral principles</td><td>99%</td><td>100%</td><td>98%</td><td>2pp</td></tr>
+        <tr><td>Internal consistency</td><td>100%</td><td>100%</td><td>100%</td><td>0pp</td></tr>
+        <tr><td>Addresses consequences</td><td class="success-cell">100%</td><td>100%</td><td>82%</td><td>18pp</td></tr>
+        <tr><td>Acknowledges uncertainty</td><td class="success-cell">97%</td><td>90%</td><td class="danger-cell">25%</td><td class="highlight-cell">72pp</td></tr>
+        <tr><td>Avoids false equivalence</td><td>92%</td><td class="success-cell">99%</td><td>92%</td><td>7pp</td></tr>
+        <tr><td>Actionable guidance</td><td class="success-cell">98%</td><td>99%</td><td class="danger-cell">59%</td><td class="highlight-cell">40pp</td></tr>
+        <tr><td>Second-order effects</td><td class="success-cell">98%</td><td>81%</td><td>68%</td><td class="highlight-cell">30pp</td></tr>
+        <tr><td>Moral imagination</td><td>73%</td><td class="success-cell">96%</td><td>72%</td><td class="highlight-cell">24pp</td></tr>
+    </tbody>
+</table>
+
+<div class="callout">
+    <strong>Model Signatures:</strong><br>
+    <strong>GPT-5.1</strong> — "The Systematic Analyst": Excels at practical application (98% actionable, 98% second-order effects, 97% uncertainty acknowledgment)<br>
+    <strong>Claude</strong> — "The Ethical Imaginer": Superior moral imagination (96% vs 73%), creative reframing capability<br>
+    <strong>Gemini</strong> — "The Principled Logician": Strong on fundamentals but critical gaps in epistemic humility (25%) and practical guidance (59%)
+</div>
+
+<h3>4.6 The Ceiling Effect Problem</h3>
+
+<figure>
+    <img src="/Users/leegonzales/Documents/nanobanana_generated/generated-2026-02-04T06-47-48-793Z-bk9ghs.png" alt="Criterion Discriminative Power">
+    <figcaption><strong>Figure 6.</strong> Criterion discriminative power showing ceiling effects vs. signal. Binary criteria create a floor at 100% where rubrics cannot differentiate when all models exceed threshold.</figcaption>
+</figure>
+
+<p>
+    A critical methodological limitation: binary criteria produce ceiling effects on fundamental capabilities. When all models achieve >97% on internal consistency, tension identification, and competing principles, these criteria provide zero discriminative signal. The study's value comes from criteria that don't show ceiling effects—particularly uncertainty acknowledgment (72pp spread) and actionable guidance (40pp spread).
+</p>
+
+<h2><span class="section-number">5</span>Discussion</h2>
+
+<h3>5.1 Interpreting the Rankings</h3>
+
+<p>
+    GPT-5.1's consistent first-place ranking across all conditions reflects its strength in practical ethical reasoning—translating moral analysis into actionable guidance while acknowledging uncertainty and tracing consequences. This profile aligns with what users often seek from AI ethical advice: not just identifying the issues, but helping them decide what to do.
+</p>
+
+<p>
+    Claude's second-place finish masks a distinctive strength: moral imagination. At 96% vs GPT's 73%, Claude more often finds the creative reframe, the third option, the solution that transcends the apparent trade-off. For users who need help seeing their situation differently rather than choosing between bad options, Claude may be the better partner.
+</p>
+
+<p>
+    Gemini's 25% uncertainty acknowledgment rate is disqualifying for ethical advisory use. When 75% of responses present contested moral terrain as settled, users cannot calibrate their confidence appropriately. This creates a false sense of certainty in precisely the situations where epistemic humility is most critical.
+</p>
+
+<h3>5.2 Practical Recommendations</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Use Case</th>
+            <th>Recommended Model</th>
+            <th>Rationale</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>"What should I actually do?"</td><td>GPT-5.1</td><td>98% actionable, traces consequences</td></tr>
+        <tr><td>"What could go wrong?"</td><td>GPT-5.1</td><td>98% second-order effects</td></tr>
+        <tr><td>"Am I missing another way to see this?"</td><td>Claude</td><td>96% moral imagination</td></tr>
+        <tr><td>"I'm torn between bad options"</td><td>Claude</td><td>Better at reframing</td></tr>
+        <tr><td>High-stakes decisions requiring humility</td><td>GPT or Claude</td><td class="danger-cell">Not Gemini (25% uncertainty)</td></tr>
+    </tbody>
+</table>
+
+<h3>5.3 The Meta-Question: Can AI Judge AI?</h3>
+
+<p>
+    Our methodology relies on AI models evaluating each other. The self-preference bias we documented (up to +1.2 rank boost for GPT judging itself) raises legitimate concerns about validity.
+</p>
+
+<p>
+    However, several factors support the approach:
+</p>
+
+<ul>
+    <li><strong>Cross-judge agreement:</strong> All three models—including the "losers"—agreed on the ranking</li>
+    <li><strong>Ranking stability:</strong> Six different methodologies produced the same ordering</li>
+    <li><strong>Self-exclusion robustness:</strong> Removing self-judgments doesn't change results</li>
+    <li><strong>Specificity:</strong> Capability profiles reveal non-obvious patterns (Claude's imagination advantage, Gemini's uncertainty gap) that would be unlikely artifacts of bias</li>
+</ul>
+
+<p>
+    The alternative—human evaluation—has its own limitations: inconsistency at scale, fluency bias, confirmation bias. There is no view from nowhere. The best we can do is triangulate across multiple judges and methods, looking for what survives stress testing. The ranking survived.
+</p>
+
+<h2><span class="section-number">6</span>Limitations</h2>
+
+<div class="callout callout-warning">
+    <strong>Critical Limitations to Consider:</strong>
+</div>
+
+<ol>
+    <li><strong>Ceiling effects in binary criteria:</strong> When all models exceed 97% on fundamental capabilities, the rubric cannot differentiate. Future work should employ graded rubrics or adversarial dilemmas designed to stress basic reasoning.</li>
+
+    <li><strong>AI-judging-AI circularity:</strong> Despite debiasing efforts, fundamental questions remain about whether AI models can objectively evaluate each other on subjective dimensions like "moral imagination."</li>
+
+    <li><strong>No ground truth:</strong> For genuinely contested ethical dilemmas, there is no objectively correct answer. We evaluate reasoning quality, not conclusion correctness—but "quality" itself is contestable.</li>
+
+    <li><strong>Limited adversarial testing:</strong> The dilemma set does not include trick questions or edge cases designed to expose shallow reasoning that pattern-matches to ethical vocabulary.</li>
+
+    <li><strong>Sample size by category:</strong> With 6-8 dilemmas per category, statistical power for category-specific conclusions is limited.</li>
+
+    <li><strong>Outcome validity unknown:</strong> We measure reasoning quality, not whether AI-guided decisions lead to better outcomes. These may not correlate.</li>
+
+    <li><strong>Model versions:</strong> Results are specific to model versions tested (January 2026). Rapid capability gains may change rankings.</li>
+</ol>
+
+<h2><span class="section-number">7</span>Conclusion</h2>
+
+<p>
+    This study provides the first systematic comparison of frontier AI model ethical reasoning capabilities using comprehensive debiasing methodology. Key findings:
+</p>
+
+<ol>
+    <li><strong>Rankings are robust, percentages are not.</strong> GPT-5.1 > Claude > Gemini held across all six ablation conditions, but win rates varied 48-84%.</li>
+
+    <li><strong>Position bias is substantial.</strong> Without debiasing, 22-33% of LLM-as-judge results are presentation artifacts.</li>
+
+    <li><strong>Models have distinct signatures.</strong> GPT-5.1 excels at practical reasoning; Claude at moral imagination; Gemini struggles with epistemic humility.</li>
+
+    <li><strong>Gemini's uncertainty gap is disqualifying.</strong> 25% acknowledgment of uncertainty vs 97% for GPT-5.1 creates dangerous false confidence.</li>
+
+    <li><strong>Binary criteria hit ceilings.</strong> Differentiation occurs on advanced capabilities (uncertainty, imagination, second-order effects), not fundamentals where all models score >97%.</li>
+</ol>
+
+<p>
+    For users seeking ethical guidance from AI, these results suggest: use GPT-5.1 for actionable recommendations, Claude for creative reframing, and approach Gemini with caution until its epistemic humility improves. But remember: AI can help you reason. It cannot help you be brave. The hardest ethical decisions have always been made by humans, in uncertainty, bearing consequences we cannot fully predict.
+</p>
+
+<hr style="margin: 3rem 0;">
+
+<p class="footnote">
+    <strong>Data Availability:</strong> Full data and code available at <a href="https://github.com/leegonzales/ai-judgment-battery">github.com/leegonzales/ai-judgment-battery</a><br>
+    <strong>Cost:</strong> Total study cost was $46.87 across all API calls.<br>
+    <strong>Conflicts of Interest:</strong> The author has no financial relationships with any AI provider evaluated.<br>
+    <strong>Acknowledgments:</strong> Visualizations generated with Gemini 3 Pro Image via Nano Banana MCP.
+</p>
+
+</body>
+</html>
