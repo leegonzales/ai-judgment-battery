@@ -1,0 +1,102 @@
+{
+  "run_id": "20260131_234540",
+  "run_label": "ablation-A-baseline",
+  "type": "multi_judge_aggregation",
+  "criteria_mode": "subjective",
+  "models_compared": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "judges": [
+    "claude-opus",
+    "gpt-5.1",
+    "gemini-3-pro"
+  ],
+  "timestamp": "2026-01-31T23:45:40.567983+00:00",
+  "aggregated_wins": {
+    "gpt-5.1": 38,
+    "claude-opus": 8,
+    "gemini-3-pro": 4
+  },
+  "per_judge_wins": {
+    "claude-opus": {
+      "gpt-5.1": 26,
+      "claude-opus": 21,
+      "gemini-3-pro": 3
+    },
+    "gpt-5.1": {
+      "gpt-5.1": 46,
+      "claude-opus": 3,
+      "gemini-3-pro": 1
+    },
+    "gemini-3-pro": {
+      "gemini-3-pro": 11,
+      "gpt-5.1": 34,
+      "claude-opus": 5
+    }
+  },
+  "per_judge_wins_all": {
+    "claude-opus": {
+      "gpt-5.1": 26,
+      "claude-opus": 21,
+      "gemini-3-pro": 3
+    },
+    "gpt-5.1": {
+      "gpt-5.1": 46,
+      "claude-opus": 3,
+      "gemini-3-pro": 1
+    },
+    "gemini-3-pro": {
+      "gemini-3-pro": 11,
+      "gpt-5.1": 34,
+      "claude-opus": 5
+    }
+  },
+  "average_ranks": {
+    "gpt-5.1": 1.37,
+    "claude-opus": 2.05,
+    "gemini-3-pro": 2.58
+  },
+  "total_dilemmas": 50,
+  "exclude_self_judgments": false,
+  "self_enhancement": {
+    "claude-opus": {
+      "self_avg_rank": 1.64,
+      "other_avg_rank": 2.18,
+      "delta": -0.54,
+      "self_judgments": 50
+    },
+    "gpt-5.1": {
+      "self_avg_rank": 1.08,
+      "other_avg_rank": 2.46,
+      "delta": -1.38,
+      "self_judgments": 50
+    },
+    "gemini-3-pro": {
+      "self_avg_rank": 2.36,
+      "other_avg_rank": 1.82,
+      "delta": 0.54,
+      "self_judgments": 50
+    }
+  },
+  "capability_profiles": {},
+  "position_bias": {
+    "total_debiased": 0,
+    "total_flips": 0,
+    "flip_rate": 0
+  },
+  "per_judge_files": {
+    "claude-opus": "20260131_232157",
+    "gpt-5.1": "20260131_233213",
+    "gemini-3-pro": "20260131_233823"
+  },
+  "cost": {
+    "total_usd": 4.48,
+    "per_judge_usd": {
+      "claude-opus": 2.55,
+      "gpt-5.1": 1.11,
+      "gemini-3-pro": 0.82
+    }
+  }
+}
