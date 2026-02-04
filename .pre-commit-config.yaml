@@ -7,6 +7,7 @@ repos:
       - id: check-yaml
       - id: check-json
       - id: check-added-large-files
+        args: ['--maxkb=2000']  # Allow up to 2MB for comparison JSON files
 
   - repo: https://github.com/psf/black
     rev: 24.4.2
