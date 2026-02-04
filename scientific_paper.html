@@ -264,7 +264,7 @@
 <div class="abstract">
     <h2>Abstract</h2>
     <p>
-        Millions of users seek ethical guidance from large language models, yet systematic evaluation of AI ethical reasoning capabilities remains nascent. We present the AI Judgment Battery, a benchmark of 100 ethical dilemmas across 14 domains, evaluated using a novel multi-judge methodology with comprehensive debiasing controls. Three frontier models (GPT-5.1, Claude Opus 4.5, Gemini 3 Pro) were evaluated by all three models as judges across six ablation conditions testing position bias, self-preference, and evaluation criteria. Results show robust ordinal rankings (GPT-5.1 > Claude > Gemini) stable across all methodological variants, though cardinal win rates varied substantially (48-84%). Structured binary evaluation revealed distinct capability profiles: GPT-5.1 excels at practical reasoning (98% actionability, 98% second-order effects), Claude demonstrates superior moral imagination (96% vs 73%), while Gemini exhibits a critical epistemic humility gap (25% uncertainty acknowledgment vs 97% for GPT-5.1). We document substantial position bias (22-33% flip rate), measurable self-preference effects, and ceiling effects in binary criteria that limit discriminative power on fundamental capabilities. These findings have implications for AI system selection in high-stakes advisory contexts and methodological design of LLM-as-judge evaluations.
+        Millions of users seek ethical guidance from large language models, yet systematic evaluation of AI ethical reasoning capabilities remains nascent. We present the AI Judgment Battery, a benchmark of 100 ethical dilemmas across 14 domains (99 included in final analysis), evaluated using a novel multi-judge methodology with comprehensive debiasing controls. Three frontier models (GPT-5.1, Claude Opus 4.5, Gemini 3 Pro) were evaluated by all three models as judges across six ablation conditions testing position bias, self-preference, and evaluation criteria. Results show robust ordinal rankings (GPT-5.1 > Claude > Gemini) stable across all methodological variants, though cardinal win rates varied substantially (48-84%). Structured binary evaluation revealed distinct capability profiles: GPT-5.1 excels at practical reasoning (98% actionability, 98% second-order effects), Claude demonstrates superior moral imagination (96% vs 73%), while Gemini exhibits a critical epistemic humility gap (25% uncertainty acknowledgment vs 97% for GPT-5.1). We document substantial position bias (22-33% flip rate), measurable self-preference effects, and ceiling effects in binary criteria that limit discriminative power on fundamental capabilities. These findings have implications for AI system selection in high-stakes advisory contexts and methodological design of LLM-as-judge evaluations.
     </p>
     <p class="keywords">
         <strong>Keywords:</strong> AI ethics, large language models, LLM-as-judge, ethical reasoning, benchmark evaluation, ablation study, GPT-5.1, Claude, Gemini
@@ -428,8 +428,8 @@
 <h3>4.1 Overall Rankings</h3>
 
 <figure>
-    <img src="/Users/leegonzales/Documents/nanobanana_generated/generated-2026-02-04T06-49-56-570Z-0zzxj1.png" alt="Final Model Rankings: Elo Ratings and Win Rates">
-    <figcaption><strong>Figure 1.</strong> Final model rankings based on Elo ratings and overall win rates. GPT-5.1 achieved the highest Elo (1701) with 77% win rate, followed by Claude Opus 4.5 (1508, 33%) and Gemini 3 Pro (1291, 20%).</figcaption>
+    <img src="/Users/leegonzales/Documents/nanobanana_generated/generated-2026-02-04T15-22-40-381Z-wqzep1.png" alt="Final Model Rankings: Elo Ratings and Win Rates">
+    <figcaption><strong>Figure 1.</strong> Final model rankings based on Elo ratings and pairwise win probability. GPT-5.1 achieved the highest Elo (1701) with 77% pairwise win rate (probability of beating a random opponent), followed by Claude Opus 4.5 (1508, 33%) and Gemini 3 Pro (1291, 20%). Note: First-place finish rates shown in Figure 2 differ as they measure plurality wins in 3-way comparisons.</figcaption></invoke>
 </figure>
 
 <div class="callout callout-success">
@@ -504,8 +504,8 @@
 <h3>4.5 Capability Profiles</h3>
 
 <figure>
-    <img src="/Users/leegonzales/Documents/nanobanana_generated/generated-2026-02-04T06-46-39-673Z-8764bq.png" alt="AI Model Capability Profiles">
-    <figcaption><strong>Figure 5.</strong> Radar chart showing per-criterion performance across 10 ethical reasoning dimensions. Gemini's collapse on "Acknowledges Uncertainty" (25%) and "Actionable Guidance" (59%) is clearly visible.</figcaption>
+    <img src="/Users/leegonzales/Documents/nanobanana_generated/generated-2026-02-04T15-21-35-273Z-cs2de6.png" alt="AI Model Capability Profiles">
+    <figcaption><strong>Figure 5.</strong> Radar chart showing per-criterion performance across 10 ethical reasoning dimensions (n=99; one dilemma excluded due to incomplete data). Gemini's collapse on "Acknowledges Uncertainty" (25%) and "Actionable Guidance" (59%) is clearly visible.</figcaption>
 </figure>
 
 <table>
